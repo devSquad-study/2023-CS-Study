@@ -51,11 +51,6 @@
 
 ## 질문 리스트
 
-### 언어/툴
-- [Java](Java/README.md)
-- [Spring](Spring/README.md)
-- [JPA](Jpa/README.md)
-
 ### CS
 - [네트워크](Network/README.md)
 - [운영체제](OS/README.md)
