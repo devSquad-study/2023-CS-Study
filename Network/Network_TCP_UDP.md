@@ -9,7 +9,7 @@
 </br>
 
 ### [ TCP ( Transmission Control Protocol ) ]
-<image src="https://user-images.githubusercontent.com/72916415/210226927-6ab69183-ea09-4dbe-b11e-0514ef19a289.png" width="400" />
+<image src="./img/TCP_간단한설명.png" width="400" />
 
 - 데이터 경계를 구분하지 않음 : 바이트 스트림(byte-stream) 서비스
 - 연결 지향 프로토콜(수신여부 확인O) -> 신뢰도 높지만 속도가 느림
@@ -20,12 +20,12 @@
 #### 가상회선 패킷 교환 방식
 
 - 각 패킷에는 가상회선 식별자가 포함
-- 모든 패킷을 전송하면 가상회선이 해제되고 패킷들은 전송된 '순서대로' 도착하는 방식
+- 모든 패킷을 전송하면 가상회선이 해제되고 패킷들은 전송된 <b<순서대로</b> 도착하는 방식
 </br>
 
 ###  [ UDP ( User Datagram Protocol ) ]
 
-<image src="https://user-images.githubusercontent.com/72916415/210226983-6cf3a3ff-0693-4af1-bb5b-e3fd5ecd96f3.png" width="400" />
+<image src="./img/UDP_간단한설명.png" width="400" />
 
 - 데이터 경계를 구분함 : 데이터그램(datagram) 서비스
 - 비 연결 지향 프로토콜(수신여부 확인X) -> 신뢰도 낮지만 속도가 빠름
@@ -37,9 +37,9 @@
 
 - 각 패킷이 독립적으로 이동하며 최적의 경로를 선택
 - 하나의 메시지에서 분할된 여러 패킷은 서로 다른 경로로 전송될 수 있음
-- '도착순서가 다를 수'있는 방식
+- <b>도착순서가 다를 수</b>있는 방식
 
-<image src="https://user-images.githubusercontent.com/72916415/210232052-e4d28f4b-2568-408f-8fd8-83fe5cee24b5.png" width="500" />
+<image src="./img/datagram_virtualcircuits.png" width="500" />
 </br>
 
 ## 2. TCP의 연결 및 해제 과정
@@ -59,7 +59,7 @@
 
 ###  [ TCP 연결 성립 과정 : 3-웨이 핸드 셰이크 ]
 
-<image src="https://user-images.githubusercontent.com/72916415/210238407-a6509505-1770-4379-91d1-55610a56268a.png" />
+<image src="./img/TCP_3_way_handshake.png" />
 
 1. <b>SYN 단계</b> : 클라이언트는 서버에 클라이언트 ISN을 담아 SYN을 보냄
 - ISN : 새로운 TCP 연결의 첫 번째 패킷에 할당된 임의의 시퀀스 번호, 장치마다 다를 수 있음
@@ -72,7 +72,7 @@
 
 ### [ TCP 연결 해제 과정 : 4-웨이 핸드 셰이크 ]
  
-<image src="https://user-images.githubusercontent.com/72916415/210239483-19a43281-d9cc-4aae-9078-8a7632fe67ef.png" />
+<image src="./img/TCP_4_way_handshake.png" />
 
 1. 클라이언트가 연결을 닫으려고 할 때 <b>FIN</b>으로 설정된 세그먼트 보냄, 클라이언트는 FIN_WAIT_1 상태로 들어가고 서버의 응답 기다림
 
