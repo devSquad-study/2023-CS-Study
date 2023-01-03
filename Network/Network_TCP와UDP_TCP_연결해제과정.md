@@ -124,6 +124,10 @@ Server측에서는 패킷의 SYN을 보고 패킷을 구분하게 되는데 난�
 [3 Way-Handshake](https://hyemsinabro.tistory.com/m/157)
 
 [TCP/UDP와 3 -Way Handshake & 4 -Way Handshake](https://velog.io/@averycode/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-TCPUDP%EC%99%80-3-Way-Handshake4-Way-Handshake)
+
+[[네트워크] TCP/UDP 간단 정리](https://rural-mouse.tistory.com/35)
+
+[TCP 와 UDP 차이를 자세히 알아보자](https://velog.io/@hidaehyunlee/TCP-%EC%99%80-UDP-%EC%9D%98-%EC%B0%A8%EC%9D%B4)
  
  
  
