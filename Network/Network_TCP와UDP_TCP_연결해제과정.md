@@ -39,7 +39,14 @@
 - 하나의 메시지에서 분할된 여러 패킷은 서로 다른 경로로 전송될 수 있음
 - <b>도착순서가 다를 수</b>있는 방식
 
+</br>
+
+##### 패킷 교환 방식 비교 사진
 <image src="./img/datagram_virtualcircuits.png" width="500" />
+</br>
+
+##### 데이터경계 구분 비교 사진
+<image src="./img/데이터경계구분.png" width="500" />
 </br>
 
 ## 2. TCP의 연결 및 해제 과정
