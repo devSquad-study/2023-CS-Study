@@ -4,7 +4,7 @@
 
 ## 🦁 인원
 
-|[![](https://github.com/Fancy96.png?size=80)](https://github.com/Fancy96)|[![](https://github.com/baekeunsun.png?size=80)](https://github.com/baekeunsun) |[![](https://github.com/ParkJungYoon.png?size=80)](https://github.com/ParkJungYoon) | [![](https://github.com/namtndus.png?size=80)](https://github.com/namtndus)|[![](https://github.com/BHC-Chicken.png?size=80)](https://github.com/BHC-Chicken)|[![](https://github.com/sanghyuk2.png?size=80)](https://github.com/sanghyuk2) |[![](https://github.com/jthugg.png?size=80)](https://github.com/jthugg)|
+|[![](https://github.com/Fancylog99.png?size=80)](https://github.com/Fancy96)|[![](https://github.com/baekeunsun.png?size=80)](https://github.com/baekeunsun) |[![](https://github.com/ParkJungYoon.png?size=80)](https://github.com/ParkJungYoon) | [![](https://github.com/namtndus.png?size=80)](https://github.com/namtndus)|[![](https://github.com/BHC-Chicken.png?size=80)](https://github.com/BHC-Chicken)|[![](https://github.com/sanghyuk2.png?size=80)](https://github.com/sanghyuk2) |[![](https://github.com/jthugg.png?size=80)](https://github.com/jthugg)|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | 팬시 | 은선 | 주디 | 수연 | 현철 | 상혁 | 준태 | 
 
