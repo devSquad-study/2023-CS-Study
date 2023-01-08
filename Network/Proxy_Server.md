@@ -1,6 +1,6 @@
 # Proxy Server
 ##### 클라이언트에서 서버로 접속 시 직접적으로 접속하지 않고 중간에 대신 전달해주는 서버
-<image src="./img/proxyServerImg.png" width="400" />
+<image src="./img/proxyServerImg.png" width="600" />
 </br>
 
 ## 1. 동작 원리
@@ -19,7 +19,7 @@
 
 ## 2. Proxy Server는 왜 필요할까?
 ### [ 보안 : 요청과 응답의 필터링 ]
-<image src="./img/proxyServer_Security.png" width="400" />
+<image src="./img/proxyServer_Security.png" width="600" />
 
 - 프록시 서버를 이용하지 않으면 서버의 주소가 쉽게 노출되고 다른 익명의 사용자가 서버로 접근하기 쉬워짐
 - 프록시 서버가 중간에 경유하게 되면 서버의 IP 숨기는 것 가능
@@ -40,7 +40,7 @@
 </br>
 
 ### [ 분산 처리 : 캐시 사용, 로드 밸런싱 ]
-<image src="./img/proxyServer_Cache.png" width="400" />
+<image src="./img/proxyServer_Cache.png" width="600" />
 
 - 프록시 서버 중 일부는 프록시 서버에 요청된 내용을 캐시를 사용해 저장해둠
 - 캐시에 저장된 내용에 대한 재요청은 서버 따로 접속 필요 X -> 전송 시간 절약, 외부트래픽 줄임으로써 병목현상 방지
@@ -59,7 +59,7 @@
 
 ## 3. 종류
 ### [ Forward 프록시 ]
-<image src="./img/proxyServer_Forward.png" width="400" />
+<image src="./img/proxyServer_Forward.png" width="600" />
 
 - **클라이언트가 인터넷에 직접 접근하는게 아니라 Forward Proxy Server가 요청을 받고 인터넷에 연결하여 결과를 클라이언트에 전달**
     - ex) 사용자가 naver.com에 연결하고자 할때 사용자가 PC에 직접 연결하는 것이 아닌 Forward 프록시 서버가 요청을 받아 naver.com에 연결하여 그 결과를 사용자에게 전달해줌
@@ -71,7 +71,7 @@
 </br>
 
 ### [ Reverse 프록시 ]
-<image src="./img/proxyServer_Reverse.png" width="400" />
+<image src="./img/proxyServer_Reverse.png" width="600" />
 
 - **클라이언트가 인터넷에 데이터를 요청하면 리버스 프록시가 이 요청을 받아 내부 서버에서 데이터를 받은 후 클라이언트에 전달**
     - ex) 사용자가 nvaer.com 웹 서비스에 데이터 요청 시, Reverse 프록시가 이 요청을 받아 내부 서버에서 데이터를 받은 후 이 데이터를 사용자에게 전달
