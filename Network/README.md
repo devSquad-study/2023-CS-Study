@@ -9,6 +9,7 @@
     - [팬시](https://github.com/Fancy96/CS_Study/blob/main/Network/TCP-IP-4%EA%B3%84%EC%B8%B5-%EB%AA%A8%EB%8D%B8-%ED%8C%AC%EC%8B%9C.md)
 - [ ] OSI 7계층
 - [ ] TCP와 UDP 차이점
+    - [은선](https://github.com/Fancy96/CS_Study/blob/main/Network/TCP_and_UDP.md)
 - [ ] DNS + 웹 통신 흐름
     - [주디](https://github.com/Fancy96/CS_Study/blob/main/Network/DNS_and_Network-flow.md)
 - [ ] 3-way hands shaking
@@ -21,6 +22,7 @@
 - [ ] 쿠키와 세션 
 - [ ] SOP와 CORS 
 - [ ] 프록시
+    - [은선](https://github.com/Fancy96/CS_Study/blob/main/Network/Proxy_Server.md)
 - [ ] HTTP 멱등성
 
 ---
