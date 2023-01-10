@@ -63,5 +63,5 @@ HTTP는 클라이턴가 요청을 하고, 서버가 응답을 하면 연결이 �
 ---
 # 참고 자료
 [튜나의 개발일지](https://devuna.tistory.com/23) - [web] 쿠키(cookie)와 세션(session)의 개념/차이/용도/작동방식<br>
-[우아한 테크 코스 블로그](https://tecoble.techcourse.co.kr/post/2021-05-22-cookie-session-jwt/) - 인증 방식 : Cookie & Session vs JWT
+[우아한 테크 코스 블로그](https://tecoble.techcourse.co.kr/post/2021-05-22-cookie-session-jwt/) - 인증 방식 : Cookie & Session vs JWT<br>
 [joie-kim의 깃헙 블로그](https://joie-kim.github.io/Session-Auth/) - Session 기반 인증 방식
