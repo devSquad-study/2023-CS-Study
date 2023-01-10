@@ -91,9 +91,7 @@ L4 스위치가 서버와 3-way handshake를 실시. 논리적인 연결인 커�
 
 |  | L4 로드 밸런서 | L7 로드 밸런서 |
 | --- | --- | --- |
-| 네트워크 계층 | Layer 4
-전송계층 (Transport layer) | Layer7
-응용계층 (Application layer) |
+| 네트워크 계층 | Layer 4 전송계층 (Transport layer) | Layer7 응용계층 (Application layer) |
 | 특징 | TCP/UDP 포트 정보를 바탕으로 함 | TCP/UDP 정보는 물론 HTTP의 URL, FTP의 파일명, 쿠키 정보 등을 바탕으로 함 |
 | 장점 | 1. 데이터 안을 들여다보지 않고 패킷 레벨에서만 로드를 분산하기 때문에 속도가 빠르고 효율이 높음.
 2. 데이터의 내용을 복호화할 필요가 없기에 안전함.
