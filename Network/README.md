@@ -23,8 +23,8 @@
     - [상혁](https://github.com/Fancy96/CS_Study/blob/main/Network/REST_API_RESTful_%EC%9D%B4%EC%83%81%ED%98%81.md)
 - [x] 쿠키와 세션 
     - [수연](https://github.com/Fancy96/CS_Study/blob/main/Network/Cookie_Session.md)
-- [ ] SOP와 CORS 
-    - [팬시]
+- [x] SOP와 CORS 
+    - [팬시](https://github.com/Fancy96/CS_Study/blob/main/Network/SOP_And_CORS.md)
 - [x] 프록시
     - [은선](https://github.com/Fancy96/CS_Study/blob/main/Network/Proxy_Server.md)
 - [ ] HTTP 멱등성
