@@ -2,6 +2,8 @@
 
 면접대비 CS 스터디 (2023.01.02 ~ )
 
+📚 [학습 로그](https://github.com/Fancy96/CS_Study/issues)
+
 ## 🦁 인원
 
 |[![](https://github.com/Fancy96.png?size=80)](https://github.com/Fancy96)|[![](https://github.com/baekeunsun.png?size=80)](https://github.com/baekeunsun) |[![](https://github.com/ParkJungYoon.png?size=80)](https://github.com/ParkJungYoon) | [![](https://github.com/namtndus.png?size=80)](https://github.com/namtndus)|[![](https://github.com/BHC-Chicken.png?size=80)](https://github.com/BHC-Chicken)|[![](https://github.com/sanghyuk2.png?size=80)](https://github.com/sanghyuk2) |[![](https://github.com/jthugg.png?size=80)](https://github.com/jthugg)|
