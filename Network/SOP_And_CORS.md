@@ -91,7 +91,7 @@
 
 ### 1. 간단한 요청(Simple Requests)
 
-![](/Network/img/network_cors_preflighted_requests5.png)
+![](/Network/img/network_cors_preflighted_requests6.png)
 
 * 이미지에 있는 내용을 설명하면 이렇다.
 
@@ -130,7 +130,7 @@ Access-Control-Allow-Origin: *
 
 ### 2. 프리플라이트 요청(Preflighted requests)
 
-![](/Network/img/network_cors_simple_requests6.png)
+![](/Network/img/network_cors_simple_requests5.png)
 
 * 실제 요청을 보내기 전에 브라우저는 이러한 유형의 요청을 허용하는지 서버에 확인하는 요청이다.
 
