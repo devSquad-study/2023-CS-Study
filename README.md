@@ -87,19 +87,18 @@
 - 숙제 안했을 때 벌칙
 - 참석 할 수 없을 경우 일요일 자정 전까지 불참 사유를 스터디원에게 공지
 
-## 📄 질문 리스트
+## 📄 Contents and log
 
-### CS
+### 1. [네트워크](Network/README.md)
+- [네트워크 시작](https://github.com/Fancy96/CS_Study/issues/2)
+- 2023-01-03 (화) : [네트워크-1 (개념학습))](https://github.com/Fancy96/CS_Study/issues/3)
+- 2023-01-10 (화) : [네트워크-2 (개념학습)](https://github.com/Fancy96/CS_Study/issues/14)
+- 2023-01-17 (화) : [네트워크-3 (모의면접)](https://github.com/Fancy96/CS_Study/issues/21)
+- [회고 (Retrospection)](https://github.com/Fancy96/CS_Study/issues/22)
 
-- [네트워크](Network/README.md)
-- [운영체제](OS/README.md)
-- [데이터베이스](DB/README.md)
-- [알고리즘](Algorithm/README.md)
+### 2. [운영체제](OS/README.md)
+- [운영체제 시작](https://github.com/Fancy96/CS_Study/issues/23)
 
-### 기타
-
-- [인프라](Infra/README.md)
-- [디자인패턴](Design/README.md)
 
 ## 👐 컨벤션
 
