@@ -3,7 +3,7 @@
 ## 목차
 
 - [x] 네트워크의 기초
-    - [준태](https://github.com/Fancy96/CS_Study/blob/main/Network/01_What_Is_Bandwidth.md)
+    - [네오](https://github.com/Fancy96/CS_Study/blob/main/Network/01_What_Is_Bandwidth.md)
     - [현철](https://github.com/Fancy96/CS_Study/blob/main/Network/네트워크%20기초/네트워크%20기초.md)
 - [ ] OSI 7계층
 - [x] TCP와 UDP 차이점
@@ -13,7 +13,7 @@
 - [ ] 3-way hands shaking
 - [ ] time_wait 상태
 - [x] L7, L4 스위치 + 로드밸런싱
-    - [준태](https://github.com/Fancy96/CS_Study/blob/main/Network/L4:L7_switch_and_load_balancing.md)
+    - [네오](https://github.com/Fancy96/CS_Study/blob/main/Network/L4:L7_switch_and_load_balancing.md)
 - [x] HTTP 진화 과정 
     - [주디](https://github.com/Fancy96/CS_Study/blob/main/Network/HTTP.md)
 - [ ] HTTPS 동작원리
