@@ -5,8 +5,6 @@
 - [x] 네트워크의 기초
     - [준태](https://github.com/Fancy96/CS_Study/blob/main/Network/01_What_Is_Bandwidth.md)
     - [현철](https://github.com/Fancy96/CS_Study/blob/main/Network/네트워크%20기초/네트워크%20기초.md)
-- [x] TCP/IP 4계층 모델
-    - [팬시](https://github.com/Fancy96/CS_Study/blob/main/Network/TCP-IP-4%EA%B3%84%EC%B8%B5-%EB%AA%A8%EB%8D%B8-%ED%8C%AC%EC%8B%9C.md)
 - [ ] OSI 7계층
 - [x] TCP와 UDP 차이점
     - [은선](https://github.com/Fancy96/CS_Study/blob/main/Network/TCP_and_UDP.md)
