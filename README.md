@@ -1,4 +1,4 @@
-# 🔥 CS 뽀숑뽀숑 🔥
+# 신입 개발자 CS 지식 공유 & 면접 대비👨🏻‍💻 🔥
 
 면접대비 CS 스터디 (2023.01.02 ~ ) | 📚 [학습 로그](https://github.com/Fancy96/CS_Study/issues)
 
