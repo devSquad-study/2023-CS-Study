@@ -1,4 +1,4 @@
-# 신입 개발자 CS 지식 공유 & 면접 대비👨🏻‍💻 🔥
+# 신입 개발자 CS 지식 공유 & 면접 대비 👨🏻‍💻 🔥
 
 면접대비 CS 스터디 (2023.01.02 ~ ) | 📚 [학습 로그](https://github.com/Fancy96/CS_Study/issues)
 
@@ -67,9 +67,9 @@
         - 면접자가 대답을 한 후 추가적인 설명을 덧붙이고 싶은 스터디원은 자유롭게 이야기한다.
         - 만약 면접자가 대답을 못해 `pass`를 외친 경우 다른 스터디원 중 대답할 수 있는자가 대답을 한다. 
         - 모두 대답하지 못한 경우에는 해당 개념에 대해 같이 이야기를 나눈다. (이때는 흐름 끊겨도 ok)
-        - 그리고 `pass` 1회에 한해서 새로운 문제를 받을 기회를 준다. (네.. 맞아요 제가 대답 못할 거 같아서 기회주는거.. ㅠ)
+        - 그리고 `pass` 1회에 한해서 새로운 문제를 받을 기회를 준다.
     2. `실시간 면접 진행 docs`
-        - [링크](https://docs.google.com/document/d/1QnsMgR9M0c91QetYJPhUuUABAFgMVCrpuYvNV04bXjQ/edit#heading=h.oct5jj1nxa8o) (스터디 때 권한 넣어드릴게요)
+        - [링크](https://docs.google.com/document/d/1QnsMgR9M0c91QetYJPhUuUABAFgMVCrpuYvNV04bXjQ/edit#heading=h.oct5jj1nxa8o)
     3. `질문 가이드`
         - 네트워크 README 목록에 있는 주제에 대한 학습이 되었는지 확인합니다.
         - 출제자와 다른 스터디원 중 꼬리 질문이 가능하다면 꼬리 질문도 출제합니다.
@@ -90,6 +90,18 @@
     1. 참고자료에서 질문들을 찾아 써도 된다.
 3. 조사하며 알게 된 링크나 `참고자료`가 있다면 해당 마크다운 페이지에 기술한다
 
+## 📄 Contents and log
+
+### 1. [네트워크](Network/README.md)
+- [네트워크 시작](https://github.com/Fancy96/CS_Study/issues/2)
+- 2023-01-03 (화) : [네트워크-1 (개념학습)](https://github.com/Fancy96/CS_Study/issues/3)
+- 2023-01-10 (화) : [네트워크-2 (개념학습)](https://github.com/Fancy96/CS_Study/issues/14)
+- 2023-01-17 (화) : [네트워크-3 (모의면접)](https://github.com/Fancy96/CS_Study/issues/21)
+- [회고 (Retrospection)](https://github.com/Fancy96/CS_Study/issues/22)
+
+### 2. [운영체제](OS/README.md)
+- [운영체제 시작](https://github.com/Fancy96/CS_Study/issues/23)
+
 ## 🤙 규칙
 
 - 20시 03분 부터 지각으로 간주
@@ -99,26 +111,13 @@
 - 숙제 안했을 때 벌칙
 - 참석 할 수 없을 경우 일요일 자정 전까지 불참 사유를 스터디원에게 공지
 
-## 📄 Contents and log
-
-### 1. [네트워크](Network/README.md)
-- [네트워크 시작](https://github.com/Fancy96/CS_Study/issues/2)
-- 2023-01-03 (화) : [네트워크-1 (개념학습))](https://github.com/Fancy96/CS_Study/issues/3)
-- 2023-01-10 (화) : [네트워크-2 (개념학습)](https://github.com/Fancy96/CS_Study/issues/14)
-- 2023-01-17 (화) : [네트워크-3 (모의면접)](https://github.com/Fancy96/CS_Study/issues/21)
-- [회고 (Retrospection)](https://github.com/Fancy96/CS_Study/issues/22)
-
-### 2. [운영체제](OS/README.md)
-- [운영체제 시작](https://github.com/Fancy96/CS_Study/issues/23)
-
-
 ## 👐 컨벤션
 
 - 폴더와 파일명은 영문으로 작성한다.(공백은 '_'으로 채운다)
 - ex. tcp_ip_4-tier_model
 - 해당 문서를 다시 봤을 때, 추가적인 검색의 비용이 들지 않도록 자세히 기록한다.
 
-## 🖤 깃허브 이용 방법
+## ⚙️ 깃허브 이용 방법
 
 1. 브랜치 `fork`
 2. 각 `디렉토리` 별 `readme.md`의 주제 목록 중 하나를 선정
