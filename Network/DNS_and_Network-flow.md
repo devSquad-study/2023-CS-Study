@@ -163,7 +163,7 @@ DNS 지역 성능 향상과 네트워크의 DNS 메세지 수를 줄이기 위�
 
 ### 2) WAS (Web Application Server)
 
-> 동적인 컨텐츠(JSP, ASP, PHP 등)를 요청받아 처리하여 제공하는 서버
+> 동적인 컨텐츠(JSP, ASP, PHP 등)를 요청받아 처리하여 제공하는 서버 (+정적 리소스 제공 가능)
 
 - 웹 서버(Web Server)와 웹 컨테이너(Web Container)가 합쳐진 형태
 - HTTP를 통해 컴퓨터나 장치에 애플리케이션을 수행해주는 미들웨어
@@ -186,6 +186,26 @@ DNS 지역 성능 향상과 네트워크의 DNS 메세지 수를 줄이기 위�
     <img src="./img/Web_Service_Architecture.png" width="550px">
 </div>
 
+👉 웹 시스템 구성
+
+**[ WAS + DB ]**
+
+- WAS는 동적, 정적 컨텐츠를 모두 제공할 수 있기 때문에 웹 서버(Web Server)가 없이 시스템을 구성할 수 있다.
+- 하지만 WAS에 모든 역할이 부여되었을 경우 서버 과부하로 가장 비싼 애플리케이션 로직이 정적 리소스로 인해 수행이 어려울 수 있다는 우려가 있다. 
+
+<div align='center'>
+    <img src="./img/WAS+DB.png" width="500px">
+</div>
+
+**[ WEB + WAS + DB ]**
+
+- 정적 컨텐츠는 웹 서버가 처리하고, 동적인 애플리케이션 로직을 처리는 WAS에 요청한다.
+- 이렇게 시스템을 나누었을 때 정적 리소스가 많이 사용할 경우에는 웹 서버를 증설하고, 애플리케이션 리소스가 많이 사용될 경우 WAS를 증설하면 되어 효율적인 리소스 관리를 할 수 있다.
+
+<div align='center'>
+    <img src="./img/WEB+WAS+DB.png" width="500px">
+</div>
+
 ---
 
 ### 📢 같이 공부하면 좋을 면접 질문
@@ -200,3 +220,4 @@ DNS 지역 성능 향상과 네트워크의 DNS 메세지 수를 줄이기 위�
 
 - James F. Kurose, Keith W. Ross, 『컴퓨터 네트워킹 하향식 접근』, 최종원 옮김, 퍼스트북(2022), p112~120.
 - [[Web] Web Server와 WAS의 차이와 웹 서비스 구조](https://gmlwjd9405.github.io/2018/10/27/webserver-vs-was.html)
+- 이미지 출처: 김영한, 스프링 MVC 1편 강의
