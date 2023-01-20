@@ -10,7 +10,8 @@
     - [은선](https://github.com/Fancy96/CS_Study/blob/main/Network/TCP_and_UDP.md)
 - [x] DNS + 웹 통신 흐름
     - [주디](https://github.com/Fancy96/CS_Study/blob/main/Network/DNS_and_Network-flow.md)
-- [ ] 3-way hands shaking
+- [x] TCP의 연결 및 해제과정 (3,4-way hands shaking)
+    - [은선](https://github.com/Fancy96/CS_Study/blob/main/Network/TCP_and_UDP.md)
 - [ ] time_wait 상태
 - [x] L7, L4 스위치 + 로드밸런싱
     - [네오](https://github.com/Fancy96/CS_Study/blob/main/Network/L4:L7_switch_and_load_balancing.md)
@@ -31,4 +32,4 @@
 
 ---
 
-### 예상 질문
+### [예상 질문](https://github.com/Fancy96/CS_Study/blob/main/Network/Network_Expected_question.md)
