@@ -101,6 +101,7 @@
 
 ### 2. [운영체제](OS/README.md)
 - [운영체제 시작](https://github.com/Fancy96/CS_Study/issues/23)
+- 2023-01-24 (화) : [운영체제-1 (개념학습)](https://github.com/Fancy96/2023-CS-Study/issues/24)
 
 ## 🤙 규칙
 
