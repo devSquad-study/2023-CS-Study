@@ -20,7 +20,9 @@
 
 * [ ] 주소 변환(Address Translation)
 
-* [ ] 세그먼테이션(Segmentation)
+* [x] 세그먼테이션(Segmentation)
+
+    * [팬시](https://github.com/Fancy96/CS_Study/blob/main/OS/os_segmentation.md)
 
 * [ ] 페이징(Paging)
 
