@@ -5,10 +5,12 @@ CPU 이용률을 극대화하기 위해서는 멀티프로그래밍(multiprogram
 
 ✔ 즉, CPU 스케줄링은 **언제 어떤 프로세스에 CPU를 할당할지 결정하는 작업**이라고 할 수 있다.
 
+</br>
+
 ## 1. CPU - I/O Burst Cycle
 
 <div align='center'>
-    <img src="./img/OS_CPU_BurstCycle.jpg" width="550px">
+    <img src="./img/OS_CPU_BurstCycle.jpg" width="300px">
     <p>CPU 및 I/O 버스트 교대 순서</p>
 </div>
 
@@ -33,6 +35,8 @@ CPU 이용률을 극대화하기 위해서는 멀티프로그래밍(multiprogram
 - 컴퓨터 안에는 I/O bound job, CPU bound job이 섞여 있으므로 적절한 CPU scheduling이 필요
     - CPU bound job이 CPU를 잡고 놓지 않으면 I/O bound job이 너무 오래 대기하게 됨 -> 사용자 답답
     - 가능하면 사람과 interactive하는 I/O bound job에 CPU를 우선적으로 주는 것이 필요함
+
+</br>
 
 ## 2. CPU Scheduler
 #### CPU가 유후상태가 될 때마다, OS는 Ready queue에 있는 프로세스들 중에 누구에게 CPU를 줄것인지, 얼마나 쓰게 할 것인지 결정해야한다. 이를 수행하는 kernel code
@@ -114,32 +118,59 @@ Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순�
 </div>
 </details>
 
+</br>
 
-## 4. 스케줄링 기준 ( Scheduling Criteria )
 
-1. **CPU 이용률(Utilization)** : 
-    - 시간당 CPU를 사용한 시간의 비율
-    - 프로세서를 실행상태로 항상 유지하려고 해야 한다.
-2. **처리량(Throughput)** : 
-    - 단위 시간당 완료된 프로세스의 개수
-3. **총처리 시간, 반환 시간(Turnaround Time)** : 
-    - 프로세스가 생성된 후 종료되어 사용하던 자원을 모두 반환하는 데까지 걸리는 시간
-    - 작업이 준비 큐(ready queue)에서 기다린 시간부터 CPU에서 실행된 시간, I/O 작업 시간의 합
-4. **대기 시간(Waiting Time)** : 
-    - 대기열에 들어와 CPU를 할당받기 까지 기다린 시간
-    - 프로세스가 준비 큐에서 대기하면서 보낸 시간의 합
-5. **응답 시간, 반응 시간(Response Time)** : 
-    - 대기열에서 처음으로 CPU를 얻을 때까지 걸린 시간
-    - 대기시간과 비슷하지만 다른 점은, 대기시간은 준비 큐에서 기다린 모든 시간을 합친 것이지만 반응 시간은 CPU를 할당받은 최초의 순간까지 기다린 시간 한번 만을 측정
+## 3. 스케줄링 성능 척도, 기준 ( Scheduling Criteria )
+#### 수 많은 프로세스들을 어떤 순서로 정렬할지 정책을 수립하는 것이 스케줄링이라면, 좋은 정렬 방법과 나쁜 정렬 방법이 있을 것이다. 이렇게 스케줄링 알고리즘을 평가할 수 있는 기준을 스케줄링 Criteria라고 한다.
+
+**CPU 관점에서 따지고 있으므로, `한 프로세스가 시작해서 종료할 때까지` 가 아닌, `매 CPU burst 건 1개에 대한 것에 한해서만` 따진다고 이해해야 한다.**
+
+1. 시스템 입장에서의 성능 척도
+    1) **CPU 이용률(Utilization)** :
+       - 시간당 CPU를 사용한 시간의 비율
+       - 프로세서를 실행상태로 항상 유지하려고 해야 한다.
+    2) **처리량(Throughput)** : 
+       - 단위 시간당 완료된 프로세스의 개수
+
+2. 프로그램 입장에서의 성능청도
+    1) **총처리 시간, 반환 시간(Turnaround Time)** : 
+       - 프로세스가 생성된 후 종료되어 사용하던 자원을 모두 반환하는 데까지 걸리는 시간
+       - 작업이 준비 큐(ready queue)에서 기다린 시간부터 CPU에서 실행된 시간, I/O 작업 시간의 합
+    2) **대기 시간(Waiting Time)** : 
+       - 대기열에 들어와 CPU를 할당받기 까지 기다린 시간
+       - 프로세스가 준비 큐에서 대기하면서 보낸 시간의 합
+    3) **응답 시간, 반응 시간(Response Time)** : 
+       - 대기열에서 처음으로 CPU를 얻을 때까지 걸린 시간
+       - 대기시간과 비슷하지만 다른 점은, 대기시간은 준비 큐에서 기다린 모든 시간을 합친 것이지만 반응 시간은 CPU를 할당받은 최초의 순간까지 기다린 시간 한번 만을 측정
 
 ✔ `CPU Utilization`, `Throughput`을 최대화하고 `Turaround Time`, `Waiting Time`, `Response Time`을 최소화 하는 알고리즘의 선택이 바람직한 선택
 
 하지만 대부분의 알고리즘의 경우는 Trade-Off 임으로 본인의 Context에 맞춰서 선택하는 것이 가장 좋은 방법이다.
 
+</br>
+
+## 4. 시스템 별 목표
+#### CPU 스케줄링의 세부적인 목표는 시스템마다 다르다.
+
+1. **Batch System** :
+        - 한 번에 하나의 프로그램만 수행하는 것
+        - 가능한 한 많은 일을 수행하기 위해 throughout과 CPU utilization이 중요하다.
+2. **Interactive System** :
+        - 사용자가 컴퓨터 앞에서 대화형으로 동작하는 시스템
+        - Time Sharing 기법을 이용해야함
+        - Response Time → 프로세스가 Ready Queue에서 대기하는 시간을 최소화한다.
+        - Waiting Time → 프로세스가 Wait Queue에 서 대기하는 시간을 최소화한다.
+        - Proportionality → 사용자가 요구하는 바를 이루어야 한다.
+3. **Real-Time System** :
+        - 시간 제약 조건이 걸려 있는 시스템
+        - Metting Deadlines
+        - Predictability
+
+</br>
+</br>
 
 # CPU Sheduling Algorithm
-
-
 ## 1. 선입 선처리 알고리즘 (First Come First Served Scheduling, FCFS)
 #### CPU를 먼저 요청하는 프로세스가 CPU를 먼저 할당받는 방식
 <div align='center'>
@@ -158,6 +189,8 @@ Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순�
 > CPU 사용시간이 긴 프로세스에 의해 사용시간이 짧은 프로세스들이 오래 기다리는 현상
 > 
 > 호위효과가 발생할 경우 CPU와 장치 이용률이 낮아진다.
+
+</br>
 
 ## 2. 최단 작업 우선 스케줄링 (Shortest Job First Schduling, SJF)
 ####  CPU 버스트 길이가 가장 작은 프로세스부터 순서적으로 CPU 코어를 할당하는 방식
@@ -184,6 +217,8 @@ Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순�
 - 선점형 : 현재 실행되고 있는 프로세스의 남은 시간보다 도착한 다음 프로세스가 더 빨리 끝낼 수 있는 프로세스이면 다음 프로세스를 실행
 - **SRTF(Shortest Remaining Time First)** 라고도 부른다.
 
+</br>
+
 ## 3. 라운드 로빈 스케줄링 (Round Robin Scheduling, RR)
 ####  각 프로세스가 CPU를 연속적으로 사용할 수 있는 시간을 특정 시간으로 제한하여 이 시간이 경과하면 프로세스로부터 CPU를 회수해 준비 큐에 있는 다른 프로세스에게 CPU를 할당 
 <div align='center'>
@@ -203,6 +238,8 @@ Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순�
     - q가 커진다면 :  FCFS처럼 작동한다. 
     - q가 매우 작아지면 : process sharing이라고 부름, 이것은 n개의 프로세스가 프로세서 속도의 1/n 씩으로 작동함을 의미한다. 문맥 교환의 오버헤드가 커지게 된다.
 
+</br>
+
 ## 4. 우선순위 스케줄링 (Priority Scheduling)
 #### 준비 큐에서 기다리는 프로세스들 중에서 우선순위가 가장 높은 프로세스에게 제일 먼저 CPU를 할당하는 방식
 <div align='center'>
@@ -219,6 +256,8 @@ Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순�
 - 해결법 :
     - 노화(Aging) : 오랫동안 시스템에서 대기하는 프로세스들의 우선순위를 점진적으로 증가시킨다.
     - 우선순위 스케줄링과 라운드 로빈 스케줄링을 결합(다단계 큐 스케줄링)
+
+</br>
 
 ## 5. 다단계 큐 스케줄링 (Multilevel Queue Scheduling)
 #### 우선순위 스케줄링이 라운드 로빈과 결합한 스케줄링 알고리즘
@@ -239,10 +278,12 @@ Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순�
     - 보통 CPU 시간의 80%는 Foreground의 RR, 20%는 Background의 FCFS에 할당된다.
 - 기아(Starvation) 문제가 발생할 수 있다.
 
+</br>
+
 ## 6. 다단계 피드백 큐 스케줄링 (Multilevel Feedback Queue Scheduling)
 ##### Multilevel Queue와 비슷하지만, MFQ는 각 큐 간에 프로세스들이 이동할 수 있다. 
 <div align='center'>
-    <img src="./img/OS_Scheduling_Multilevel_Feedback_Queue.png" width="550px">
+    <img src="./img/OS_Scheduling_Multilevel_Feedback_Queue.png" width="400px">
     <p>다단계 피드백 큐 예시</p>
 </div>
 
@@ -254,13 +295,44 @@ Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순�
 - 특정 시스템에 부합하도록 구성이 가능함으로 현대 사용되는 CPU 스케줄링 알고리즘 중 가장 일반적인 CPU 스케줄링 알고리즘이다.
 - 가장 좋은 스케줄러로 동작하기 위해서는 모든 매개변수 값들을 선정하는 특정 방법이 필요하기 떄문에 가장 복잡한 알고리즘이다.
 
+</br>
+
 ## 7. HRN (Highest Response-ratio Next)
 #### 점유 불평등 현상이 발생하는 SJF 알고리즘을 보완하기 위해 만들어졌다. 우선 순위를 계산하여 동작한다.
 <div align='center'>
-    <img src="./img/OS_Scheduling_HRN.png" width="550px">
+    <img src="./img/OS_Scheduling_HRN.png" width="400px">
     <p>다단계 피드백 큐 예시</p>
 </div>
 
 - **비선점형**
 - 준비 큐에서 우선순위에 밀려서 오랫동안 CPU를 받지 못하는 프로세스의 우선순위를 높이는 방식(기아현상 보완)
 - 우선 순위 = (대기시간 + 실행시간) / (실행시간)
+
+</br>
+</br>
+</br>
+
+---
+
+## ❓ 관련 질문
+#### Q1. SJF를 preemptive한 방식으로 구현하기 위해서는 ready queue에 새로운 프로세스가 도착할 때마다 CPU에게 interrupt를 걸어야하나? 어떻게 새로운 프로세스가 도착했음을 알고, 그것이 더 짧은 프로세스임을 알고, CPU 제어권을 넘기는가?
+
+#### Q2. time slice방식에서 각 queue에 CPU time을 비율로 할당한다는 것의 의미는 무엇인가? 어떤 것에 대한 비율인가?
+
+#### Q3. 별개의 queue를 두는 방식이 왜 load sharing과 관련이 있는가?
+
+</br>
+</br>
+
+## 📖 참고 자료
+[[OS] CPU burst와 CPU Scheduler](https://velog.io/@kmjoo/OS-CPU-Scheduling-1)
+
+[[Operating System - Chapter 5] CPU 스케줄링](https://imbf.github.io/computer-science(cs)/2020/10/18/CPU-Scheduling.html)
+
+[[운영체제] CPU 스케줄링 알고리즘 정리 및 요약 | FCFS, SJF, Round Robin](https://code-lab1.tistory.com/45)
+
+[KOCW 운영체제 - 이화여대 반효경 교수 (2014-1)](http://www.kocw.net/home/search/kemView.do?kemId=1046323)
+
+Abraham Silberschatz, Greg Gagne 및 Peter Baer Galvin, "운영 체제 개념, 제9판", 6장
+
+[OS는 할껀데 핵심만 합니다. 5편 스케줄링2, 비선점형 스케줄링 알고리즘(FCFS, SJF, HRN)](https://velog.io/@chappi/OS%EB%8A%94-%ED%95%A0%EA%BB%80%EB%8D%B0-%ED%95%B5%EC%8B%AC%EB%A7%8C-%ED%95%A9%EB%8B%88%EB%8B%A4.-5%ED%8E%B8-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%812-%EB%B9%84%EC%84%A0%EC%A0%90%ED%98%95-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98FCFS-SJF-HRN)
