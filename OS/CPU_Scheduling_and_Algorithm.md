@@ -8,14 +8,16 @@ CPU 이용률을 극대화하기 위해서는 멀티프로그래밍(multiprogram
 </br>
 
 ## 1. CPU - I/O Burst Cycle
+#### 프로세스 실행은 CPU 실행과 I/O  대기 사이클로 구성된다.
 
 <div align='center'>
     <img src="./img/OS_CPU_BurstCycle.jpg" width="300px">
     <p>CPU 및 I/O 버스트 교대 순서</p>
 </div>
 
-- **CPU burst** : CPU만 연속적으로 쓰면서 계산을 실행하는 일련의 단계
-- **I/O Burst** : 시스템 안팎으로 데이터 전송을 기다리는 단계
+- **CPU burst** : 프로그램 실행 중 CPU 연산이 연속적으로 실행되는 상황
+- **I/O Burst** : 프로그램 실행 중 I/O 장치의 입출력이 이루어지는 상황
+- 모든 프로그램은 CPU, I/O burst의 연속이지만, 프로그램의 종류에 따라서 각 burst의 빈도나 길이가 다르다.
 
 ### [ CPU Burst 기간의 히스토그램 ]
 
@@ -31,8 +33,8 @@ CPU 이용률을 극대화하기 위해서는 멀티프로그래밍(multiprogram
 - **CPU bound job** : CPU만 오랫동안 쓰는 job 
     - CPU burst가 긴 경우 (few very long CPU bursts)
     - 빈도 낮음(한번에 길게)
-- CPU는 CPU bound job이 많이 쓰고, I/O bound job은 CPU를 짧게, 잦게 쓴다 
-- 컴퓨터 안에는 I/O bound job, CPU bound job이 섞여 있으므로 적절한 CPU scheduling이 필요
+- CPU bound job는 CPU를 많이 쓰고, I/O bound job은 CPU를 짧게, 잦게 쓴다 
+- ✅ 컴퓨터 안에는 I/O bound job, CPU bound job이 섞여 있으므로 적절한 **CPU scheduling이 필요**
     - CPU bound job이 CPU를 잡고 놓지 않으면 I/O bound job이 너무 오래 대기하게 됨 -> 사용자 답답
     - 가능하면 사람과 interactive하는 I/O bound job에 CPU를 우선적으로 주는 것이 필요함
 
@@ -40,6 +42,8 @@ CPU 이용률을 극대화하기 위해서는 멀티프로그래밍(multiprogram
 
 ## 2. CPU Scheduler
 #### CPU가 유후상태가 될 때마다, OS는 Ready queue에 있는 프로세스들 중에 누구에게 CPU를 줄것인지, 얼마나 쓰게 할 것인지 결정해야한다. 이를 수행하는 kernel code
+
+CPU 스케줄링 알고리즘에 따라 프로세스에서 해야 하는 일을 스레드 단위로 CPU에 할당합니다.
 
 Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순위 큐, 트리 등으로 구현될 수 있다.
 일반적으로 Queue에 있는 레코드들은 프로세스의 프로세스 제어블록(PCB)들이다.
@@ -67,6 +71,13 @@ Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순�
 - 프로세스의 배치에 따라 효율성 차이 많이 남
 - 응답 시간 예측 가능
 - 짧은 작업을 수행하는 프로세스라도 긴 작업이 종료될 때까지 기다려야함
+
+> #### 문맥교환 (Context Switching)
+> CPU가 어떤 하나의 프로세스를 실행하고 있는 상태에서 인터럽트 요청에 의해 다음 우선 순위의 프로세스가 실행되어야 할 때 
+> 기존의 프로세스의 상태 또는 레지스터 값(Context)을 저장하고 
+> CPU가 다음 프로세스를 수행하도록 새로운 프로세스의 상태 또는 레지스터 값(Context)를 교체하는 작업
+
+</br>
 
 ### [ 선점 스케줄링 ( preemptive ) ]
 
@@ -133,6 +144,10 @@ Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순�
     2) **처리량(Throughput)** : 
        - 단위 시간당 완료된 프로세스의 개수
 
+<div align='center'>
+    <img src="./img/OS_Scheduling_Criteria.png" width="550px">
+</div>
+
 2. 프로그램 입장에서의 성능청도
     1) **총처리 시간, 반환 시간(Turnaround Time)** : 
        - 프로세스가 생성된 후 종료되어 사용하던 자원을 모두 반환하는 데까지 걸리는 시간
@@ -154,18 +169,18 @@ Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순�
 #### CPU 스케줄링의 세부적인 목표는 시스템마다 다르다.
 
 1. **Batch System** :
-        - 한 번에 하나의 프로그램만 수행하는 것
-        - 가능한 한 많은 일을 수행하기 위해 throughout과 CPU utilization이 중요하다.
+    - 한 번에 하나의 프로그램만 수행하는 것
+    - 가능한 한 많은 일을 수행하기 위해 throughout과 CPU utilization이 중요하다.
 2. **Interactive System** :
-        - 사용자가 컴퓨터 앞에서 대화형으로 동작하는 시스템
-        - Time Sharing 기법을 이용해야함
-        - Response Time → 프로세스가 Ready Queue에서 대기하는 시간을 최소화한다.
-        - Waiting Time → 프로세스가 Wait Queue에 서 대기하는 시간을 최소화한다.
-        - Proportionality → 사용자가 요구하는 바를 이루어야 한다.
+    - 사용자가 컴퓨터 앞에서 대화형으로 동작하는 시스템
+    - Time Sharing 기법을 이용해야함
+    - Response Time → 프로세스가 Ready Queue에서 대기하는 시간을 최소화한다.
+    - Waiting Time → 프로세스가 Wait Queue에 서 대기하는 시간을 최소화한다.
+    - Proportionality → 사용자가 요구하는 바를 이루어야 한다.
 3. **Real-Time System** :
-        - 시간 제약 조건이 걸려 있는 시스템
-        - Metting Deadlines
-        - Predictability
+    - 시간 제약 조건이 걸려 있는 시스템
+    - Meeting Deadlines
+    - Predictability
 
 </br>
 </br>
@@ -215,7 +230,7 @@ Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순�
 </div>
 
 - 선점형 : 현재 실행되고 있는 프로세스의 남은 시간보다 도착한 다음 프로세스가 더 빨리 끝낼 수 있는 프로세스이면 다음 프로세스를 실행
-- **SRTF(Shortest Remaining Time First)** 라고도 부른다.
+- **SRTF, SRF(Shortest Remaining Time First)** 라고도 부른다.
 
 </br>
 
@@ -249,6 +264,8 @@ Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순�
 
 - **비선점 + 선점**
 - 정적/동적으로 우선순위를 부여, 높은 순으로 CPU에 할당하는 방식이다.
+    - 내부 : 제한 시간, 기억장소 요청량, 사용 파일 수, 평균 프로세서 버스트에 대한 평균 입출력 버스트의 비율
+    - 외부 : 프로세스의 중요성, 사용료를 많이 낸 사용자, 작업을 지원하는 부서, 정책적 요인
 - SJF의 경우 CPU Burst Time이 우선순위인 것처럼 작동하기 때문에 우선순위 스케줄링이라고 할 수 있다
 - 문제 :
     - 무기한 봉쇄(Indefinite Blocking): 실행 준비는 되어 있으나 CPU를 사용하지 못하는 프로세스는 CPU를 기다리면서 봉쇄 된 것으로 간주
@@ -291,7 +308,7 @@ Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순�
 - 다단계 큐에서 자신에게 할당된 Time Quantum을 다 사용한 프로세스는 밑으로 내려가고 Time Quantum을 다 채우지 못한 프로세스는 원래 큐 위치 그대로 둔다.
 - 짧은 작업에 유리하며 입출력 위주의 작업에 우선권을 준다.
 - 처리 시간이 짧은 프로세스를 먼저 처리하기 때문에 Turnaround 평균 시간을 줄여준다.
-- Aging의 해결방안인 Starvation 구현 가능하다.
+- Starvation의 해결방안인 Aging 구현 가능하다.
 - 특정 시스템에 부합하도록 구성이 가능함으로 현대 사용되는 CPU 스케줄링 알고리즘 중 가장 일반적인 CPU 스케줄링 알고리즘이다.
 - 가장 좋은 스케줄러로 동작하기 위해서는 모든 매개변수 값들을 선정하는 특정 방법이 필요하기 떄문에 가장 복잡한 알고리즘이다.
 
