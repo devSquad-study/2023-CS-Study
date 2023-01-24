@@ -1,4 +1,5 @@
 # 네트워크 토폴로지(Network Topology)
+
 > 노드(node)와 링크(link) 배치 방식 및 연결 형태를 의미한다.
 
 </br>
