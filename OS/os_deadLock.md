@@ -18,7 +18,7 @@
 ex. I/O device, CPU cycle, memory space, semaphore 등
 
 <div align='center'>
-    <img src="./img/Deadlock.png" width="550px">
+    <img src="img/deadlock.png" width="550px">
 </div>
 
 그림에서 숫자가 자원이고 자동차가 프로세스다.

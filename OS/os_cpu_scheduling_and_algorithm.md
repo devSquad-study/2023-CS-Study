@@ -5,13 +5,13 @@ CPU 이용률을 극대화하기 위해서는 멀티프로그래밍(multiprogram
 
 ✔ 즉, CPU 스케줄링은 **언제 어떤 프로세스에 CPU를 할당할지 결정하는 작업**이라고 할 수 있다.
 
-</br>
+
 
 ## 1. CPU - I/O Burst Cycle
 #### 프로세스 실행은 CPU 실행과 I/O  대기 사이클로 구성된다.
 
 <div align='center'>
-    <img src="./img/OS_CPU_BurstCycle.jpg" width="300px">
+    <img src="img/os_cpu_burstCycle.jpg" width="300px">
     <p>CPU 및 I/O 버스트 교대 순서</p>
 </div>
 
@@ -22,7 +22,7 @@ CPU 이용률을 극대화하기 위해서는 멀티프로그래밍(multiprogram
 ### [ CPU Burst 기간의 히스토그램 ]
 
 <div align='center'>
-    <img src="./img/OS_CPU_Burst_histogram.jpg" width="550px">
+    <img src="img/os_cpu_burst_histogram.jpg" width="550px">
     <p>CPU Burst 기간의 히스토그램</p>
 </div>
 
@@ -38,7 +38,7 @@ CPU 이용률을 극대화하기 위해서는 멀티프로그래밍(multiprogram
     - CPU bound job이 CPU를 잡고 놓지 않으면 I/O bound job이 너무 오래 대기하게 됨 -> 사용자 답답
     - 가능하면 사람과 interactive하는 I/O bound job에 CPU를 우선적으로 주는 것이 필요함
 
-</br>
+
 
 ## 2. CPU Scheduler
 #### CPU가 유후상태가 될 때마다, OS는 Ready queue에 있는 프로세스들 중에 누구에게 CPU를 줄것인지, 얼마나 쓰게 할 것인지 결정해야한다. 이를 수행하는 kernel code
@@ -51,7 +51,7 @@ Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순�
 ### [ CPU Scheduler가 필요한 경우 ]
 
 <div align='center'>
-    <img src="./img/OS_CPU_running_Process.png" width="550px">
+    <img src="img/os_cpu_running_process.png" width="550px">
     <p>프로세스의 상태</p>
 </div>
 
@@ -77,7 +77,6 @@ Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순�
 > 기존의 프로세스의 상태 또는 레지스터 값(Context)을 저장하고 
 > CPU가 다음 프로세스를 수행하도록 새로운 프로세스의 상태 또는 레지스터 값(Context)를 교체하는 작업
 
-</br>
 
 ### [ 선점 스케줄링 ( preemptive ) ]
 
@@ -115,7 +114,7 @@ Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순�
 디스패처가 하나의 프로세스를 정지하고 다른 프로세스의 수행을 시작하는데까지 소요되는 시간
 
 <div align='center'>
-    <img src="./img/OS_Dispatcher_latency.png" width="550px">
+    <img src="img/os_dispatcher_latency.png" width="550px">
     <p>디스패치 지연</p>
 </div>
 
@@ -128,8 +127,6 @@ Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순�
 
 </div>
 </details>
-
-</br>
 
 
 ## 3. 스케줄링 성능 척도, 기준 ( Scheduling Criteria )
@@ -145,7 +142,7 @@ Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순�
        - 단위 시간당 완료된 프로세스의 개수
 
 <div align='center'>
-    <img src="./img/OS_Scheduling_Criteria.png" width="550px">
+    <img src="img/os_scheduling_criteria.png" width="550px">
 </div>
 
 2. 프로그램 입장에서의 성능청도
@@ -163,7 +160,6 @@ Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순�
 
 하지만 대부분의 알고리즘의 경우는 Trade-Off 임으로 본인의 Context에 맞춰서 선택하는 것이 가장 좋은 방법이다.
 
-</br>
 
 ## 4. 시스템 별 목표
 #### CPU 스케줄링의 세부적인 목표는 시스템마다 다르다.
@@ -182,14 +178,12 @@ Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순�
     - Meeting Deadlines
     - Predictability
 
-</br>
-</br>
 
 # CPU Sheduling Algorithm
 ## 1. 선입 선처리 알고리즘 (First Come First Served Scheduling, FCFS)
 #### CPU를 먼저 요청하는 프로세스가 CPU를 먼저 할당받는 방식
 <div align='center'>
-    <img src="./img/OS_Scheduling_FCFS.png" width="550px">
+    <img src="img/os_scheduling_fcfs.png" width="550px">
     <p>FCFS 예시</p>
 </div>
 
@@ -205,7 +199,6 @@ Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순�
 > 
 > 호위효과가 발생할 경우 CPU와 장치 이용률이 낮아진다.
 
-</br>
 
 ## 2. 최단 작업 우선 스케줄링 (Shortest Job First Schduling, SJF)
 ####  CPU 버스트 길이가 가장 작은 프로세스부터 순서적으로 CPU 코어를 할당하는 방식
@@ -214,30 +207,27 @@ Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순�
 - CPU burst time의 길이를 고려해서 스케줄링을 결정하는 알고리즘
 - 평균 대기 시간을 줄일 수 있다.
 - 다음 프로세스의 CPU burst time을 예측하는 것이 어렵다는 문제가 존재한다.
-</br>
 
 <div align='center'>
-    <img src="./img/OS_Scheduling_SJF_Non.png" width="550px">
+    <img src="img/os_scheduling_sjf_non.png" width="550px">
     <p>비선점형 SJF 예시</p>
 </div>
 
 - 비선점형 : 실행되고 있는 프로세스는 끝까지 실행함
-</br>
 
 <div align='center'>
-    <img src="./img/OS_Scheduling_SJF.png" width="550px">
+    <img src="img/os_scheduling_sjf.png" width="550px">
     <p>선점형 SJF 예시</p>
 </div>
 
 - 선점형 : 현재 실행되고 있는 프로세스의 남은 시간보다 도착한 다음 프로세스가 더 빨리 끝낼 수 있는 프로세스이면 다음 프로세스를 실행
 - **SRTF, SRF(Shortest Remaining Time First)** 라고도 부른다.
 
-</br>
 
 ## 3. 라운드 로빈 스케줄링 (Round Robin Scheduling, RR)
 ####  각 프로세스가 CPU를 연속적으로 사용할 수 있는 시간을 특정 시간으로 제한하여 이 시간이 경과하면 프로세스로부터 CPU를 회수해 준비 큐에 있는 다른 프로세스에게 CPU를 할당 
 <div align='center'>
-    <img src="./img/OS_Scheduling_RR.png" width="550px">
+    <img src="img/os_scheduling_rr.png" width="550px">
     <p>RR 예시</p>
 </div>
 
@@ -253,12 +243,11 @@ Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순�
     - q가 커진다면 :  FCFS처럼 작동한다. 
     - q가 매우 작아지면 : process sharing이라고 부름, 이것은 n개의 프로세스가 프로세서 속도의 1/n 씩으로 작동함을 의미한다. 문맥 교환의 오버헤드가 커지게 된다.
 
-</br>
 
 ## 4. 우선순위 스케줄링 (Priority Scheduling)
 #### 준비 큐에서 기다리는 프로세스들 중에서 우선순위가 가장 높은 프로세스에게 제일 먼저 CPU를 할당하는 방식
 <div align='center'>
-    <img src="./img/OS_Scheduling_Priority.png" width="550px">
+    <img src="img/os_scheduling_priority.png" width="550px">
     <p>우선순위 예시</p>
 </div>
 
@@ -274,12 +263,10 @@ Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순�
     - 노화(Aging) : 오랫동안 시스템에서 대기하는 프로세스들의 우선순위를 점진적으로 증가시킨다.
     - 우선순위 스케줄링과 라운드 로빈 스케줄링을 결합(다단계 큐 스케줄링)
 
-</br>
-
 ## 5. 다단계 큐 스케줄링 (Multilevel Queue Scheduling)
 #### 우선순위 스케줄링이 라운드 로빈과 결합한 스케줄링 알고리즘
 <div align='center'>
-    <img src="./img/OS_Scheduling_Multilevel_Queue.png" width="550px">
+    <img src="img/os_scheduling_multilevel_queue.png" width="550px">
     <p>다단계 큐 예시</p>
 </div>
 
@@ -295,12 +282,10 @@ Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순�
     - 보통 CPU 시간의 80%는 Foreground의 RR, 20%는 Background의 FCFS에 할당된다.
 - 기아(Starvation) 문제가 발생할 수 있다.
 
-</br>
-
 ## 6. 다단계 피드백 큐 스케줄링 (Multilevel Feedback Queue Scheduling)
 ##### Multilevel Queue와 비슷하지만, MFQ는 각 큐 간에 프로세스들이 이동할 수 있다. 
 <div align='center'>
-    <img src="./img/OS_Scheduling_Multilevel_Feedback_Queue.png" width="400px">
+    <img src="img/os_scheduling_multilevel_feedback_queue.png" width="400px">
     <p>다단계 피드백 큐 예시</p>
 </div>
 
@@ -312,12 +297,10 @@ Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순�
 - 특정 시스템에 부합하도록 구성이 가능함으로 현대 사용되는 CPU 스케줄링 알고리즘 중 가장 일반적인 CPU 스케줄링 알고리즘이다.
 - 가장 좋은 스케줄러로 동작하기 위해서는 모든 매개변수 값들을 선정하는 특정 방법이 필요하기 떄문에 가장 복잡한 알고리즘이다.
 
-</br>
-
 ## 7. HRN (Highest Response-ratio Next)
 #### 점유 불평등 현상이 발생하는 SJF 알고리즘을 보완하기 위해 만들어졌다. 우선 순위를 계산하여 동작한다.
 <div align='center'>
-    <img src="./img/OS_Scheduling_HRN.png" width="400px">
+    <img src="img/os_scheduling_hrn.png" width="400px">
     <p>다단계 피드백 큐 예시</p>
 </div>
 
@@ -325,11 +308,6 @@ Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순�
 - 준비 큐에서 우선순위에 밀려서 오랫동안 CPU를 받지 못하는 프로세스의 우선순위를 높이는 방식(기아현상 보완)
 - 우선 순위 = (대기시간 + 실행시간) / (실행시간)
 
-</br>
-</br>
-</br>
-
----
 
 ## ❓ 관련 질문
 #### Q1. SJF를 preemptive한 방식으로 구현하기 위해서는 ready queue에 새로운 프로세스가 도착할 때마다 CPU에게 interrupt를 걸어야하나? 어떻게 새로운 프로세스가 도착했음을 알고, 그것이 더 짧은 프로세스임을 알고, CPU 제어권을 넘기는가?
@@ -338,8 +316,6 @@ Ready Queue는 반드시 FIFO 방식의 queue가 아니어도 되고, 우선순�
 
 #### Q3. 별개의 queue를 두는 방식이 왜 load sharing과 관련이 있는가?
 
-</br>
-</br>
 
 ## 📖 참고 자료
 [[OS] CPU burst와 CPU Scheduler](https://velog.io/@kmjoo/OS-CPU-Scheduling-1)

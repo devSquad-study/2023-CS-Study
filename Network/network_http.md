@@ -85,7 +85,7 @@ HTTP/1.0에서는 기본적으로 한 연결당 하나의 요청을 처리하고
 그래서 기본적으로 한 번 수립한 <u>연결을 재사용</u>하게 설정했다.
  
 <div align='center'>
-    <img src="./img/HTTP1.0_HTTP1.1.webp" width="550px">
+    <img src="img/http1.0_http1.1.png" width="550px">
 </div>
 
 ### [ Keep-Alive Header ]
@@ -244,7 +244,7 @@ HTTP /1.1이 굉장히 유연하고 확장성이 좋지만, TCP/IP 프로토콜�
 🚩 `목표`: 웹 페이지 로드 대기 시간을 줄이자.
 
 <div align='center'>
-    <img src="./img/HTTP_SPDY.png" width="550px">
+    <img src="img/http_spdy.png" width="550px">
 </div>
 
 ### [ 특징 ]
@@ -330,7 +330,7 @@ HTTP/3는 어떤 문제점을 해결하기 위해 등장했을까. 그것은 바
 드디어 HTTP/3에서 TCP에서 벗어나 UDP 기반의 프로토콜을 사용함으로써 기존의 문제점을 해결할 수 있었다.
 
 <div align='center'>
-    <img src="./img/HTTP3.gif" width="550px">
+    <img src="img/http3.png" width="550px">
 </div>
 
 - **최초 연결(1-RTT)**: 연결에 필요한 정보를 한 번에 보냄.

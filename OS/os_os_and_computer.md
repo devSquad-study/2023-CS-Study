@@ -20,7 +20,7 @@
 
 ## 운영체제 구조
 
-![](/OS/os_os_and_computer/os_and_computer.png)
+![](/OS/img/os_and_computer.png)
 
 보라색 부분이 운영체제
 

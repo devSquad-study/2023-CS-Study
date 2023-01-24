@@ -9,7 +9,7 @@
 - 운영체제에서는 각 프로그래머들이 공평한 시간 동안 CPU를 할당 받을 수 있도록 세팅된 시간 동안 CPU를 사용하고, 사용시간이 종료되면 발생되는 인터럽트  
 
 <div align='center'>
-    <img src="./img/os-i-hardwareInterruptProcess-1.png" width="550px">
+    <img src="img/os_i_hardware_Interrupt_Process_1.png" width="550px">
 </div>
 
 ### 소프트웨어 인터럽트(Trap : 트랩)  
@@ -21,7 +21,7 @@ ex) 0으로 나누기, 권한 없는 메모리 참조 등..
 - 프로세스가 운영 체제의 서비스를 요청하기 위해 커널의 함수를 호출하는 경우 발생하는 인터럽트
 
 <div align='center'>
-    <img src="./img/os-i-softwareInterruptProcess-2.png" width="550px">
+    <img src="img/os_i_softwareInterruptProcess_2.png" width="550px">
 </div>
 
 
@@ -31,7 +31,7 @@ CPU를 최대한 낭비하지 않도록 하기 위해서 사용된다. 만약 �
 ## 인터럽트를 고려한 명령어 사이클
 
 <div align='center'>
-    <img src="./img/os-i-Interrupt-3.png" width="300px">
+    <img src="img/os_i_Interrupt_3.png" width="300px">
 </div>
 
 인터럽트가 발생했다고 해서 CPU에서 바로 실행되면 CPU처리가 복잡해지며 효율적으로 처리되지 않는다. 따라서 명령어 사이클이 끝나면 인터럽트 처리를 한다.
@@ -41,7 +41,7 @@ CPU를 최대한 낭비하지 않도록 하기 위해서 사용된다. 만약 �
 
 ## 인터럽트 처리 과정
 <div align='center'>
-    <img src="./img/os-i-InterruptProcess-4.png" width="550">
+    <img src="img/os_i_InterruptProcess_4.png" width="550">
 </div>
  
 1. 실행중인 프로그램을 중단.

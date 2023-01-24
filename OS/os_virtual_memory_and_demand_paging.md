@@ -53,7 +53,7 @@
   - 해당 프로세스는 IO 작업이 끝날때 까지 대기상태
 
 > ### 페이지 폴트의 처리 과정
-> <img src="img/virtual_memory_&_demand_pageing.png" width="500px" style="display: block;"/>
+> <img src="img/virtual_memory_and_demand_pageing.png" width="500px" style="display: block;"/>
 > 
 > 1. 프로세스가 새로운 데이터에 접근하기위해 페이지 테이블 참조, 해당 페이지는 invalid 마킹
 > 2. 내부 인터럽트 페이지 폴트 트랩 발생, 운영체제 인터럽트 핸들러로 전달

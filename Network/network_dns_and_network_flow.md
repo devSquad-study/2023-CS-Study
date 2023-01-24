@@ -19,7 +19,7 @@ FTP, HTTP, SSH, SMTP, DNS 등 응용 프로그램이 사용되는 프로토콜 �
 
 즉, 호스트를 식별하는 방법은 호스트 이름과 IP 주소로 두 가지이다.
 
-### [ DNS (Domain Name System Servers) ]
+### [ DNS(Domain Name System Servers) ]
 
 사람과 라우터는 서로 선호하는 식별자가 다르다. 이를 절충하기 위해서 호스트 이름을 IP 주소로 변환해줄 필요가 있는데, 이때 DNS를 이용한다.
 
@@ -34,7 +34,7 @@ DNS는 도메인 이름과 IP 주소를 저장하고 있는 분산 데이터베�
 💡그래서 DNS는 많은 서버를 이용해 **계층 형태로 분산**시킨다.
 
 <div align='center'>
-    <img src="./img/DNS_계층구조.png" width="550px">
+    <img src="img/dns_hierarchy.png" width="550px">
 </div>
 
 세 가지 DNS 서버로 나뉜다.
@@ -60,7 +60,7 @@ ISP(Internet Service Provider)의 DNS서버(**DNS recursor**)가 호스팅하고
     - `재귀적 질의`(recursive search), `반복적 질의`(iterative query)
 
 <div align='center'>
-    <img src="./img/DNS_query.png" width="550px">
+    <img src="img/dns_query.png" width="550px">
 </div>
 
 ```
@@ -128,7 +128,7 @@ DNS 지역 성능 향상과 네트워크의 DNS 메세지 수를 줄이기 위�
 > WAS : 동적인 컨텐츠(JSP, ASP, PHP 등)를 요청받아 처리하여 제공하는 서버 => 주로 DB서버와 함께 사용
 
 <div align='center'>
-    <img src="./img/WAS.png" width="550px">
+    <img src="img/was.png" width="550px">
 </div>
 
 ### 7) WAS에서의 작업 처리 결과들을 웹 서버로 전송
@@ -183,7 +183,7 @@ DNS 지역 성능 향상과 네트워크의 DNS 메세지 수를 줄이기 위�
 따라서 WAS를 통해 요청에 맞는 데이터를 DB에서 가져와서 비즈니스 로직에 맞게 그때 그때 결과를 만들어서 제공함으로써 자원을 효율적으로 사용할 수 있다.
 
 <div align='center'>
-    <img src="./img/Web_Service_Architecture.png" width="550px">
+    <img src="img/web_service_architecture.png" width="550px">
 </div>
 
 👉 웹 시스템 구성
@@ -194,7 +194,7 @@ DNS 지역 성능 향상과 네트워크의 DNS 메세지 수를 줄이기 위�
 - 하지만 WAS에 모든 역할이 부여되었을 경우 서버 과부하로 가장 비싼 애플리케이션 로직이 정적 리소스로 인해 수행이 어려울 수 있다는 우려가 있다. 
 
 <div align='center'>
-    <img src="./img/WAS+DB.png" width="500px">
+    <img src="img/was_and_db.png" width="500px">
 </div>
 
 **[ WEB + WAS + DB ]**
@@ -203,7 +203,7 @@ DNS 지역 성능 향상과 네트워크의 DNS 메세지 수를 줄이기 위�
 - 이렇게 시스템을 나누었을 때 정적 리소스가 많이 사용할 경우에는 웹 서버를 증설하고, 애플리케이션 리소스가 많이 사용될 경우 WAS를 증설하면 되어 효율적인 리소스 관리를 할 수 있다.
 
 <div align='center'>
-    <img src="./img/WEB+WAS+DB.png" width="500px">
+    <img src="img/web_and_was_db.png" width="500px">
 </div>
 
 ---

@@ -6,7 +6,7 @@
    
   * [현철](https://github.com/Fancy96/2023-CS-Study/blob/main/Network/network_basic/network_basic.md)
 
-  * [네오](https://github.com/Fancy96/CS_Study/blob/main/Network/01_What_Is_Bandwidth.md)
+  * [네오](https://github.com/Fancy96/2023-CS-Study/blob/main/Network/network_bandwidth.md)
 
 * [ ] OSI 7계층
 
