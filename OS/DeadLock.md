@@ -61,6 +61,7 @@ ex. I/O device, CPU cycle, memory space, semaphore 등
 ### 1) Deadlock Prevention (예방)
 
 - 자원 할당 시 Deadlock의 4가지 필요 조건 중 **어느 하나가 만족되지 않도록 하는 것**
+- **시스템 레벨에서** 설계를 통해 데드락이 발생할 조건 하나를 없애는 방법
 
 **[ Mutual exclusion (`상호 배제`) ]**
 
@@ -89,7 +90,7 @@ ex. I/O device, CPU cycle, memory space, semaphore 등
 
 ### 2) Deadlock Avoidance (회피)
 
-- 자원 요청에 대한 부가적인 정보를 이용해서 Deadlock의 가능성이 없는 경우에만 자원을 할당
+- **실행 환경에서** 자원 요청에 대한 부가적인 정보를 이용해서 Deadlock의 가능성이 없는 경우에만 자원을 할당
     - **부가적인 정보** : 현재 사용 가능한 자원, 이미 할당된 자원, 앞으로 있을 자원 요청이나 반환 등
 - 시스템 state가 원래 state로 돌아올 수 있는 경우에만 자원 할당
 
