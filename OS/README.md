@@ -34,9 +34,11 @@
 
     * [팬시](https://github.com/Fancy96/CS_Study/blob/main/OS/os_segmentation.md)
 
-* [ ] 페이징(Paging)
+* [x] 가상메모리와 요구 페이징, 페이지 교체(virtual memory & demand paging)
 
-    * [준태](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/virtual_memory_%26_demand_paging.md)
+    * [네오](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/virtual_memory_%26_demand_paging.md)
+
+* [ ] 페이징(Paging)
 
 * [ ] TLB(Translation Lookaside Buffers)
 
