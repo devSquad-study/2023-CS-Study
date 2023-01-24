@@ -44,7 +44,7 @@ CPU를 최대한 낭비하지 않도록 하기 위해서 사용된다. 만약 �
 
 ## 인터럽트 처리 과정
 <div align='center'>
-    <img src="./img/os-i-InterruptProcess-4.png" width="500px">
+    <img src="./img/os-i-InterruptProcess-4.png" width="550">
 </div>
  
 1. 실행중인 프로그램을 중단.
