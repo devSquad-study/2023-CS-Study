@@ -118,6 +118,7 @@
 *   2023-01-24 (화) : [운영체제-1 (개념학습)](https://github.com/Fancy96/2023-CS-Study/issues/24)
 *   2023-02-02 (목) : [운영체제-2 (개념학습)](https://github.com/Fancy96/2023-CS-Study/issues/35)
 
+### ✔️ [예상 질문](Interview/README.md)
 
 ## 🤙 규칙
 
