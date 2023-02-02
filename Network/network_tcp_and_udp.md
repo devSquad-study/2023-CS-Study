@@ -1,15 +1,17 @@
 # TCP/IP 4계층 모델
+
 #### Layer 3 - 전송 계층 : 송신자와 수신자를 연결하는 통신 서비스, 데이터 전달 담당
-</br>
 
 ## 1. TCP / UDP 란?
+
 전송계층에서 사용하는 프로토콜
 
 패킷을 한 컴퓨터에서 다른 컴퓨터로 전달해주는 IP 프로토콜 기반으로 구현되어 있음
 </br>
 
 ### [ TCP ( Transmission Control Protocol ) ]
-<image src="./img/TCP_간단한설명.png" width="400" />
+
+![](/Network/img/tcp_explanation.png){: width="400"}
 
 - 데이터 경계를 구분하지 않음 : 바이트 스트림(byte-stream) 서비스
 - 연결 지향 프로토콜(수신여부 확인O) -> 신뢰도 높지만 속도가 느림
@@ -25,7 +27,7 @@
 
 ###  [ UDP ( User Datagram Protocol ) ]
 
-<image src="./img/UDP_간단한설명.png" width="400" />
+![](/Network/img/udp_explanation.png){: width="400"}
 
 - 데이터 경계를 구분함 : 데이터그램(datagram) 서비스
 - 비 연결 지향 프로토콜(수신여부 확인X) -> 신뢰도 낮지만 속도가 빠름
@@ -39,15 +41,15 @@
 - 하나의 메시지에서 분할된 여러 패킷은 서로 다른 경로로 전송될 수 있음
 - <b>도착순서가 다를 수</b>있는 방식
 
-</br>
 
 ##### 패킷 교환 방식 비교 사진
-<image src="./img/datagram_virtualcircuits.png" width="500" />
-</br>
+
+![](/Network/img/datagram_virtualcircuits.png){: width="400"}
 
 ##### 데이터경계 구분 비교 사진
-<image src="./img/데이터경계구분.png" width="500" />
-</br>
+
+![](/Network/img/data_demarcation.jpg){: width="400"}
+
 
 ## 2. TCP의 연결 및 해제 과정
 
@@ -62,11 +64,11 @@
 - <b>SYN(Synchronize Sequence Number/000010)</b> : 연결 설정. Sequence Number를 랜덤으로 설정하여 세션을 연결하는 데 사용하며, 초기에 Sequence Number를 전송
 - <b>ACK(Acknowledgement/010000)</b> : 응답 확인. 패킷을 받았다는 것을 의미
 - <b>FIN(Finish/000001)</b> : 연결 해제. 세션 연결을 종료시킬 때 사용되며, 더 이상 전송할 데이터가 없음
-</br>
+
 
 ###  [ TCP 연결 성립 과정 : 3-웨이 핸드 셰이크 ]
 
-<image src="./img/TCP_3_way_handshake.png" />
+![](/Network/img/tcp_3_way_handshake.png)
 
 1. <b>SYN 단계</b> : 클라이언트는 서버에 클라이언트 ISN을 담아 SYN을 보냄
 - ISN : 새로운 TCP 연결의 첫 번째 패킷에 할당된 임의의 시퀀스 번호, 장치마다 다를 수 있음
@@ -75,11 +77,11 @@
 
 3. <b>ACK 단계</b> : 클라이언트는 서버의 ISN +1 한 값인 승인번호를 담아 ACK를 서버에 보냄
 
-</br>
 
 ### [ TCP 연결 해제 과정 : 4-웨이 핸드 셰이크 ]
- 
-<image src="./img/TCP_4_way_handshake.png" />
+
+![](/Network/img/tcp_4_way_handshake.png)
+
 
 1. 클라이언트가 연결을 닫으려고 할 때 <b>FIN</b>으로 설정된 세그먼트 보냄, 클라이언트는 FIN_WAIT_1 상태로 들어가고 서버의 응답 기다림
 
@@ -95,10 +97,6 @@
 
 지연 패킷, 두 장치간 접속 오류 등 의도치 않은 에러로 인해 연결이 데드락으로 빠지는 문제점을 방지하는데 쓰임
 
-</br>
-</br>
-</br>
-
 ## ❓ 관련 질문
 #### Q1. 만약 Server에서 FIN 플래그를 전송하기 전에 전송한 패킷이 Routing 지연이나 패킷 유실로 인한 재전송 등으로 인해 FIN 패킷보다 늦게 도착하는 상황이 발생하면 어떻게 될까?
 A. 이러한 현상에 대비하여 Client는 Server로부터 FIN 플래그를 수신하더라도 
@@ -113,10 +111,10 @@ A. Connection을 맺을 때 사용하는 포트(Port)는 유한 범위 내에서
 따라서 두 통신 호스트가 과거에 사용된 포트 번호 쌍을 사용하는 가능성이 존재한다.
 Server측에서는 패킷의 SYN을 보고 패킷을 구분하게 되는데 난수가 아닌 순차적인 Number가 전송된다면
 이전의 Connection으로부터 오는 패킷으로 인식할 수 있다. 이런 문제의 발생 가능성을 낮추기 위해 ISN을 난수로 설정한다.
-</br>
-</br>
+
 
 ## 📖 참고 자료
+
 [TCP와 3-Way, 4-Way Handshake란? (개념/ 동작 방식)](https://jeongkyun-it.tistory.com/180)
 
 [Packet Switching, 패킷 교환 방식에 대해서](https://wonit.tistory.com/553)

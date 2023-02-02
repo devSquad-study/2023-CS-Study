@@ -40,7 +40,8 @@
 
 노드의 추가, 삭제가 쉬우며 특정 노드에 트래픽이 집중될 때 하위 노드에 영향을 끼칠 수 있음.
 
-<image src="./네트워크 기초/트리.png" width="400" />
+![](/Network/img/tree.png){: width="400"}
+
 
 - 버스 토폴로지
 
@@ -50,16 +51,19 @@
 
 설치 비용이 적고 신뢰성이 우수하며 중앙 통신 회선에 노드 추가, 삭제가 쉬움. 그러나 스푸핑이 가능함.
 
-<image src="./네트워크 기초/버스.png" width="400" />
+![](/Network/img/bus.png){: width="400"}
+
 
 > 스푸핑이란
 > 
 
 LAN상에서 송신부의 패킷을 송신과 관련 없는 다른 호스트에 가지 않도록 하는 스위칭 기능을 마비시키거나 속여서 특정 노드에 해당 패킷이 오도록 처리하는 것을 말함.
 
-<image src="./네트워크 기초/스푸핑(전).png" width="400" />
+![](/Network/img/spoofing_before.png){: width="400"}
 
-<image src="./네트워크 기초/스푸핑(후).png" width="400" />
+
+![](/Network/img/spoofing_after.png){: width="400"}
+
 
 - 스타 토폴로지
 
@@ -67,7 +71,9 @@ LAN상에서 송신부의 패킷을 송신과 관련 없는 다른 호스트에 
 
 노드 추가 및 에러를 탐지하기 쉽고 패킷의 충돌 발생 가능성이 적음. 어떤 노드에 장애가 발생해도 쉽게 에러를 발견할 수 있음. 장애 노드가 중앙 노드가 아닐 경우 다른 노드에 영향을 적게 끼침. 중앙 노드에 장애 발생시 네트워크 전체가 마비되며 설치 비용이 고가.
 
-<image src="./네트워크 기초/스타.png" width="400" />
+
+![](/Network/img/star.png){: width="400"}
+
 
 - 링형 토폴로지
 
@@ -77,7 +83,8 @@ LAN상에서 송신부의 패킷을 송신과 관련 없는 다른 호스트에 
 
 네트워크 구성 변경이 어렵고 회선에 장애가 발생하면 전체 네트워크에 영향을 끼침.
 
-<image src="./네트워크 기초/링.png" width="400" />
+![](/Network/img/ling.png){: width="400"}
+
 
 - 메시 토폴로지
 
@@ -87,20 +94,22 @@ LAN상에서 송신부의 패킷을 송신과 관련 없는 다른 호스트에 
 
 노드의 추가가 어렵고 구축 비용과 운용 비용이 고가
 
-<image src="./네트워크 기초/메시.png" width="400" />
+![](/Network/img/mesh.png){: width="400"}
 
 ### 병목 현상
 
-> 병목(bottleneck)현상은 전체 시스템의 성능이나 용량이 하나의 구성 요소로 인해 제한을 받는 현상. 서비스에서 이벤트를 열었을 때 트래픽이 많이 생기고 그 트래픽을 잘 관리하지 못하면 병목 현상이 생겨 사용자는 웹 사이트로 들어가지 못함.
-> 
+> 병목(bottleneck)현상은 전체 시스템의 성능이나 용량이 하나의 구성 요소로 인해 제한을 받는 현상. 
+> 서비스에서 이벤트를 열었을 때 트래픽이 많이 생기고 그 트래픽을 잘 관리하지 못하면 병목 현상이 생겨 사용자는 웹 사이트로 들어가지 못함.
 
-<image src="./네트워크 기초/회선 추가 전.png" width="400" />
+
+
+![](/Network/img/before_line.png){: width="400"}
 
                          회선 추가 전
 
 토폴로지가 중요한 이요는 병목 현상을 찾을 때 중요한 기준이 되기 때문.
 
-<image src="./네트워크 기초/회선 추가 후.png" width="400" />
+![](/Network/img/after_line.png){: width="400"}
 
                          회선 추가 후
 
@@ -141,32 +150,36 @@ ping(Packet INternet Groper)은 네트워크 상태를 확인하려는 대상 �
 
 네트워크 정책상 ICMP나 traceroute를 차단하는 대상의 경우 ping 테스트 불가.
 
-<image src="./네트워크 기초/ping(google).png" width="400" />
+![](/Network/img/ping_google.png){: width="400"}
 
 > google.com에 ping을 보내는 모습
-> 
 
-<image src="./네트워크 기초/ping(naver).png" width="400" />
+
+![](/Network/img/ping_naver.png){: width="400"}
+
 
 > ICMP가 차단되어 ping이 보내지지 않음.
-> 
-1. netstat
+
+[1] netstat
 
 netstat 명령어는 접속되어 있는 서비스들의 네트워크 상태를 표시하는데 사용되며 네트워크 접속, 라우팅 테이블, 네트워크 프로토콜 등 리스트를 보여줌. 주로 서비스의 포트가 열려 있는지 확인할 때 사용.
 
-<image src="./네트워크 기초/netstat.png" width="400" />
+![](/Network/img/netstat.png){: width="400"}
 
-1. nslookup
+[2] nslookup
 
 DNS에 관련된 내용을 확인하기 위해 사용. 특정 도메인에 매핑된 IP를 확인하기 위해 사용.
 
-<image src="./네트워크 기초/nslookup.png" width="400" />
 
-1. tracert
+![](/Network/img/nslookup.png){: width="400"}
+
+
+[3] tracert
 
 윈도우에서는 tracert이고 리눅스에서는 traceroute라는 명령어로 실행 됨. 목적지 노드까지 네트워크 경로를 확인할 때 사용하는 명령어. 목적지 노드까지 구간들 중 어느 구간에서 응답 시간이 느려지는디 등을 확인할 수 있음.
 
-<image src="./네트워크 기초/traceroute.png" width="400" />
+![](/Network/img/traceroute.png){: width="400"}
+
 
 ## 네트워크 프로토콜 표준화
 

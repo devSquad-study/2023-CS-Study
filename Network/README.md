@@ -2,34 +2,33 @@
 
 ## 목차
 
-- [x] 네트워크의 기초
-    - [네오](https://github.com/Fancy96/CS_Study/blob/main/Network/01_What_Is_Bandwidth.md)
-    - [현철](https://github.com/Fancy96/CS_Study/blob/main/Network/네트워크%20기초/네트워크%20기초.md)
-- [ ] OSI 7계층
-- [x] TCP와 UDP 차이점
-    - [은선](https://github.com/Fancy96/CS_Study/blob/main/Network/TCP_and_UDP.md)
-- [x] DNS + 웹 통신 흐름
-    - [주디](https://github.com/Fancy96/CS_Study/blob/main/Network/DNS_and_Network-flow.md)
-- [x] TCP의 연결 및 해제과정 (3,4-way hands shaking)
-    - [은선](https://github.com/Fancy96/CS_Study/blob/main/Network/TCP_and_UDP.md)
-- [ ] time_wait 상태
-- [x] L7, L4 스위치 + 로드밸런싱
-    - [네오](https://github.com/Fancy96/CS_Study/blob/main/Network/L4:L7_switch_and_load_balancing.md)
-- [x] HTTP 진화 과정 
-    - [주디](https://github.com/Fancy96/CS_Study/blob/main/Network/HTTP.md)
-- [ ] HTTPS 동작원리
-- [x] REST API + RESTful
-    - [상혁](https://github.com/Fancy96/CS_Study/blob/main/Network/REST_API_RESTful_%EC%9D%B4%EC%83%81%ED%98%81.md)
-- [x] 쿠키와 세션 
-    - [수연](https://github.com/Fancy96/CS_Study/blob/main/Network/Cookie_Session.md)
-- [x] SOP와 CORS 
-    - [팬시](https://github.com/Fancy96/CS_Study/blob/main/Network/SOP_And_CORS.md)
-- [x] 프록시
-    - [은선](https://github.com/Fancy96/CS_Study/blob/main/Network/Proxy_Server.md)
-- [ ] HTTP 멱등성
-- [x] 네트워크 기기
-    - [현철](https://github.com/Fancy96/CS_Study/blob/main/Network/network_devices.md)
+* [x] [네트워크의 기초](https://github.com/Fancy96/2023-CS-Study/blob/main/Network/network_basic.md) - 현철
 
----
+* [x] [대역폭](https://github.com/Fancy96/2023-CS-Study/blob/main/Network/network_bandwidth.md) - 네오
 
-### [예상 질문](https://github.com/Fancy96/CS_Study/blob/main/Network/Network_Expected_question.md)
+* [ ] OSI 7계층
+
+* [x] [DNS + 웹 통신 흐름](https://github.com/Fancy96/2023-CS-Study/blob/main/Network/network_dns_and_network_flow.md) - 주디
+
+* [x] [TCP 의 연결 및 해제 과정 (3,4-way hands shaking)](https://github.com/Fancy96/2023-CS-Study/blob/main/Network/network_tcp_and_udp.md) - 은선
+
+* [ ] Time Wait 상태
+
+* [x] L7, L4 스위치 + 로드밸런싱
+
+* [x] [HTTP 진화 과정](https://github.com/Fancy96/2023-CS-Study/blob/main/Network/network_http.md) - 주디
+
+* [ ] HTTPS 동작원리
+
+* [x] [REST API + RESTful](https://github.com/Fancy96/2023-CS-Study/blob/main/Network/network_rest_api_restful.md) - 상혁
+
+
+* [x] [쿠키와 세션](https://github.com/Fancy96/2023-CS-Study/blob/main/Network/network_cookie_and_session.md) - 수연
+
+* [x] [SOP와 CORS](https://github.com/Fancy96/2023-CS-Study/blob/main/Network/network_sop_and_cors.md) - 팬시
+
+* [x] [프록시 서버](https://github.com/Fancy96/2023-CS-Study/blob/main/Network/network_proxy_server.md) - 은선
+
+* [ ] HTTP 멱등성
+
+* [x] [네트워크 기기](https://github.com/Fancy96/2023-CS-Study/blob/main/Network/network_devices.md) - 현철

@@ -1,7 +1,7 @@
 # 프로세스(Process)
 메모리에 적재되고 CPU자원을 할당받아 프로그램이 실행되고 있는 상태
 
-<img src="img/os-process.PNG"/>
+<img src="img/os-process.png"/>
 
 # 멀티태스킹(multi process)
 OS를 통해 CPU가 작업하는데 필요한 자원(시간)을 프로세스 또는 스레드간에 나누는 행위
@@ -24,7 +24,7 @@ OS를 통해 CPU가 작업하는데 필요한 자원(시간)을 프로세스 또
 </br></br>
 하나의 프로그램은 하나 이상의 프로세스를 가지고 있고, 하나의 프로세스는 반드시 하나 이상의 스레드를 갖는다.
 
-<img src="img/os-thread.PNG">
+<img src="img/os_thread.png">
 
 스레드는 프로세스 내에서 각각 Stack만 따로 할당받고, Code,Data,Heap 영역은 공유한다.
 스레드는 한 프로세스 내에서 동작되는 여러 실행의 흐름으로, 같은 프로세스 안에 있는 여러 스레드들은 같은 힙공간을 공유한다.

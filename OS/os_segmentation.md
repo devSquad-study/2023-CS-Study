@@ -19,7 +19,7 @@
 
 * 참고로 base, bound 레지스터 모두 CPU에 존재하는 하드웨어(DRAM)라는 점을 잊지 말자.
 
-![](/OS/img/os-16-segmentation-1.png)
+![](/OS/img/os_16_segmentation_1.png)
 
 * 위의 그림와 같이 `bound register` 는 16KB로 가상 주소 공간의 크기를 알려준다. 그리고 `base register` 는 32KB로 실제 메모리 주소 공간의 시작 부분을 가리킨다.
 
@@ -49,7 +49,7 @@
 
 * 주소 변환하면서 몇가지 비효율적인 문제가 발생한다.
 
-![](/OS/img/os-16-segmentation-2.png)
+![](/OS/img/os_16_segmentation_2.png)
 
 * 기존 가상 주소 공간에서는 **Heap과 Stack 사이의 사용하지 않는 공간도 할당되므로 비효율성**이 발생한다.
 
@@ -65,7 +65,7 @@
 
 * `세그먼테이션`은 **가상 주소 공간을 세그먼트 단위로 실제 메모리 주소 공간에 독립적으로 각각 매핑**하는 방식이다.
 
-![](/OS/img/os-16-segmentation-3.png)
+![](/OS/img/os_16_segmentation_3.png)
 
 * 이로 인해 heap과 stack 사이의 사용하지 않는 비효율성인 문제를 해결하게 되었다.
 
@@ -75,7 +75,7 @@
 
     * [3] 세그먼트는 주소 공간 간에 **Code를 공유하면서 메모리를 절약할 수 있다.**
 
-* 세그먼트(Segment)는 메모리에서 일정 부분을 의미하며 일반적인 주소 공간은 **3개의 세그먼트(Code, Stack, Heap)**으로 구성된다.
+* 세그먼트(Segment)는 메모리에서 일정 부분을 의미하며 일반적인 주소 공간은 **3개의 세그먼트(Code, Stack, Heap)** 으로 구성된다.
 
 * OS는 3개의 세그먼트를 메모리에 배치하여 heap과 stack 사이의 공간을 낭비하지 않도록 하는 것이다.
 
@@ -84,13 +84,13 @@
 
 ### Basic
 
-* 그럼 이제 세그먼테이션에서 **Virtual memory 주소를 받고 Physical memory 주소를 찾는 방법(주소 변환)**에 대해 알아보자.
+* 그럼 이제 세그먼테이션에서 **Virtual memory 주소를 받고 Physical memory 주소를 찾는 방법(주소 변환)** 에 대해 알아보자.
 
 * 가상주소는 `segment id + offset` 으로 구할 수 있다.
 
     * segment id 는  상위 2개 비트로 구분할 수 있고, offset은 하위 12개 비트로 계산할 수 있다.
 
-![](/OS/img/os-16-segmentation-4.png)
+![](/OS/img/os_16_segmentation_4.png)
 
 * 위의 그림을 예시로 들어보자.
 
@@ -129,7 +129,7 @@ else
 
 ### Stack 인 경우
 
-![](/OS/img/os-16-segmentation-5.png)
+![](/OS/img/os_16_segmentation_5.png)
 
 * `Stack`은 Code, Heap 부분과 다르게 거꾸로 확장되기 때문에 주소 변환을 다르게 해야한다.
 
@@ -155,7 +155,7 @@ else
 
 ### Code Sharing
 
-![](/OS/img/os-16-segmentation-6.png)
+![](/OS/img/os_16_segmentation_6.png)
 
 * 세그먼트는 추가적인 하드웨어 지원을 통해 **주소 공간 사이에서 공유**될 수 있다.
 
@@ -181,7 +181,7 @@ else
 
     * `외부 단편화`란 외부가 잘게 쪼개진 형태를 의미한다.
 
-![](/OS/img/os-16-segmentation-7.png)
+![](/OS/img/os_16_segmentation_7.png)
 
 * 상황) 왼쪽 메모리에서 20KB 크기를 갖는 세그먼트를 할당하려고 한다.
 
