@@ -4,7 +4,7 @@
 
 * [x] [운영체제와 컴퓨터](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_os_and_computer.md) - 현철
 
-* [ ] 메모리
+* [x] [메모리 계층](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_memory_hierarchy.md) - 은선
 
 * [x] [프로세스와 스레드](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_process_thread.md) - 수연
 
@@ -12,18 +12,18 @@
 
 * [x] [인터럽트(Interrupt)](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_interrupt.md) - 상혁
 
-* [ ] 시스템 콜(System Call)
+* [x] [시스템 콜(System Call)](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_system_call.md) - 상혁
 
-* [ ] PCB와 Context Switching
+* [x] [PCB와 Context Switching](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_pcd_and_context_switching.md) - 수연
 
 * [x] [교착상태(DeadLock)](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_deadLock.md) - 주디
 
 * [x] [주소 변환과 세그먼테이션(Segmentation)](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_segmentation.md) - 팬시
 
-* [ ] 페이징(Paging)
+* [x] [페이징(Paging)](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_paging.md) - 팬시
 
 * [x] [가상메모리와 요구 페이징, 페이지 교체](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_virtual_memory_and_demand_paging.md) - 네오
 
-* [ ] TLB(Translation Lookaside Buffers)
+* [x] [TLB(Translation Lookaside Buffers)](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_tlb.md) - 네오
 
-* [ ] 세마포어(Semaphore)와 뮤텍스(Mutex)
+* [x] [동기화(스핀락, 세마포어, 뮤텍스](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_process_synchronization.md) - 주디
