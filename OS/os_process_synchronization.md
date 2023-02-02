@@ -8,7 +8,6 @@
 
 이때 발생할 수 있는게 **Synchronization(동기화)** 문제이다.
 
-*추상적인 예시*
 <div align='center'>
     <img src="img/os_synchronization_data_access.png" width="550px">
 </div>
@@ -32,13 +31,14 @@
 - Storage-Box를 공유하는 Execution-Box가 여러 개 있는 경우 <u>race condition</u> 가능성 있다.
     - Count++ 연산이 실행되는 동안 연산 이전 데이터를 읽어간 Count-- 에서 연산을 마치고 저장하면 Count-- 연산만 적용된다.
 
+*추상적인 예시* 
 <div align='center'>
     <img src="img/os_synchronization_race_condition.png" width="550px">
 </div>
 
 ### [ OS에서 race condition 발생 ]
 
-### 1) kernel 수행 중 인터럽트 발생 시
+### 1) kernel 수행 중 인터럽트 발생
 
 > ex) Initial counter = 10
 
@@ -70,7 +70,7 @@
 
 (CPU 할당 시간에 편차가 생길 수 있다.)
 
-### 3) Multiprocessor에서 shared memory 내의 kernel data
+### 3) Multiprocessor에서 shared memory 내의 kernel data에 접근할 때
 
 <div align='center'>
     <img src="img/os_synchronization_race_condition3.png" width="550px">
@@ -126,7 +126,6 @@ do {
     - 다른 프로세스들의 기아(Starvation)을 막기 위해서
 
 <br>
----
 
 ## 💡 Solution
 
