@@ -3,7 +3,7 @@ pcb(process control block)으로 프로세스에 대한 정보를 저장한 자�
 주기억장치에서 저장이된다. 문맥 교환(context Changeing)을 하기위해 필요하다.
 
 ## 프로세스의 상태
-프로세스는 여러가지 상태를 가지고 있다.
+프로세스는 여러가지 상태를 가지고 있다. <br/><br/>
 ![프로세스 상태를 알리는 사진](img/os_process_state.jpg)
 
 ### new와 terminated
@@ -11,7 +11,8 @@ new와 프로세스가 생성된 것을 의미하고, terminated는 프로세스
 
 ### ready
 프로세스의 실행될 준비가 다 된 상태입니다. 실행 상태인 것을 스캐줄링(scheuler)하여 디스패치(dispatch)합니다.
-> 스캐줄링(scheuler): 프로세스들중에 하나를 고르는 것
+running은 프로세스가 실행중인 상태이고, waiting은 사용자의 입력을 기다리는 상태입니다
+> 스캐줄링(scheuler): 프로세스들중에 하나를 고르는 것<br/>
 디스패치(dispatch): 고른 프로세스를 cpu에 할당하는 것
 
 ### running & waiting
@@ -44,21 +45,28 @@ Context Switching이란, CPU가 이전의 프로세스 상태를 PCB에 보관�
 4. precess p1의 정보를 가지고 오고, 상태를 변경하여 cpu에 할당한다.
 
 ## Context Switching이 발생하는 원인
-선점형 스케줄링의 방식으로 진행이 되기 때문이다.
-선점형 스케줄링은 CPU에 우선순위가 높은 프로세스가 할당되면, 기존에 실행되고 있는 프로세스를 중지하고, 우선순위가 높은 프로세스가 진행이 된다. 중지되는 프로세스의 정보를 저장하고, 우선순위가 높은 프로세스를 실행하는 방식이 Context Switching이다
+선점형 스케줄링의 방식으로 진행이 되기 때문이다.<br/>
+선점형 스케줄링은 CPU에 우선순위가 높은 프로세스가 할당되면, 기존에 실행되고 있는 프로세스를 중지하고, 우선순위가 높은 프로세스가 진행이 된다. <br/>
+중지되는 프로세스의 정보를 저장하고, 우선순위가 높은 프로세스를 실행하는 방식이 Context Switching이다
 
 ## Context Switching의 문제점
 Context Switching이 잦으면 오버헤드(Overhead) 비용이 발생하여 성능이 떨어진다.
 > 오버헤드(Overhead): 사용된 시간과 사용된 메모리의 양
 
-실행할 프로세스의 정보를 PCB에서 가지고 올 동안 CPU에 할당된 프로세스가 없어서 아무일도 하지 못하게 된다. 이런한 상황이 잦이면 성능 저하로 이류어진다
+실행할 프로세스의 정보를 PCB에서 가지고 올 동안 CPU에 할당된 프로세스가 없어서 아무일도 하지 못하게 된다.<br/> 
+이러한 상황이 잦이면 성능 저하로 이류어진다
 
 ## Context Cost
 - Cache 초기화
 - Memory mapping 초기화
 - Kenel의 실행 유지
 
-위의 같은 문제점을 해결할려면, 여러 프로세스에 context switching을 하지 말고, 단일 프로세스에 여러 쓰레드를 생성하여 쓰레드에서 Context Switching을 하면 된다. 쓰레드의 경우, 메모리 공간을 공유하고 있어, 스택을 정리만 하면 되기 때문에 프로세스보다 비용이 적게 든다.
+위의 같은 문제점을 해결할려면, 여러 프로세스에 context switching을 하지 말고, 단일 프로세스에 여러 쓰레드를 생성하여 쓰레드에서 Context Switching을 하면 된다. <br/>
+쓰레드의 경우, 메모리 공간을 공유하고 있어, 스택을 정리만 하면 되기 때문에 프로세스보다 비용이 적게 든다.
+
+# 면접 질문 
+- Context Switching은 무엇인가요?<br/>
+- 프로세스의 Context Switching Cost의 해결방안은 무엇일까요?
 
 # 레퍼런스
 - [레지스터](https://m.blog.naver.com/mjnms/220460806744)
@@ -73,6 +81,3 @@ Context Switching이 잦으면 오버헤드(Overhead) 비용이 발생하여 성
 - [after academy](https://afteracademy.com/blog/what-is-context-switching-in-operating-system/)
 - [위키독스](https://wikidocs.net/65528)
 
-# 면접 질문
-## Context Switching은 무엇인가요?
-## 프로세스의 Context Switching Cost의 해결방안은 무엇일까요?
