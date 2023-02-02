@@ -129,3 +129,272 @@ do {
 ---
 
 ## 💡 Solution
+
+## 1. spinlock (스핀락)
+
+> 락을 가질 수 있을 때 까지 반복해서 시도
+
+> 임계영역이 lock이 걸려서 진입이 불가능할 때, <br> 임계영역이 unlock되어 진입이 가능해질 때까지 루프를 돌면서 재시도하여 스레드가 CPU를 점유하고 있는 상태
+
+
+**`단점`**
+- 기다리는 동안 CPU를 낭비한다는 단점
+- **`Busy-Waiting`** 상태
+
+
+**[ 예시로 설명 ]**
+- TestAndSet을 통해 T1, T2가 동시에 실행하지 않도록 함
+
+```
+- T1 시작) while 루프 조건문, 내부적으로 lock은 1로 바꾸고 기존 lock 0을 반환
+- 조건문을 만족하지 않아 루프 탈출
+- critical section 실행
+- T2 시작) while 루프 조건문, 내부적으로 - lock1로 바꾸고 기존 lock 1을 반환
+- 조건문 만족하여 루프 반복
+- T1이 lock=0 반환 및 종료
+- T2 while 루프 탈출
+- critical section 실행
+- T2이 lock=0 반환 및 종료
+```
+
+```c++
+volatile int lock = 0; // global
+
+void critical() {
+    while (test_and_set(&lock) == 1);
+    ...critical section
+    lock = 0;
+ }
+```
+
+### TestAndSet
+
+실제 구현부가 해당 코드로 이루어져 있진 않다. 
+- 설명을 위한 코드
+
+```c++
+int TestAndSet(int*lockPtr) {
+    int oldLock = *lockPtr;
+    *lockPtr = 1;
+    return oldLock;
+}
+```
+
+🤔 동시에 두 개의 스레드가 실행하면??
+
+🙋‍♀️💡 **CPU의 도움 (하드웨어의 도움)**
+
+### [ TestAndSet은 CPU atomic 명령어 ]
+
+- 실행 중간에 간섭받거나 중단되지 않는다.
+- 같은 메모리 영역에 대해 동시에 실행되지 않는다.
+    - 두 개 이상의 프로세스/스레드가 동시에 호출해도 CPU 레벨에서 먼저 하나를 실행시키고 다른 하나를 실행시킨다.
+
+<br>
+
+## 2. Mutex (뮤텍스)
+> 락을 가질 수 있을 때까지 휴식
+
+> Mutual Exclusion의 약자
+
+### [ 스핀락과 차이점 ]
+ 
+- 스핀락이 임계영역이 unlock(해제)되어 권한을 획득하기까지 Busy-Waiting 상태를 유지한다면, 뮤텍스는 Block(Sleep) 상태로 들어갔다 Wakeup 되면 다시 권한 획득을 시도한다.
+- **`Block-Wakeup 상태`**
+
+이때에도 mutex의 lock을 획득하기 위해 프로세스/스레드가 경합하게 된다.
+
+```
+mutex -> lock();
+...critical section
+mutex -> unlock();
+```
+
+**`value`**
+- value = 1을 취득해야 critical section에서 동작 가능하다.
+- 이때 value 역시 서로 취득하려고 하는 공유되는 데이터이다.
+- 뮤텍스는 상태가 0, 1이다.
+
+**`guard`**
+- **race condition 발생을 막기 위해 지켜주는 장치**이다.
+
+```c++
+class Mutex {
+    int value = 1;
+    int guard = 0;
+}
+```
+
+그래서 만약 value가 누군가 가지고 있다면 큐에 들어가게 되고, 획득할 수 있다면 value를 가지고 value는 0으로 설정해둔다.
+
+```c++
+Mutex::lock() {
+    while (test_and_set(&guard));
+    if (value == 0) {
+    	...현재 스레드를 큐에 넣음;
+        guard = 0; & go to sleep
+    } else {
+    	value = 0;
+        guard = 0;
+    }
+}
+```
+
+unlock 시에는 큐에 있을 때는 그 중 하나를 깨우고, 없다면 다시 획득할 수 있는 상태로 value를 1로 설정해둔다.
+
+```c++
+Mutex::unlock() {
+    while (test_and_set(&guard));
+    if (큐에 하나라도 대기중이라면) {
+    	그 중 하나를 깨운다;
+    } else {
+    	value = 1;
+    }
+    guard = 0;
+}
+```
+
+<br>
+
+## 3. semaphore (세마포어)
+
+> **signal mechanism**을 가진, 하나 이상의 프로세스/스레드가 critical section에 접근 가능하도록 하는 장치 <br>
+목적: Mutual Exclusion이 아닌 공유 자원에 대한 관리
+
+> 스핀락과 뮤택스와 달리 표현형이 정수형이다. 아래 value가 0,1,2, .... 가능하다. <br>
+이 점을 살려 <u>하나 이상의 컴포넌트</u>가 **공유자원에 접근**할 수 있도록 허용할 수 있다.
+
+컴포넌트가 특정 자원에 접근할 때 wait이 먼저 호출되어 임계영역에 들어갈 수 있는지 먼저 확인한다.
+
+임계영역에 접근이 가능하다면 wait을 빠져나와 임계영역에 들어가고, 이후 signal이 호출되어 임계영역에서 빠져나옵니다.
+
+```
+semaphore -> wait();
+...critical section
+semaphore -> signal();
+```
+
+### [ 종류 ]
+
+- **`Binary Semaphore`** : mutex(뮤텍스)와 동일하게 value를 1을 가지는 세마포어
+- **`Counting Semaphore`** : value값이 1보다 큰 세마포어
+
+```c++
+class Semaphore {
+    int value = 1;
+    int guard = 0;
+}
+```
+
+**`wait 연산`**
+
+세마포어의 값을 감소. 만약 값이 음수가 되면 wait을 호출한 스레드는 블록되지만 음수가 아니면 작업을 수행한다.
+
+```c++
+Semaphore::wait() {
+    while (test_and_set(&guard));
+    if (value == 0) {
+    	...현재 스레드를 큐에 넣음;
+        guard = 0; & go to sleep
+    } else {
+    	value -= 1;
+        guard = 0;
+    }
+}
+```
+
+**`signal 연산`**
+
+세마포어의 값을 증가. 만약 값이 양수가 아니라면 wait 연산에 의해 블록된 스레드를 다시 wake시킨다.
+
+```c++
+Semaphore::signal() {
+    while (test_and_set(&guard));
+    if (큐에 하나라도 대기중이라면) {
+    	그 중 하나를 깨워 준비 시킨다
+    } else {
+    	value += 1;
+    }
+    guard = 0;
+}
+```
+
+### [ Signaling 메커니즘 ]
+
+세마포는 순서를 정해줄 때 사용한다.
+
+세마포어는 **Signaling** 메커니즘으로 락을 걸지 않은 스레드도 signal을 통해 락을 해제할 수 있다.
+
+### [ 예시 ]
+
+- 상황
+
+```c++
+class Semaphore {
+    int value = 0;
+    int guard = 0;
+}
+```
+```
+< P1 >
+task1
+semaphore -> signal()
+< P2 >
+task2
+semaphore -> wait()
+task3
+```
+
+**`[ 경우 1 ]`**
+
+- task1과 task2 실행
+- task1이 먼저 수행을 끝내고 signal() 호출 -> value = 1
+- 그 다음 task2 수행이 끝나고 wait() 호출 -> value = 0
+- task3 실행
+
+
+**`[ 경우 2 ]`**
+
+- task1과 task2 실행
+- 먼저 task2 수행이 끝나고 value = 0 이라서 wait에 들어가지 못하고 queue에 넣고 block
+- 그 다음 task1이 수행을 끝내고 signal() 호출 -> 잠자는 P2 깨운다.
+- task3 실행
+
+-> 순서가 있다. 
+
+-> P2가 wait하고 P1이 signal을 보낸다.
+
+<br>
+
+### ✔️  뮤텍스 vs 이진(binary) 세마포어
+
+**`뮤텍스`**
+
+- 락(lock)을 가진 자만 락을 해제할 수 있다.
+- **priority inheritance** 속성을 가진다.
+
+
+**`세마포`**
+
+- **Signaling** 메커니즘으로 락을 걸지 않은 스레드도 signal을 통해 락을 해제할 수 있다.
+
+
+**`정리`**
+
+- 상호 배제만 필요하면 뮤텍스 권장
+- 작업 간의 실행 순서 동기화가 필요하면 세마포 권장
+
+---
+
+### 📢 같이 공부하면 좋을 면접 질문
+
+- 임계영역이 무엇인가요? 임계영역이 만족해야 하는 조건이 있나요?
+    - 키워드 : 상호 배제(Mutual exclution), 진행(Progress), 한정 대기(Bounded waiting)
+- Race Condition(경쟁 상태)에 대하여 간단한 예시를 들어 설명해주세요.
+- 뮤텍스와 세마포어 차이점에 대해 설명해주세요.
+
+---
+
+### 📌 Reference  
+- [이화여대, 반효경 교수님, 운영체](http://www.kocw.net/home/cview.do?cid=3646706b4347ef09)
+- 쉬운 코드 채널
