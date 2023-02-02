@@ -29,6 +29,7 @@ ex. I/O device, CPU cycle, memory space, semaphore 등
 
 이 상황은 그 이후에 아무것도 진행할 수 없어 상당히 좋지 않다.
 
+<br>
 
 ### ✔️ Point 1 : Deadlock 발생의 4가지 조건
 
@@ -53,6 +54,8 @@ ex. I/O device, CPU cycle, memory space, semaphore 등
 
 - 자원을 기다리는 프로세스 간에 **사이클**이 형성되어야 함
 - 즉, 프로세스들이 **순환(circular) 형태**로 서로의 리소스를 기다린다.
+
+<br>
 
 ### ✔️  Point 2 : OS의 Deadlock 처리 방법
 
@@ -114,9 +117,13 @@ ex. I/O device, CPU cycle, memory space, semaphore 등
 - Deadlock을 시스템이 <u>책임지지 않음</u>
 - UNIX를 포함한 대부분의 OS가 채택
 
+<br>
+
 ### ✔️  기아 상태 (Starvation)
 
 > 특정 프로세스보다 우선순위가 낮아 원하는 자원을 계속 할당받지 못하는 상태이다. 주로 priority scheduling에서 일어난다.
+
+<br>
 
 ### ✔️  프로그래밍 레벨에서 데드락 (with Java)
 
