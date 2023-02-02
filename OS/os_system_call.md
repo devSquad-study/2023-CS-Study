@@ -68,6 +68,68 @@
 
 ## 👨‍💻 modebit
 
+커널 모드와 사용자 모드를 구분하기 위해 참고되는 1(사용자 모드) 또는 0(커널 모드)의 값을 가지는 플래그 변수이다.
+
+카메라, 키보드 등 I/O 디바이스를 운영체제를 통해서만 사용할 수 있게 하여 외부로부터 사용자 장비를 보호한다.
+
+<div align='center'>
+    <img src="img/os_modebit.png" width="550px">
+</div>
+
+## 📞 시스템 콜(System Call)
+
+운영체제에서 제공하는 서비스들을 사용하기 위한 프로그래밍 인터페이스이다. 보통 직접적으로 시스템 콜을 사용하기보다 API(라이브러리 함수)를 통해 사용하게 된다.
+
+운영체제는 메모리에 프로그램 적재, I/O 처리, 파일 시스템 처리 등 여러 서비스들을 제공하고, 사용자 프로세스는 시스템 콜을 통해 서비스를 제공받는다.
+
+### 시스템 콜 종류
+
+### 1) 프로세스 제어(Process Control)
+- 끝내기(exit), 중지(abort)
+- 적재(load), 실행(execute)
+- 프로세스 생성(create process) - fork
+- 프로세스 속성 획득과 속성 설정
+- 시간 대기(wait time)
+- 사건 대기(wait event)
+- 사건을 알림(signal event)
+- 메모리 할당 및 해제
+
+### 2) 파일 조작(File Manipulation)
+- 파일 생성/삭제 (create, delete)
+- 열기/닫기/읽기/쓰기 (open, close, read, write)
+- 위치 변경(reposition)
+- 파일 속성 획득 및 설정(get file attribute, set file attribute)
+
+### 3) 디바이스 조작(Device Manipulation)
+- 하드웨어의 제어와 상태 정보를 얻음(ioctl)
+- 장치를 요구(request device), 장치를 방출(release device)
+- 읽기(read), 쓰기(write), 위치 변경
+- 장치 속성 획득 및 설정
+- 장치의 논리적 부착 및 분리
+
+### 4) 정보 유지(Information Maintenance)
+- getpid(), alarm(), sleep()
+- 시간과 날짜의 설정과 획득(time)
+- 시스템 데이터의 설정과 획득(date)
+- 프로세스 파일, 장치 속성의 획득 및 설정
+
+### 5) 통신(Communication)
+- pipe(), shm_open(), mmap()
+- 통신 연결의 생성, 제거
+- 메시지의 송신, 수신
+- 상태 정보 전달
+- 원격 장치의 부착 및 분리
+
+### 6) 보호(Protection)
+- chmod()
+- unmask()
+- chown()
+
+<div align='center'>
+    <img src="img/os_system_call_command.png" width="550px">
+</div>
+
+
 
 
 
