@@ -24,7 +24,7 @@
 
 * **64-byte address space** with 16 bytes `pages`
 
-![](/OS/img/os_paging_1.png){: width="500"}
+<img src="img/os_paging_1.png" width="600px">
 
 * 위의 그림에서 4개의 page로 구성된 가상 주소 공간을 8개의 page frame으로 쪼갠 것을 볼 수 있다.
 
@@ -32,7 +32,7 @@
 
 * Paging 기법을 사용하기 위해서 가상 주소 공간에 있는 프로세스의 `page`들이 실제 메모리의 어디에 위치를 하는 지를 기억하는 `Page table`을 가지고 있어야 한다.
 
-![](/OS/img/os_paging_1_2.png){: width="350"}
+<img src="img/os_paging_1_2.png" width="350px">
 
 * `Page table` 이란 가상 주소 공간의 page가 실제 메모리(주소 공간)에 어디에 위치해 있는 지를 기록한다.
 
@@ -50,15 +50,15 @@
 
     * Offset : page 안에 있는 offset -> 나머지 4개의 bit이 offset을 표현한다.
 
-![](/OS/img/os_paging_2.png){: width="350"}
+<img src="img/os_paging_2.png" width="350px">
 
 * Example: virtual address **21** in 64-byte address space
 
-![](/OS/img/os_paging_3.png){: width="350"}
+<img src="img/os_paging_3.png" width="350px">
 
 A Simple 64-byte Address Space
 
-![](/OS/img/os_paging_4.png){: width="400"}
+<img src="img/os_paging_4.png" width="350px">
 
 * Page table을 통해서 Virtual Page, Physical Page frame 의 i번째를 찾는다.
 
@@ -73,7 +73,7 @@ A Simple 64-byte Address Space
 
 * The virtual address 21 in 64-byte address space
 
-![](/OS/img/os_paging_5.png){: width="500"}
+<img src="img/os_paging_5.png" width="500px">
 
 * 가상 주소 공간에서 VPN 값을 Page Table을 통해 해당하는 값을 찾아서 실제 주소 공간의 PFN 값을 찾는다.
 
@@ -81,3 +81,8 @@ A Simple 64-byte Address Space
 
     * PFN = Physical Frame Number (= PPN, Physical Page Number)
 
+## Reference
+
+* 학교 수업 내용 - [Operating Systems Three Easy Pieces (Remzi H. Arpaci-Dusseau & Andrea C. Arpaci-Dusseau)](https://www.amazon.com/Operating-Systems-Three-Easy-Pieces/dp/198508659X)
+
+* [[OS] Paging을 사용한 고정 크기 메모리 관리 및 추상화](https://icksw.tistory.com/148)
