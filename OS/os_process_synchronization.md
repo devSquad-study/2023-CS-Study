@@ -12,6 +12,12 @@
     <img src="img/os_synchronization_data_access.png" width="550px">
 </div>
 
+```
+load X, reg1
+inc   reg1
+store X, reg1
+```
+
 <br>
 
 ## 🤼‍♂️  Process Synchronization
@@ -36,7 +42,7 @@
     <img src="img/os_synchronization_race_condition.png" width="550px">
 </div>
 
-### [ OS에서 race condition 발생 ]
+### [ OS에서 race condition은 언제 발생할까 ]
 
 ### 1) kernel 수행 중 인터럽트 발생
 
@@ -94,9 +100,18 @@
 
 ### ✔️  critical section (임계 영역)
 
-공유 데이터의 일관성을 보장하기 위해 하나의 프로세스/스레드만 진입해서 실행 가능한 영역
+공유 데이터의 일관성을 보장하기 위해 하나의 프로세스/스레드만 진입해서 실행(mutual exclusion) 가능한 영역
+
+- `Problem` : 하나의 프로세스가 <u>critical section</u>에 있을 때 다른 모든 프로세스는 critical section에 들어갈 수 없어야 한다.
+
+<div align='center'>
+    <img src="img/os_synchronization_critical_section.png" width="550px">
+</div>
+
 
 ### [ 프로세스 일반적인 구조 ]
+
+critical section problem을 해결하기 위한 기본 뼈대
 
 ```
 do {
@@ -106,12 +121,6 @@ do {
     	remainder section
 } while(1);
 ```
-
-- `Problem` : 하나의 프로세스가 <u>critical section</u>에 있을 때 다른 모든 프로세스는 critical section에 들어갈 수 없어야 한다.
-
-<div align='center'>
-    <img src="img/os_synchronization_critical_section.png" width="550px">
-</div>
 
 ### [ critical section problem 해결책이 되기 위한 조건 ]
 
@@ -128,6 +137,17 @@ do {
 <br>
 
 ## 💡 Solution
+
+> mutual exclusion 보장 -> 락(lock) 사용 <br> 락을 획득하기 위해 경쟁
+
+```
+do {
+    acquire lock
+    	critical section   
+    release lock
+    	remainder section
+} while(1);
+```
 
 ## 1. spinlock (스핀락)
 
@@ -168,6 +188,8 @@ void critical() {
 
 ### TestAndSet
 
+기존 lock을 반환하는 함수. 반환 전 lock을 1로 바꾼다.
+
 실제 구현부가 해당 코드로 이루어져 있진 않다. 
 - 설명을 위한 코드
 
@@ -192,6 +214,8 @@ int TestAndSet(int*lockPtr) {
 <br>
 
 ## 2. Mutex (뮤텍스)
+> 여러 스레드를 실행하는 환경에서 자원에 대한 접근에 제한을 강제하기 위한 동기화 매커니즘
+
 > 락을 가질 수 있을 때까지 휴식
 
 > Mutual Exclusion의 약자
@@ -200,6 +224,7 @@ int TestAndSet(int*lockPtr) {
  
 - 스핀락이 임계영역이 unlock(해제)되어 권한을 획득하기까지 Busy-Waiting 상태를 유지한다면, 뮤텍스는 Block(Sleep) 상태로 들어갔다 Wakeup 되면 다시 권한 획득을 시도한다.
 - **`Block-Wakeup 상태`**
+- 뮤텍스 lock은 내부적으로 value로 컨트롤하는데 value를 가질 수 없을 때는 큐에서 Block하면서 기다린다. 그래서 CPU 사이클을 불필요하게 낭비하는 것을 최소화시켜준다.
 
 이때에도 mutex의 lock을 획득하기 위해 프로세스/스레드가 경합하게 된다.
 
@@ -216,6 +241,8 @@ mutex -> unlock();
 
 **`guard`**
 - **race condition 발생을 막기 위해 지켜주는 장치**이다.
+- 아래 lock과 unlock을 보면 value값을 바꿔주는 로직을 보호하기 위해서 guard를 사용하고 있다.
+- 이때도 **TestAndSet은 CPU atomic 명령어**를 사용하고 있다.
 
 ```c++
 class Mutex {
@@ -224,7 +251,7 @@ class Mutex {
 }
 ```
 
-그래서 만약 value가 누군가 가지고 있다면 큐에 들어가게 되고, 획득할 수 있다면 value를 가지고 value는 0으로 설정해둔다.
+그래서 만약 value가 누군가 가지고 있다면 큐에 들어가게 되고, 획득할 수 있다면 value를 가지고 다른 프로세스가 가질 수 없도록 value는 0으로 설정해둔다.
 
 ```c++
 Mutex::lock() {
@@ -253,12 +280,18 @@ Mutex::unlock() {
 }
 ```
 
+🤔 뮤텍스가 스핀락보다 항상 좋을까?
+
+🙋‍♀️💡 **멀티 코어** 환경이고, **critical section에서의 작업**이 컨텍스트 스위칭보다 **더 빨리 끝난다면 스핀락이 뮤텍스보다 더 이점**이 있다.
+
 <br>
 
 ## 3. semaphore (세마포어)
 
+> 멀티프로그래밍 환경에서 다수의 프로세스나 스레드의 여러 개의 공유 자원에 대한 접근을 제한하는 방법으로 사용된다.
+
 > **signal mechanism**을 가진, 하나 이상의 프로세스/스레드가 critical section에 접근 가능하도록 하는 장치 <br>
-목적: Mutual Exclusion이 아닌 공유 자원에 대한 관리
+🚩 `목적`: Mutual Exclusion이 아닌 공유 자원에 대한 관리
 
 > 스핀락과 뮤택스와 달리 표현형이 정수형이다. 아래 value가 0,1,2, .... 가능하다. <br>
 이 점을 살려 <u>하나 이상의 컴포넌트</u>가 **공유자원에 접근**할 수 있도록 허용할 수 있다.
@@ -267,10 +300,12 @@ Mutex::unlock() {
 
 임계영역에 접근이 가능하다면 wait을 빠져나와 임계영역에 들어가고, 이후 signal이 호출되어 임계영역에서 빠져나옵니다.
 
+### [ 세마포어 P, V 연산 ]
+
 ```
-semaphore -> wait();
+semaphore -> wait();  // P : 임계 구역 진입할 때 외친다.
 ...critical section
-semaphore -> signal();
+semaphore -> signal();  // V : 임계 구역을 빠져나올 때 외친다.
 ```
 
 ### [ 종류 ]
@@ -324,7 +359,7 @@ Semaphore::signal() {
 
 세마포어는 **Signaling** 메커니즘으로 락을 걸지 않은 스레드도 signal을 통해 락을 해제할 수 있다.
 
-### [ 예시 ]
+### [ 예시 : : 멀티 코어 환경 ]
 
 - 상황
 
