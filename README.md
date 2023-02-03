@@ -153,10 +153,11 @@
 ### Commit 컨벤션
 
 ```text
-파일 생성 시 docs: [파일명] " 커밋 메시지 "
-이미지 파일 업로드 시 add: [파일명] " 커밋 메시지 "
-파일 내부 수정 시 chore: [파일명] " 커밋 메시지 "
-파일명 수정 시 rename: [파일명] " 커밋 메시지 "
+파일 생성 시 docs : [파일명] " 커밋 메시지 "
+이미지 파일 업로드 시 add : [파일명] " 커밋 메시지 "
+파일 내부 수정 시 chore : [파일명] " 커밋 메시지 "
+파일명 수정 시 rename : [파일명] " 커밋 메시지 "
+오류 처리시 fix : [파일명] " 커밋 메시지 "
 
 CPU 스케줄링 알고리즘 -> os_cpu_scheduling_and_algorithm
 ex. docs: os_cpu_scheduling_and_algorithm.md
