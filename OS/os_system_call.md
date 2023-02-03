@@ -249,8 +249,9 @@ cp in.txt out.txt
 
 <details>
 <summary>fork() 함수에 대해서</summary>
-fork()는 os가 생성한다.
-    
+
+fork()는 os가 생성한다.  
+
 fork() 함수는 다른 프로세스를 복제 및 생성한다.
 
 fork() 함수 호출 시 자식 프로세스를 생성한다.
