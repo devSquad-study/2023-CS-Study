@@ -14,7 +14,7 @@
 
 * [ ] Time Wait 상태
 
-* [x] L7, L4 스위치 + 로드밸런싱
+* [x] [L7, L4 스위치 + 로드밸런싱](https://github.com/Fancy96/2023-CS-Study/blob/main/Network/network_l4_l7_switch_and_load_balancing_.md) - 네오
 
 * [x] [HTTP 진화 과정](https://github.com/Fancy96/2023-CS-Study/blob/main/Network/network_http.md) - 주디
 
