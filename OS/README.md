@@ -14,7 +14,7 @@
 
 * [x] [시스템 콜(System Call)](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_system_call.md) - 상혁
 
-* [x] [PCB와 Context Switching](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_pcd_and_context_switching.md) - 수연
+* [x] [PCB와 Context Switching](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_pcb_and_context_switching.md) - 수연
 
 * [x] [교착상태(DeadLock)](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_deadLock.md) - 주디
 
