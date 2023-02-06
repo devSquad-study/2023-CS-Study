@@ -525,3 +525,4 @@ task3
 ### 📌 Reference  
 - [이화여대, 반효경 교수님, 운영체](http://www.kocw.net/home/cview.do?cid=3646706b4347ef09)
 - 쉬운 코드 채널
+- [식당 예시 참고 - [10분 테코톡] 🎲 와일더의 Mutex vs Semaphore](https://youtu.be/oazGbhBCOfU)
