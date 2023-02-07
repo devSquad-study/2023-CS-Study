@@ -16,8 +16,6 @@
 
 * [x] [PCB와 Context Switching](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_pcb_and_context_switching.md) - 수연
 
-* [x] [교착상태(DeadLock)](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_deadLock.md) - 주디
-
 * [x] [주소 변환과 세그먼테이션(Segmentation)](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_segmentation.md) - 팬시
 
 * [x] [페이징(Paging)](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_paging.md) - 팬시
@@ -29,5 +27,7 @@
 * [x] [TLB 심화](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_tlb_advanced.md) - 팬시
 
 * [x] [동기화(스핀락, 세마포어, 뮤텍스)](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_process_synchronization.md) - 주디
+
+* [x] [교착상태(DeadLock)](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_deadLock.md) - 주디
 
 * [x] [멀티프로세스, 스레드와 멀티스레딩](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_multi_procsss_thread_multi_thread.md) - 현철
