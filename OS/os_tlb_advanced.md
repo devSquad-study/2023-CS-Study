@@ -12,7 +12,7 @@
 
 * `TLB`는 **Memory-Management Unit(MMU)의 일부분이자, 주소 변환의 하드웨어 캐시**이다.
 
-![](/assets/img/os/os-tlb-1.png)
+![](/OS/img/os-tlb-1.png)
 
 * TLB에는 **자주 사용**하는 VPN(virtual page number)와 PFN(physical frame number) 정보가 쌍으로 존재하며 이를 사용해 가상 주소를 실제 주소로 변환하도록 도와주는 Hardware cache이다.
 
@@ -22,7 +22,7 @@
 
 * 하지만, 해당 정보가 TLB에 없다면 어쩔 수 없이 Page Table에서 가져오는 단점이 있다.
 
-![](/assets/img/os/os-tlb-2.png)
+![](/OS/img/os-tlb-2.png)
 
 * 위의 그림은 TLB를 사용한 Paging Hardware 예시이다.
 
@@ -32,7 +32,7 @@
 
 ## TLB entry (TLB 안에는 무엇이 있을까?)
 
-![](/assets/img/os/os-tlb-3.png)
+![](/OS/img/os-tlb-3.png)
 
 * TLB는 **Full Associative** method에 의해 관리된다.
 
@@ -52,7 +52,7 @@
 
 * 메모리가 다른 I/O 장치보다는 빠르지만, Process의 속도보다는 많이 느리다. 그래서 전체적인 시스템 성능을 높이기 위해서 메모리에서 데이터를 읽어오는 속도를 빠르게 하기 위해 `Cache`(캐시)가 등장한 것이다.
 
-![](/assets/img/os/os-tlb-cache.png)
+![](/OS/img/os-tlb-cache.png)
 
 * 예로 들자면, `팬시`가 "Operating Systems Three Easy Pieces" 이라는 운영체제 책을 빌리려고 학교 도서관(Main Memory)에 갔다.
 
@@ -66,7 +66,7 @@
 
 * TLB가 메모리 성능을 어떻게 향상시키는 지 다음 예시를 가져와 봤다.
 
-![](/assets/img/os/os-tlb-ex-accessing-an-array.png)
+![](/OS/img/os-tlb-ex-accessing-an-array.png)
 
 * 가정) Page의 크기는 16-byte이며 가상 주소 공간의 크기를 8-bit(2^8=196byte)라고 가정한다.
 
@@ -102,13 +102,13 @@
 
   캐시의 크기가 작기 때문에 빠르게 메모리에 정보를 저장하는 것이지, 만약에 캐시의 크기가 커진다면 빠르게 될 수 없다.
 
-![](/assets/img/os/os-tlb-locality-1.png)
+![](/OS/img/os-tlb-locality-1.png)
 
 * `Spatial Locality`(공간 지역성)란 **어떤 요소에 접근한 상황이라면 그 주변의 요소들에 접근할 가능성이 높다**는 의미이다.
 
   배열과 같은 데이터에 접근할 때 순차적으로 접근(연속적인 접근)하게 되므로 apple 이라는 요소에 접근한 상황이라면 다음에 접근할 때에는 apple 주변의 요소들에 접근할 가능성이 높다는 것이다.
 
-![](/assets/img/os/os-tlb-locality-2.png)
+![](/OS/img/os-tlb-locality-2.png)
 
 ## Effective Access Time(EAT)
 
@@ -134,19 +134,19 @@
 
 * TLB를 사용할 때 Context Switching이 발생한다면 어떻게 되는지 다음 예시를 통해 알아보자.
 
-![](/assets/img/os/os-tlb-issue-1.png)
+![](/OS/img/os-tlb-issue-1.png)
 
 * `Process A`의 VPN 10에 대한 주소 변환 정보가 TLB에 저장되어 있다.
 
 * 참고로 Process마다 각자의 Virtual Memory를 가지고 있다.
 
-![](/assets/img/os/os-tlb-issue-2.png)
+![](/OS/img/os-tlb-issue-2.png)
 
 * 이때 Context Switching이 발생하여 `Process B`로 넘어가게 되는데, Process B 역시 VPN 10에 대한 주소 변환 정보가 TLB에 저장되어 있다.
 
 * 이런 경우 Process A, B 둘다 **VPN은 10으로 동일하지만 PFN은 서로 다른 것을 확인**할 수 있다.
 
-![](/assets/img/os/os-tlb-issue-3.png)
+![](/OS/img/os-tlb-issue-3.png)
 
 * 하지만 위와 같이 TLB에 정보를 저장하게 되면 **어떤 정보가 어떤 Process의 정보인지 알 수가 없다**.
 
@@ -156,7 +156,7 @@
 
 * 위의 문제를 해결하기 위해 하드웨어의 도움을 받아 TLB에서 `ASID`(address space identifier)라는 정보를 추가하여 문제를 해결하는 것이다.
 
-![](/assets/img/os/os-tlb-context-switching-to-solve-problem.png)
+![](/OS/img/os-tlb-context-switching-to-solve-problem.png)
 
 * 어떤 프로세스의 정보인지 구별하기 위해 TLB에서 `ASID`를 제공한다.
 
@@ -166,7 +166,7 @@
 
 * 위에서는 VPN이 동일한 예시를 봤고, 이번에는 PFN이 동일한 경우에 대해서 알아보자.
 
-![](/assets/img/os/os-tlb-context-switching-to-solve-problem-2.png)
+![](/OS/img/os-tlb-context-switching-to-solve-problem-2.png)
 
 * 위의 예시를 가정해보면 Process 1은 Process 2와 같은 PFN 값이 101로 동일하다.
 
@@ -196,7 +196,7 @@
 
 * LRU 접근 방법을 이용하여 TLB miss rate를 최소화하는 과정을 알아보자.
 
-![](/assets/img/os/os-tlb-replacement-policy-LRU.png%20.png)
+![](/OS/img/os-tlb-replacement-policy-LRU.png%20.png)
 
 * Reference Row : 주어진 새로운 숫자(프로세스)가 순차적으로 실행한다는 것을 의미한다.
 
