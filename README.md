@@ -1,5 +1,10 @@
 # 신입 개발자 CS 면접 대비 및 지식 공유 👨🏻‍💻 🔥
 
+[![Since](https://img.shields.io/badge/since-2023.01.02-333333.svg?style=flat-square)](https://github.com/Fancy96)
+[![author](https://img.shields.io/badge/author-Fancy96-512BD4.svg?style=flat-square)](https://github.com/Fancy96)
+[![LICENSE](https://img.shields.io/dub/l/vibe-d.svg?style=flat-square)](https://github.com/Fancy96/2023-CS-Study/blob/main/LICENSE.md/)
+
+
 면접대비 CS 스터디 (2023.01.02 ~ ) | 📚 [학습 로그](https://github.com/Fancy96/CS_Study/issues)
 
 
@@ -154,17 +159,18 @@
 ### Commit 컨벤션
 
 ```text
-파일 생성 시 docs : [파일명] " 커밋 메시지 "
+파일 생성 시 docs : [파일명]
 이미지 파일 업로드 시 add : [파일명] " 커밋 메시지 "
 파일 내부 수정 시 chore : [파일명] " 커밋 메시지 "
 파일명 수정 시 rename : [파일명] " 커밋 메시지 "
 오류 처리시 fix : [파일명] " 커밋 메시지 "
 
 CPU 스케줄링 알고리즘 -> os_cpu_scheduling_and_algorithm
-ex. docs: os_cpu_scheduling_and_algorithm.md
-ex. add: os_scheduling_fcfs.png " 파일 추가 "
-ex. chore: os_cpu_scheduling_and_algorithm.md " 내용 추가 "
-ex. rename: os_cpu_scheduling_and_algorithm.md " 이름 수정 "
+예) docs : os_cpu_scheduling_and_algorithm.md
+예) add : os_scheduling_fcfs.png " 파일 추가 "
+예) chore : os_cpu_scheduling_and_algorithm.md " 내용 추가 "
+예) rename : os_cpu_scheduling_and_algorithm.md " 이름 수정 "
+예) fix : os_cpu_sheduling_and_algorithm.md " 오류 처리 "
 ```
 
 ## PR 이용 방법
@@ -179,3 +185,13 @@ ex. rename: os_cpu_scheduling_and_algorithm.md " 이름 수정 "
 ## Reference
 
 * [면접을 위한 CS 전공지식 노트](https://product.kyobobook.co.kr/detail/S000001834833)
+
+* [컴퓨터 네트워킹 : 하향식 접근](https://product.kyobobook.co.kr/detail/S000001868723)
+
+* [Operating Systems: Three Easy Pieces](https://www.amazon.com/Operating-Systems-Three-Easy-Pieces/dp/198508659X)
+
+* [데이터베이스 개론](https://product.kyobobook.co.kr/detail/S000001743852)
+
+* [Fundamentals of Data Structures in C 2nd Edition](https://www.amazon.com/Fundamentals-Data-Structures-Ellis-Horowitz/dp/0929306406)
+
+* [Foundations of Algorithms 5/E](https://www.amazon.com/Foundations-Algorithms-Richard-Neapolitan/dp/1284049191)
