@@ -126,6 +126,14 @@
 *   2023-01-24 (화) : [운영체제-1 (개념학습)](https://github.com/Fancy96/2023-CS-Study/issues/24)
 *   2023-02-02 (목) : [운영체제-2 (개념학습)](https://github.com/Fancy96/2023-CS-Study/issues/35)
 *   2023-02-07 (화) : [운영체제-3 (모의면접)](https://github.com/Fancy96/2023-CS-Study/issues/42)
+*   [회고 (Retrospection)](https://github.com/Fancy96/2023-CS-Study/issues/50)
+
+### 3. [데이터베이스](DB/README.md)
+
+*   [데이터베이스 시작](https://github.com/Fancy96/2023-CS-Study/issues/48)
+
+*   2023-02-14 (화) : [데이터베이스-1 (개념학습)](https://github.com/Fancy96/2023-CS-Study/issues/54)
+
 
 ### ✔️ [예상 질문](Interview/README.md)
 
