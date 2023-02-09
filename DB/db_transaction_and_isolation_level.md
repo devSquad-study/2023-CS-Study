@@ -181,25 +181,9 @@ CREATE TABLE account (
 🐱 송송 계좌 : 100만 원
 ```
 
-<span style="color:orange">1) 정윤 -> 송송 10만 원 이체 트랜잭션 시작!</span>
+<img src="img/isolation_example.png" width="300px">
 
-**< 🐰 정윤 >**
-
-<span style="color:orange">read(balance) => 200만 원</span>
-
-<span style="color:orange">write(balance = 190만 원)</span>
-
-**< 🐱 송송 >**
-
-<span style="color:orange">read(balance) => 100만 원</span>
-
-<span style="color:violet">2) 이때 송송이 자신의 계좌에 40만 원 입금 트랜잭션 시작</span>
-
-<span style="color:violet">read(balance) => 100만 원</span>
-
-<span style="color:violet">write(balance = 140만 원)</span>
-
-<span style="color:orange">write(balance = 110만 원)</span>
+* 마크다운 색상이 적용 문제로 이미지로 대체
 
 <br>
 
