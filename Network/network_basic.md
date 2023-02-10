@@ -20,7 +20,9 @@
 
 처리량은 사용자들이 많이 접속할 때마다 커지는 트래픽, 네트워크 장치 간의 대역폭(주어진 시간 동안 네트워크 연결을 통해 흐를 수 있는 최대 비트 수), 네트워크 중간에 발생하는 에러, 장치의 하드웨어 스펙에 영향을 받습니다.
 
-<image src="./네트워크 기초/처리량.png" width="400" />
+<div align='center'>
+    <img src="img/throughput.png" width="400px">
+</div>
 
 ### 지연 시간
 
@@ -40,8 +42,9 @@
 
 노드의 추가, 삭제가 쉬우며 특정 노드에 트래픽이 집중될 때 하위 노드에 영향을 끼칠 수 있음.
 
-![](/Network/img/tree.png){: width="400"}
-
+<div align='center'>
+    <img src="img/tree.png" width="400px">
+</div>
 
 - 버스 토폴로지
 
@@ -51,19 +54,22 @@
 
 설치 비용이 적고 신뢰성이 우수하며 중앙 통신 회선에 노드 추가, 삭제가 쉬움. 그러나 스푸핑이 가능함.
 
-![](/Network/img/bus.png){: width="400"}
-
+<div align='center'>
+    <img src="img/bus.png" width="400px">
+</div>
 
 > 스푸핑이란
 > 
 
 LAN상에서 송신부의 패킷을 송신과 관련 없는 다른 호스트에 가지 않도록 하는 스위칭 기능을 마비시키거나 속여서 특정 노드에 해당 패킷이 오도록 처리하는 것을 말함.
 
-![](/Network/img/spoofing_before.png){: width="400"}
+<div align='center'>
+    <img src="img/spoofing_before.png" width="400px">
+</div>
 
-
-![](/Network/img/spoofing_after.png){: width="400"}
-
+<div align='center'>
+    <img src="img/spoofing_after.png" width="400px">
+</div>
 
 - 스타 토폴로지
 
@@ -71,8 +77,9 @@ LAN상에서 송신부의 패킷을 송신과 관련 없는 다른 호스트에 
 
 노드 추가 및 에러를 탐지하기 쉽고 패킷의 충돌 발생 가능성이 적음. 어떤 노드에 장애가 발생해도 쉽게 에러를 발견할 수 있음. 장애 노드가 중앙 노드가 아닐 경우 다른 노드에 영향을 적게 끼침. 중앙 노드에 장애 발생시 네트워크 전체가 마비되며 설치 비용이 고가.
 
-
-![](/Network/img/star.png){: width="400"}
+<div align='center'>
+    <img src="img/star.png" width="400px">
+</div>
 
 
 - 링형 토폴로지
@@ -83,8 +90,9 @@ LAN상에서 송신부의 패킷을 송신과 관련 없는 다른 호스트에 
 
 네트워크 구성 변경이 어렵고 회선에 장애가 발생하면 전체 네트워크에 영향을 끼침.
 
-![](/Network/img/ling.png){: width="400"}
-
+<div align='center'>
+    <img src="img/ling.png" width="400px">
+</div>
 
 - 메시 토폴로지
 
@@ -94,24 +102,30 @@ LAN상에서 송신부의 패킷을 송신과 관련 없는 다른 호스트에 
 
 노드의 추가가 어렵고 구축 비용과 운용 비용이 고가
 
-![](/Network/img/mesh.png){: width="400"}
+<div align='center'>
+    <img src="img/mesh.png" width="400px">
+</div>
 
 ### 병목 현상
 
-> 병목(bottleneck)현상은 전체 시스템의 성능이나 용량이 하나의 구성 요소로 인해 제한을 받는 현상. 
-> 서비스에서 이벤트를 열었을 때 트래픽이 많이 생기고 그 트래픽을 잘 관리하지 못하면 병목 현상이 생겨 사용자는 웹 사이트로 들어가지 못함.
+* `병목(bottleneck)현상`은 전체 시스템의 성능이나 용량이 하나의 구성 요소로 인해 제한을 받는 현상. 
+
+* 서비스에서 이벤트를 열었을 때 트래픽이 많이 생기고 그 트래픽을 잘 관리하지 못하면 병목 현상이 생겨 사용자는 웹 사이트로 들어가지 못함.
 
 
+> 회선 추가 전
 
-![](/Network/img/before_line.png){: width="400"}
-
-                         회선 추가 전
+<div align='center'>
+    <img src="img/before_line.png" width="400px">
+</div>
 
 토폴로지가 중요한 이요는 병목 현상을 찾을 때 중요한 기준이 되기 때문.
 
-![](/Network/img/after_line.png){: width="400"}
+> 회선 추가 후
 
-                         회선 추가 후
+<div align='center'>
+    <img src="img/after_line.png" width="400px">
+</div>
 
 네트워크 토폴리지가 어떻게 되어 있나 확인하고, 서버와 서버 간 그리고 게이트웨이로 이어지는 회선을 추가해서 병목을 해결. 네트워크가 어떤 토폴로지를 갖는지, 또한 어떠한 경로로 이루어져 있는지 알아야 병목 현상을 올바르게 해결 가능.
 
@@ -144,42 +158,48 @@ LAN상에서 송신부의 패킷을 송신과 관련 없는 다른 호스트에 
 
 네트워크 관련 테스트와 네트워크와 무관한 테스트를 통해 ‘네트워크로부터 발생한 문제점’인 것을 확인한 후 네트워크 성능 분석 필요.
 
-1. ping
+### 1. ping
 
 ping(Packet INternet Groper)은 네트워크 상태를 확인하려는 대상 노드를 향해 일정 크기의 패킷을 전송하는 명령어. 해당 노드의 패킷 수신 상태와 도달하기까지 시간 등을 알 수 있으며 해당 노드까지 네트워크가 잘 연결되어 있는지 확인할 수 있음. ping은 TCP/IP 프로토콜 중에 ICMP 프로토콜을 통해 동작.
 
 네트워크 정책상 ICMP나 traceroute를 차단하는 대상의 경우 ping 테스트 불가.
 
-![](/Network/img/ping_google.png){: width="400"}
+<div align='center'>
+    <img src="img/ping_google.png" width="400px">
+</div>
 
 > google.com에 ping을 보내는 모습
 
 
-![](/Network/img/ping_naver.png){: width="400"}
-
+<div align='center'>
+    <img src="img/ping_naver.png" width="400px">
+</div>
 
 > ICMP가 차단되어 ping이 보내지지 않음.
 
-[1] netstat
+### 2. netstat
 
 netstat 명령어는 접속되어 있는 서비스들의 네트워크 상태를 표시하는데 사용되며 네트워크 접속, 라우팅 테이블, 네트워크 프로토콜 등 리스트를 보여줌. 주로 서비스의 포트가 열려 있는지 확인할 때 사용.
 
-![](/Network/img/netstat.png){: width="400"}
+<div align='center'>
+    <img src="img/netstat.png" width="400px">
+</div>
 
-[2] nslookup
+### 3. nslookup
 
 DNS에 관련된 내용을 확인하기 위해 사용. 특정 도메인에 매핑된 IP를 확인하기 위해 사용.
 
+<div align='center'>
+    <img src="img/nslookup.png" width="300px">
+</div>
 
-![](/Network/img/nslookup.png){: width="400"}
-
-
-[3] tracert
+### 4. tracert
 
 윈도우에서는 tracert이고 리눅스에서는 traceroute라는 명령어로 실행 됨. 목적지 노드까지 네트워크 경로를 확인할 때 사용하는 명령어. 목적지 노드까지 구간들 중 어느 구간에서 응답 시간이 느려지는디 등을 확인할 수 있음.
 
-![](/Network/img/traceroute.png){: width="400"}
-
+<div align='center'>
+    <img src="img/traceroute.png" width="500px">
+</div>
 
 ## 네트워크 프로토콜 표준화
 
