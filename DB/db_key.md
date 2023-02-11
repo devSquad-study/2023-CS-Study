@@ -150,5 +150,4 @@
 ## 📚 References
 [기본 키 매핑 전략](https://velog.io/@skyepodium/JPA-%EA%B8%B0%EB%B3%B8%ED%82%A4-%EB%A7%A4%ED%95%91-%EC%A0%84%EB%9E%B5)  
 [키의 개념과 종류](https://kosaf04pyh.tistory.com/201)  
-[[DB] 📚 데이터베이스 키(KEY) 종류 🕵️ 정리]
-(https://inpa.tistory.com/entry/DB-%F0%9F%93%9A-%ED%82%A4KEY-%EC%A2%85%EB%A5%98-%F0%9F%95%B5%EF%B8%8F-%EC%A0%95%EB%A6%AC)
+[[DB] 📚 데이터베이스 키(KEY) 종류 🕵️ 정리](https://inpa.tistory.com/entry/DB-%F0%9F%93%9A-%ED%82%A4KEY-%EC%A2%85%EB%A5%98-%F0%9F%95%B5%EF%B8%8F-%EC%A0%95%EB%A6%AC)
