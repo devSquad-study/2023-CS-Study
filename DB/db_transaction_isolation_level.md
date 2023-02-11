@@ -35,7 +35,7 @@ Isolation level에 대해 학습하기 전 Isolation이 안될 때 나타날 수
 
 ### [ 예시 ]
 
-<img src="img/dirty_read.png" width="450px">
+<img src="img/dirty_read.png" width="550px">
 
 <br>
 
@@ -54,7 +54,7 @@ Isolation 속성에 따르면 복수의 트랜잭션이 동시에 실행해도 �
 
 그런데 트랜잭션2에 영향을 받고 있다. 이것은 이상 현상이다.
 
-<img src="img/non-repeatable_read.png" width="450px">
+<img src="img/non-repeatable_read.png" width="550px">
 
 <br>
 
@@ -86,7 +86,7 @@ Isolation 속성에 따르면 복수의 트랜잭션이 동시에 실행해도 �
 그래서 개발자는 이 Isolation level을 통해 `전체 처리량(throughput)`과 `데이터 일관성` 사이에서 trade할 수 있다.
 
 <div align='center'>
-    <img src="img/isolation_level.png" width="500px">
+    <img src="img/isolation_level.png" width="550px">
 </div>
 
 <br>
