@@ -35,7 +35,7 @@ Isolation level에 대해 학습하기 전 Isolation이 안될 때 나타날 수
 
 ### [ 예시 ]
 
-<img src="img/dirty_read.png" width="550px">
+<img src="img/dirty_read.png" width="650px">
 
 <br>
 
@@ -54,7 +54,7 @@ Isolation 속성에 따르면 복수의 트랜잭션이 동시에 실행해도 �
 
 그런데 트랜잭션2에 영향을 받고 있다. 이것은 이상 현상이다.
 
-<img src="img/non-repeatable_read.png" width="550px">
+<img src="img/non-repeatable_read.png" width="650px">
 
 <br>
 

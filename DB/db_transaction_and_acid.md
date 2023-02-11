@@ -222,7 +222,7 @@ CREATE TABLE account (
 🐱 송송 계좌 : 100만 원
 ```
 
-<img src="img/isolation_example.png" width="300px">
+<img src="img/isolation_example.png" width="400px">
 
 * 마크다운 색상이 적용 문제로 이미지로 대체
 

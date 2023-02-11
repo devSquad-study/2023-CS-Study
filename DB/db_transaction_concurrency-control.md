@@ -104,7 +104,7 @@ non-serial schedule이지만 Conflict serializable일 때 정상적인 결과를
 
 아래 예시에서는 R2(B)와 W1(B), W2(B)와 R1(B), W2(B)와 W1(B)가 conflict다.
 
-<img src="img/conflict_ex1.png" width="450px">
+<img src="img/conflict_ex1.png" width="650px">
 
 💡 이것이 중요한 이유는 복수의 트랜잭션이 동시에 처리될때 conflict operation은 실행 순서가 바뀌면 실행 결과도 바귄다.
 
@@ -133,7 +133,7 @@ non-serial schedule이지만 Conflict serializable일 때 정상적인 결과를
 1. Sched 1과 Sched 2는 같은 transaction을 가지고 conflict operation의 실행 순서가 동일하다. **(= conflict equivalent)**
 2. Sched 2는 트랜잭션이 순차적으로 실행된다. (=serial schedule)
 
-<img src="img/conflict_equivalent_ex1.png" width="450px">
+<img src="img/conflict_equivalent_ex1.png" width="650px">
 
 💡 즉, **serial schedule과 conflict equivalent일 때 <u>conflict serializable</u>이라고 한다.**
 
@@ -171,7 +171,7 @@ schedule 내에서 commit된 transaction이 rollback된 transaction이 write 했
 
 > **DIRTY READ** (더티 리드): 어떠한 트랜잭션에서 처리한 작업이 완료되지 않았음에도 불구하고 다른 트랜잭션에서 볼 수 있게 되는 현상.
 
-<img src="img/unrecoverable_schedule_ex1.png" width="450px">
+<img src="img/unrecoverable_schedule_ex1.png" width="650px">
 
 <br>
 
@@ -183,7 +183,7 @@ schedule 내에서 commit된 transaction이 rollback된 transaction이 write 했
 
 트랜잭션 2번이 먼저 commit/rollback한다.
 
-<img src="img/recoverable_schedule_ex1.png" width="450px">
+<img src="img/recoverable_schedule_ex1.png" width="650px">
 
 ### [ cascading rollback ]
 
@@ -206,7 +206,7 @@ schedule 내에서 commit된 transaction이 rollback된 transaction이 write 했
 
 이 상태에서 트랜잭션1을 롤백하면 기존 가격인 5000원으로 돌아온다. 그러면 점장님(트랜잭션2)가 설정한 3000원 가격은 그대로 사라진다.
 
-<img src="img/cascadeless_schedule_ex1.png" width="450px">
+<img src="img/cascadeless_schedule_ex1.png" width="650px">
 
 그래서 **strict scedule** 등장!
 
