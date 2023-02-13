@@ -295,5 +295,20 @@ data flow diagram의 기초로써 종종 사용된다
     <img src="img/db_3NF.png" width="550px">
 </div>
 
+---
+
+### 📢 면접 질문
+1. 데이터베이스에서 다양한 유형의 관계를 설명해 주세요
+    - 일대일, 일대다, 다대다 관계를 정의
+2. 정규화는 무엇이며 이의 장점에 대해 설명해 주세요
+3. ER 모델은 무엇인지 설명해 주세요
+
+---
+
+### 📌 References
+- https://taehoon9393.tistory.com/42
+- https://boyboy94.tistory.com/2
+- https://congsoony.tistory.com/240
+- https://choiseungyoun.github.io/posts/what-is-erd/
 
 
