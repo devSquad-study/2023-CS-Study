@@ -40,7 +40,7 @@
 
 * RDBMS 종류에는 `MySQL`, `PostgreSQL`, `Oracle`, `Microsoft SQL Server`, `MariaDB` 등이 있다.
 
-* 현재 기준(2023.02.13) 가장 인기있는 10가지 DBMS는 다음과 같다.
+* 현재 기준(2023.02.13) 가장 인기있는 10가지 DB는 다음과 같다.(DBMS, NoSQL 모두 포함)
 
 ![](/DB/img/db-rdb-nosql-2.png)
 
