@@ -1,7 +1,7 @@
 데이터베이스는 기본적으로 하나의 서버, 하나의 스토리지를 가지고 있다.
 
 <div align='center'>
-    <img src="img/db_database_structure.png" width="300px">
+    <img src="img/db_database_structure.png" width="400px">
 </div>
 
 # Clustering
@@ -25,7 +25,7 @@
 
 ## 1. Active & Active
 <div align='center'>
-    <img src="img/db_clustering_activ_active.png" width="300px">
+    <img src="img/db_clustering_activ_active.png" width="450px">
 </div>
 
 - 서버 한대가 죽더라도 하나의 서버가 동작하고 있어서 서비스에 큰 문제 X
@@ -35,7 +35,7 @@
 
 ## 2. Active & Stand-By
 <div align='center'>
-    <img src="img/db_clustering_activ_standby.png" width="300px">
+    <img src="img/db_clustering_activ_standby.png" width="500px">
 </div>
 
 - Active 상태의 서버에 문제가 생겼을 때 Fail over를 하여 Stand-by 서버를 Active로 전환하여 문제에 대응
@@ -50,7 +50,7 @@
 🙋‍♀️ 실제 데이터가 저장되는 저장소도 복제하자!(레플리케이션)
 ```
 <div align='center'>
-    <img src="img/db_replication.png" width="300px">
+    <img src="img/db_replication.png" width="500px">
 </div>
 
 - 데이터베이스 스토리지 복제
@@ -87,8 +87,8 @@ Tungsten, MySQL Replicaiton, NDB, Galera 등 존재
 Galera Clustering
 
 <div align='center'>
-    <img src="img/db_mysql_clustering.png" width="300px">
-    <img src="img/db_mysql_clustering_2.png" width="300px">
+    <img src="img/db_mysql_clustering.png" width="600px">
+    <img src="img/db_mysql_clustering_2.png" width="600px">
 </div>
 
 ```
@@ -111,7 +111,7 @@ Galera Clustering
 MySQL Replication 
 
 <div align='center'>
-    <img src="img/db_mysql_replication.png" width="300px">
+    <img src="img/db_mysql_replication.png" width="600px">
 </div>
 
 ```
@@ -134,8 +134,8 @@ MySQL Replication
 Sharded cluster
 
 <div align='center'>
-    <img src="img/db_mongodb_cluster.png" width="300px">
-    <img src="img/db_mongodb_cluster_2.png" width="300px">
+    <img src="img/db_mongodb_cluster.png" width="600px">
+    <img src="img/db_mongodb_cluster_2.png" width="600px">
 </div>
 
 ```
@@ -162,9 +162,9 @@ Sharded cluster
 ## [ replicaiton ]
 (replica-set)
 <div align='center'>
-    <img src="img/db_mongodb_replication.png" width="300px">
-    <img src="img/db_mongodb_replication_2.png" width="300px">
-    <img src="img/db_mongodb_replication_3.png" width="300px">
+    <img src="img/db_mongodb_replication.png" width="500px">
+    <img src="img/db_mongodb_replication_2.png" width="500px">
+    <img src="img/db_mongodb_replication_3.png" width="500px">
 </div>
 
 - Primary node / Secondary node 로 구성
