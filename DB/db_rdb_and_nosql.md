@@ -191,23 +191,23 @@
     <td>데이터간의 관계를 정의하지 않는다.(join 불필요하고 불가능하다)</td>
   </tr>
   <tr>
-    <td>데이터의 분류,정렬, 탐색 속도가 빠르다.</td>
+    <td>SQL이라는 구조화된 방식으로 데이터를 다룬다.</td>
+    <td>스키마가 정해져있지 않아 자유로운 데이터 저장이 가능하다.</td>
+  </tr>
+  <tr>
+    <td>데이터의 분류,정렬, 탐색 속도가 빠르다.(데이터의 UPDATE가 빠르다)</td>
     <td>RDBMS보다 복잡도가 떨어져 훨씬 대용량의 데이터를 관리하고 저장한다.</td>
   </tr>
   <tr>
-    <td>SQL이라는 구조화된 방식으로 데이터를 다룬다.</td>
-    <td>스키마가 정해져있지 않아 자유로운 데이터 저장이 가능하다</td>
-  </tr>
-  <tr>
     <td>작업의 완전성을 보장한다.</td>
-    <td>많은 양의 데이터를 저장하고 처리한다.</td>
+    <td>수직 및 수평 확장이 가능해서 애플리케이션이 발생시키는 모든 읽기/쓰기 요청 처리가 가능하다.</td>
   </tr>
   <tr>
-    <td>데이터의 UPDATE가 빠르다.</td>
+    <td>SQL에서는 중복 데이터가 없으므로 한번만 수행이 가능하다.</td>
     <td></td>
   </tr>
   <tr>
-    <td rowspan="3">단점</td>
+    <td rowspan="4">단점</td>
     <td>반드시 스키마 규격에 맞춰서 데이터를 다뤄야 한다.</td>
     <td>스키마가 정해져 있지 않아, 데이터가 규격화 되어있지 않다.</td>
   </tr>
@@ -219,6 +219,10 @@
     <td>성능향상에 (Scale-up) 높은 비용이 발생한다.</td>
     <td>UPDATE 하는데 비교적 느리다.</td>
   </tr>
+  <tr>
+    <td>대체로 수직적 확장만 가능하다.</td>
+    <td>데이터가 여러 컬렉션에 중복되어 있기 때문에 수정 시 모든 컬렉션에서 수행해야 한다.</td>
+  </tr>
 </table>
 
 ## 예상 질문
@@ -227,7 +231,7 @@
 
 * MySQL의 특징과 단점에 대해 설명해 주세요.
 
-* NoSQL과 SQL의 차이점은 무엇인가요?
+* SQL(RDBMS)과 NoSQL의 차이점은 무엇인가요?
 
 * RDBMS 과 NoSQL의 각각 장단점을 2가지씩 말씀해 주세요.
 
@@ -245,3 +249,5 @@
 * [Oracle과 MySQL의 차이점](https://velog.io/@alicesykim95/Oracle%EA%B3%BC-MySQL%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90)
 
 * [Database - RDBMS 와 NoSQL](https://eshley9199.tistory.com/123)
+
+* [SQL과 NOSQL의 차이](https://gyoogle.dev/blog/computer-science/data-base/SQL%20&%20NOSQL.html)
