@@ -66,7 +66,7 @@
 
 > 현재는 master-slave 단어를 안쓰는 추세인 만큼 source-replica 구조로 불리기도 함.
 
-### 구축 목적
+### [ 구축 목적 ]
 - **스케일 아웃**
     - 갑자기 늘어나는 트래픽에 대해 부하를 줄이기 위해 서버를 늘리는 것
 - **데이터 백업**
@@ -80,11 +80,75 @@
     - 데이터베이스 서버가 멀리 떨어져 있다면 빠른 응답을 받기 어렵다.
     - 다양한 지역에 레플리카 서버를 두어 응답 속도를 높일 수 있다.
 
+# Sharding
+
+```
+🤷‍♂️ 데이터가 많아서 검색이 느린데 더 빠르게 할 수 있는 방법이 있을까?
+
+🙋‍♀️  테이블을 나눠서 검색하자! (샤딩)
+```
+
+<div align='center'>
+    <img src="img/db_sharding.png" width="500px">
+</div>
+
+- 같은 테이블 스키마를 가진 데이터를 다수의 데이터베이스에 분산하여 저장하는 방법
+- **테이블을 특정 기준으로 나눠서 저장 및 검색**
+- **Sharding Key** : 나눠진 Shard 중 어떤 shard를 선택할 지 결정하는 키, 결정방식에 따라 Sharding 방법이 나누어짐
+
+### [ Shard Key 결정 방식 ]
+
+**Hash Sharding**
+
+<div align='center'>
+    <img src="img/db_hash_sharding.png" width="500px">
+</div>
+
+- Shard Key : **Database id를 Hashing 하여 결정**
+    - Hash크기는 Cluster안에 있는 Node개수로 정하게 됨
+- **구현이 간단**하다(key-value)
+- **확장성이 떨어진다**
+    - Node개수를 늘리거나 줄일 경우, Hash 크기와 Key가 변함 -> Data 분산 Rule 어긋남
+    - \=> Resharding 필요
+- **공간에 대한 효율을 고려하지 않는다**
+
+**Dynamic Sharding**
+
+<div align='center'>
+    <img src="img/db_dynamic_sharding.png" width="500px">
+</div>
+
+- **확장에 용이**하다
+    - Node의 개수를 늘릴 경우 : Locatoer Service에 Shard Key 추가만 하면 됨
+    - 기존 Data Shard Key 변경 X
+- 데이터를 재배치 시 Locator Service의 Shard Key Table도 동기화 해야한다.
+- Locator Service를 통해 Shard Key를 얻는다.
+- **Locator에 의존적**이다.
+    - Locator가 성능을 위해 Cache하거나 Replication할 경우, 잘못된 Routing을 통해 Data 찾지 못하고 Error 발생
+- ex) HDFS : Name Node, MongoDB : Config Server
+
+> Hash Sharding과 Dynamic Sharding은 **Key-Value 형태를 지원**하기 위해 나온 방법
+
+**Entity Group**
+
+<div align='center'>
+    <img src="img/db_entity_group_sharding.png" width="500px">
+</div>
+
+- Key-Value가 아닌 다양한 객체로 구성된 경우 Applicaiton의 복잡도를 줄이는 방향으로 Sharding하는 방법
+- 관계가 있는 Entity끼리 같은 Shard 내에 공유하도록 만든 방식
+- **단일 Shard** 내에서 쿼리가 **효율적**
+- 단일 Shard 내에서 **강한 응집도**를 가진다
+- **다른 Shard의 Entity와 연관되는 경우 비효율**적
+- **사용자가 늘어남에 따라 확장성이 좋은** Partitioning
+- **cross-partition 쿼리는 single partition 쿼리보다 consistency의 보장과 성능을 잃음**
+
+
 # MySQL 사용 시(RDB)
 ## [ clustering ]
 Tungsten, MySQL Replicaiton, NDB, Galera 등 존재
 
-Galera Clustering
+**Galera Clustering**
 
 <div align='center'>
     <img src="img/db_mysql_clustering.png" width="600px">
@@ -100,15 +164,15 @@ Galera Clustering
 - WSREP 모듈 : 데이터베이스에 복제를 위한 범용 모듈
 ```
 
-- 데이터가 전체 노드에 일관성있게 저장됨
-- 모든 노드가 마스터 노드로 작동하며, 특정 노드에 장애가 나더라도 서비스에 큰 문제 없음
+- 데이터가 전체 노드에 **일관성**있게 저장됨
+- **모든 노드가 마스터 노드**로 작동하며, 특정 노드에 장애가 나더라도 서비스에 큰 문제 없음
     - MySQL Replication의 경우 마스터 노드가 장애가 나면 슬레이브 노드 중 하나를 마스터로 승격해야하는 등 운영 프로세스가 복잡
-- 데이터 디스크 저장 전, 모든 노드에 데이터 복제 요청을 보내기 때문에 replication에 비해 쓰기 성능이 떨어짐
+- 데이터 디스크 저장 전, 모든 노드에 데이터 복제 요청을 보내기 때문에 **replication에 비해 쓰기 성능이 떨어짐**
 - LOCK 문제가 생기거나 슬로우 쿼리 들이 많이 발생할 때 장애를 다른 노드로 전파시킬 가능성 높음
-- 하나의 클러스터에서 유지할 수 있는 노드의 수에 한계가 있어(전체 노드가 많아지면 시간 오래걸리기 때문), 횡적 스케일링의 한계 올 수 있음 
+- 하나의 클러스터에서 유지할 수 있는 노드의 수에 한계가 있어(전체 노드가 많아지면 시간 오래걸리기 때문), **횡적 스케일링의 한계** 올 수 있음 
 
 ## [ replication ]
-MySQL Replication 
+**MySQL Replication**
 
 <div align='center'>
     <img src="img/db_mysql_replication.png" width="600px">
@@ -122,19 +186,22 @@ MySQL Replication
 - SQL Thread가 읽어와 하나씩 수행하여 Data File에 저장
 ```
 
-- master / slaves 로 구성 (single point of failure 해결)
-    - master DBMS : 웹서버로 부터 데이터 등록/수정/삭제 요청시 바이너리로그(Binarylog)를 생성하여 Slave 서버로 전달 (DML 처리만 수행)
-    - slave DBMS : Master DBMS로 부터 전달받은 바이너리로그(Binarylog)를 데이터로 반영 (read만 수행, 여러대 가능)
+- **master / slaves** 로 구성 (single point of failure 해결)
+    - **master DBMS** : 웹서버로 부터 데이터 등록/수정/삭제 요청시 바이너리로그(Binarylog)를 생성하여 Slave 서버로 전달 (**DML 처리만 수행**)
+    - **slave DBMS** : Master DBMS로 부터 전달받은 바이너리로그(Binarylog)를 데이터로 반영 (**read만 수행, 여러대 가능**)
 - 특정 노드는 쓰기를 담당하고, 나머지는 읽기 담당
-- 방식이 단순하여 신뢰도 높음
+- 방식이 단순하여 **신뢰도 높음**
 - 데이터 복제가 동기방식이 아닌 비동기방식, master node에 적용한 데이터 변경사항이 slave에 반영될 때까지 일정시간 걸림 => **일시적 데이터 불일치성 발생 가능**
 
 # MongoDB 사용 시(NoSQL)
 ## [ clustering ]
-Sharded cluster
+**Sharded cluster**
 
 <div align='center'>
     <img src="img/db_mongodb_cluster.png" width="600px">
+</div>
+
+<div align='center'>
     <img src="img/db_mongodb_cluster_2.png" width="600px">
 </div>
 
@@ -149,28 +216,28 @@ Sharded cluster
 
 - Mongodb는 직접 특정 Shard에 접근할 수 없음
 - Query Router에 명령을 하고, Query Router가 Shard에 접근하는 방식(Config Server정보기반으로 data chunk 위치를 찾아가는 것도 이때 수행됨)
-    - query router : 쿼리를 받아 각 샤드로 보내주는 역할, 데이터 저장되어 있진않고 router 역할만 수행
-    - shard : 실제 데이터가 저장되는 저장소
-    - config : 어떤 shard가 어떤 데이터(data chunk)를 가지고 있는지, data chunk들을 어떻게 분산해서 저장하며 관리하라 지 알 수 있음
+    - **query router** : 쿼리를 받아 각 샤드로 보내주는 역할, **데이터 저장되어 있진않고 router 역할만 수행**
+    - **shard** : 실제 데이터가 저장되는 **저장소**
+    - **config** : 어떤 shard가 어떤 데이터(data chunk)를 가지고 있는지, data chunk들을 어떻게 분산해서 저장하며 관리하라 지 알 수 있음
 - 성능 문제를 위해 shard 여러개를 두고 분산처리
     - scaling을 통해 늘리고 즐일 수 있음
     - 보통 3개의 shard 구성(SPOF막기위해)
-- Query Router는 Shard정보를 찾는 부분의 성능을 위해 Config Server의 metadata를 cache로 저장해둔다.
+- Query Router는 Shard정보를 찾는 부분의 성능을 위해 **Config Server의 metadata를 cache로 저장**해둔다.
     - metadata : 데이터가 저장되어 있는 shard 정보 및 sharding key 정보
 
 
 ## [ replicaiton ]
-(replica-set)
+**replica-set**
 <div align='center'>
-    <img src="img/db_mongodb_replication.png" width="500px">
-    <img src="img/db_mongodb_replication_2.png" width="500px">
-    <img src="img/db_mongodb_replication_3.png" width="500px">
+    <img src="img/db_mongodb_replication.png" width="550px">
+    <img src="img/db_mongodb_replication_2.png" width="550px">
+    <img src="img/db_mongodb_replication_3.png" width="550px">
 </div>
 
-- Primary node / Secondary node 로 구성
+- **Primary node / Secondary node** 로 구성
     - Primary node : 모든 쓰기 작업 수행, 기본적으로 읽기 작업도 Primary 몫
-- 노드 간 heartbeat을 통해 상태체크
-- Primary node 사용할 수 없는 경우(장애나 네트워크 이슈) 적격한 Secondary node는 새로운 Primary 노드 선택을 위한 투표 개최 => 홀수 노드 구성이 좋다
+- 노드 간 **heartbeat**을 통해 상태체크
+- Primary node 사용할 수 없는 경우(장애나 네트워크 이슈) 적격한 Secondary node는 새로운 Primary 노드 선택을 위한 투표 개최 => **홀수 노드 구성이 좋다**
     - 짝수로 구성하게 되면 홀수로 구성한 경우와 다르지 않아 서버 낭비로 이어짐, 쿼럼(Quorum) 구성이 어려울 수 있음
 - Arbiter 모드 : Primary node 선출을 위한 투표만 참여, 디스크 저장X, 하나 이상 필요 X
 
