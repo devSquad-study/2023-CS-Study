@@ -106,7 +106,7 @@ non-serial schedule이지만 Conflict serializable일 때 정상적인 결과를
 
 <img src="img/conflict_ex1.png" width="650px">
 
-💡 이것이 중요한 이유는 복수의 트랜잭션이 동시에 처리될때 conflict operation은 실행 순서가 바뀌면 실행 결과도 바귄다.
+💡 이것이 중요한 이유는 복수의 트랜잭션이 동시에 처리될때 conflict operation은 실행 순서가 바뀌면 실행 결과도 바뀐다.
 
 <br>
 
@@ -166,7 +166,12 @@ schedule 내에서 commit된 transaction이 rollback된 transaction이 write 했
 
 ### [ 예시 ]
 
-`R2(B) - W2(B)`가 한 작업을 `R1(B) - W1(B)`가 작업했고 이미 커밋했기 때문에 **durability**(지속성) 속성 때문에 rollback2를 할 수 없다.
+rollback2를 하려고 한다.
+
+`R2(B) - W2(B)`가 한 작업을 `R1(B) - W1(B)`가 작업했기 때문에 트랜잭션2도 rollback을 해야한다.
+
+하지만 이미 트랜잭션1은 커밋했기 때문에 **durability(지속성)** 속성 때문에 rollback할 수 없다.
+
 트랜잭션2가 작업이 완료되지 않은 상태에서 트랜잭션1이 읽는 경우가 **DIRTY READ** (더티 리드)이다.
 
 > **DIRTY READ** (더티 리드): 어떠한 트랜잭션에서 처리한 작업이 완료되지 않았음에도 불구하고 다른 트랜잭션에서 볼 수 있게 되는 현상.
