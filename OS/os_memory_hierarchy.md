@@ -158,7 +158,7 @@
 ### 4) 보조 기억장치 (Auxiliary Memory, Secondary Memory) 🚲
 물리적 디스크가 연결되어 있는 기억장치
 
-- **HDD(Hard Disk Driver), SDD(Solid State Driver)**
+- **HDD(Hard Disk Drive), SSD(Solid State Drive)**
 - 컴퓨터 전원을 꺼도 저장된 데이터가 사라지지 않음(**비휘발성**)
 - 중앙처리장치와 직접 자료 교환 불가능
 - 접근시간이 오래 걸림
