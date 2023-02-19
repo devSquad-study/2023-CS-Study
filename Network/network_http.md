@@ -1,6 +1,6 @@
 > [해당 포스팅](https://hello-judy-world.tistory.com/186)에서도 내용을 확인할 수 있습니다.
 
-> written by judy
+> written by [judy](https://github.com/ParkJungYoon)
 
 # HTTP 진화 과정 (HTTP/1.0부터 HTTP/3까지) 
 

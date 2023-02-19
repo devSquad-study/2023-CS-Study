@@ -1,6 +1,6 @@
 > [해당 포스팅](https://hello-judy-world.tistory.com/190)에서도 내용을 확인할 수 있습니다.
 
-> written by judy
+> written by [judy](https://github.com/ParkJungYoon)
 
 <u>락(lock)</u>은 동기화를 보장하는 툴(tool)이다.
 
