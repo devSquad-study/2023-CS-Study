@@ -1,7 +1,7 @@
 # 신입 개발자 CS 면접 대비 및 지식 공유 👨🏻‍💻 🔥
 
-[![Since](https://img.shields.io/badge/since-2023.01.02-333333.svg?style=flat-square)](https://github.com/Fancy96)
-[![author](https://img.shields.io/badge/author-Fancy96-512BD4.svg?style=flat-square)](https://github.com/Fancy96)
+[![Since](https://img.shields.io/badge/since-2023.01.02-333333.svg?style=flat-square)](https://github.com/Fancy96/2023-CS-Study)
+[![author](https://img.shields.io/badge/author-ParkJungYoon-00A98F.svg?style=flat-square)](https://github.com/ParkJungYoon)
 [![LICENSE](https://img.shields.io/dub/l/vibe-d.svg?style=flat-square)](https://github.com/Fancy96/2023-CS-Study/blob/main/LICENSE.md/)
 
 
@@ -133,6 +133,7 @@
 *   [데이터베이스 시작](https://github.com/Fancy96/2023-CS-Study/issues/48)
 
 *   2023-02-14 (화) : [데이터베이스-1 (개념학습)](https://github.com/Fancy96/2023-CS-Study/issues/54)
+*   2023-02-21 (화) : [데이터베이스-2 (개념학습)](https://github.com/Fancy96/2023-CS-Study/issues/68)
 
 
 ### ✔️ [예상 질문](Interview/README.md)
@@ -154,7 +155,7 @@
 
 ## 👐 컨벤션
 
-### 작성 방법
+### md 파일 작성 방법
 
 *   폴더와 파일명은 모두 **영문 소문자**로 작성한다.(공백은 '_'으로 채운다)
 
@@ -170,18 +171,18 @@
 ### Commit 컨벤션
 
 ```text
-파일 생성 시 docs : [파일명]
-이미지 파일 업로드 시 add : [파일명] " 커밋 메시지 "
-파일 내부 수정 시 chore : [파일명] " 커밋 메시지 "
-파일명 수정 시 rename : [파일명] " 커밋 메시지 "
-오류 처리시 fix : [파일명] " 커밋 메시지 "
+파일 생성 시 docs: [카테고리] md 파일 명
+이미지 파일 업로드 시 add: [카테고리] 커밋 메시지
+파일 내부 수정 시 chore: [카테고리] 커밋 메시지
+파일명 수정 시 rename: [카테고리] 커밋 메시지
+오류 처리시 fix: [카테고리] 커밋 메시지
 
-CPU 스케줄링 알고리즘 -> os_cpu_scheduling_and_algorithm
-예) docs : os_cpu_scheduling_and_algorithm.md
-예) add : os_scheduling_fcfs.png " 파일 추가 "
-예) chore : os_cpu_scheduling_and_algorithm.md " 내용 추가 "
-예) rename : os_cpu_scheduling_and_algorithm.md " 이름 수정 "
-예) fix : os_cpu_sheduling_and_algorithm.md " 오류 처리 "
+CPU 스케줄링 알고리즘
+예) docs: [OS] CPU 스케줄링 알고리즘
+예) add: [OS] 파일 추가
+예) chore: [OS] 내용 추가
+예) rename: [OS] 이름 수정
+예) fix: [OS] 오류 처리
 ```
 
 ## PR 이용 방법
