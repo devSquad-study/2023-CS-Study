@@ -24,11 +24,11 @@
 
 * 두 트랜잭션을 대상으로 하는 직렬 스케줄의 예를 살펴보면 다음과 같다.
 
-![](/DB/img/db-locking-1.png)
+<img src="img/db-locking-1.png" width="600px">
 
 * [그림 1]은 트랜잭션 T1을 수행한 이후에 트랜잭션 T2를 수행한 예시다. (T1 -> T2)
 
-![](/DB/img/db-locking-2.png)
+<img src="img/db-locking-2.png" width="600px">
 
 * [그림 2]은 트랜잭션 T2을 수행한 이후에 트랜잭션 T1를 수행한 예시다. (T2 -> T1)
 
@@ -46,11 +46,11 @@
 
 * 두 트랜잭션을 대상으로 하는 비직렬 스케줄의 예를 살펴보면 다음과 같다.
 
-![](/DB/img/db-locking-3.png)
+<img src="img/db-locking-3.png" width="600px">
 
 * [그림 3]은 트랜잭션 T1,T2를 직렬 스케줄로 수행한 [그림 1]과 결과가 같으므로 모순이 없는 정확한 값이다.
 
-![](/DB/img/db-locking-4.png)
+<img src="img/db-locking-4.png" width="600px">
 
 * [그림 4]은 트랜잭션 T1,T2를 직렬 스케줄로 수행한 [그림 1], [그림 2] 모두와 결과가 다르므로 정확하지 않는 값이다.
 
@@ -138,7 +138,7 @@
 
 * 교착 상태에 빠지면 트랜잭션들은 더 이상 수행하지 못하고 상대 트랜잭션이 먼저 unlock 연산을 실행해주기를 한없이 기다리게 된다.
 
-![](/DB/img/db-locking-deadlock.png)
+<img src="img/db-locking-deadlock.png" width="500px">
 
 * 1번 트랜잭션에서는 2번 데이터의 Lock을 획득하고, 2번 트랜잭션에서는 1번 데이터의 Lock을 획득한 상태이다.
 
