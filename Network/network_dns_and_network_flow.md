@@ -1,8 +1,8 @@
-> 각 내용에서 설명하고 싶은 내용을 작성하였습니다.
-
 > [해당 포스팅](https://hello-judy-world.tistory.com/189)에서도 내용을 확인할 수 있습니다.
 
-## TCP/IP 4계층 모델 (Judy)
+> written by [judy](https://github.com/ParkJungYoon)
+
+## TCP/IP 4계층 모델 
 
 ### 1. 애플리케이션 계층
 
@@ -66,7 +66,7 @@ ISP(Internet Service Provider)의 DNS서버(**DNS recursor**)가 호스팅하고
 ```
 'www.google.com' 주소에 대해 검색할 때,
 1. DNS recursor가 루트 DNS 서버에 요청
-2. .com 도메인 TLS 서버로 리다이렉트
+2. .com 도메인 TLD 서버로 리다이렉트
 3. google.com 책임 DNS 서버로 리다이렉트
 4. 최종적으로 DNS기록에서 'www.google.com' 에 매칭되는 IP주소 찾기
 5. 찾은 주소를 DNS recursor로 보내기

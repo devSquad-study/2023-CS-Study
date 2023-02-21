@@ -37,4 +37,3 @@
 * [x] [Trigger](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_trigger.md) - 수연
 
 * [x] [Redis](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_redis.md) - 현철
-
