@@ -1,8 +1,8 @@
-> 각 내용에서 설명하고 싶은 내용을 작성하였습니다.
-
 > [해당 포스팅](https://hello-judy-world.tistory.com/189)에서도 내용을 확인할 수 있습니다.
 
-## TCP/IP 4계층 모델 (Judy)
+> written by [judy](https://github.com/ParkJungYoon)
+
+## TCP/IP 4계층 모델 
 
 ### 1. 애플리케이션 계층
 

@@ -8,7 +8,7 @@
 
 * [x] 트랜잭션 - 주디
     * [x] [1. 개념과 ACID 속성](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_transaction_and_acid.md)
-    * [x] [2. concurrency control(Serializability, Recoverability)](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_transaction_concurrency-control.md)
+    * [x] [2. concurrency control(Serializability, Recoverable)](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_transaction_concurrency-control.md)
     * [x] [3. Isolation level(격리 수준)과 이상 현상](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_transaction_isolation_level.md)
 
 
