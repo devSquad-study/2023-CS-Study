@@ -134,6 +134,7 @@
 
 *   2023-02-14 (화) : [데이터베이스-1 (개념학습)](https://github.com/Fancy96/2023-CS-Study/issues/54)
 *   2023-02-21 (화) : [데이터베이스-2 (개념학습)](https://github.com/Fancy96/2023-CS-Study/issues/68)
+*   2023-02-28 (화) : [데이터베이스-3 (모의면접)](https://github.com/Fancy96/2023-CS-Study/issues/82)
 
 
 ### ✔️ [예상 질문](Interview/README.md)
