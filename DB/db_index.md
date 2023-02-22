@@ -276,6 +276,7 @@ DB index에 자주 쓰이는 자료구조는 `B-Tree, B+Tree, Hash Table`이다.
 </div>
 
 - 데이터를 처리하는 속도가 가장 느리다.
+- 디스크 I/O (특히 랜덤 I/O)가 많이 발생하면 느리다.
 - 데이터를 저장하는 용량이 가장 크다.
 - **block 단위**로 데이터를 읽고 쓴다.
 
@@ -324,7 +325,7 @@ DB index에 자주 쓰이는 자료구조는 `B-Tree, B+Tree, Hash Table`이다.
 
 > full scan을 할지 여부는 optimizer가 판단한다.
  
-#### 1) 테이블에 데이터가 조금 있을 때
+### 1) 테이블에 데이터가 조금 있을 때
 
 <div align='center'>
     <img src="img/full_scan.png" width="520px"><br>
@@ -333,17 +334,54 @@ DB index에 자주 쓰이는 자료구조는 `B-Tree, B+Tree, Hash Table`이다.
 
 <br>
 
-#### 2) 조회하려는 데이터가 테이블의 상당 부분을 차지할 때
+### 2) 조회하려는 데이터가 테이블의 상당 부분을 차지할 때
+
+> 인덱스는 큰 테이블에서 소량 데이터를 검색할 때 사용한다. 온라인 트랜잭션 처리(OLTP) 시스템에서는 소량 데이터를 주로 검색하므로 인덱스 튜닝이 무엇보다 중요하다. <br> *- 친절한 SQL 튜닝*
+
 
 보통 전체 데이터의 5 ~ 10% 정도로 걸러지는 경우 index를 사용했을 때 좋은 효율을 낼 수 있다.
 
 아래 예시의 데이터가 전체 데이터의 20%가 넘어가는 경우에 오히려 full scan이 빠를 수 있다.
 
-그래서 칼럼의 `카디널리티`를 고려한다.
-
 ```sql
 SELECT * FROM customer WHERE mobile_carrier = "SK";
 ```
+
+<br>
+
+- **`인덱스 손익분기점`**
+
+    - **`Table Full Scan`** : 시퀀셜 엑세스(순차 접근), 멀티블록 I/O
+    - **`Index Range Scan`** : 랜덤 엑세스, 싱글블록 I/O
+
+**인덱스를 튜닝한다는 것은 테이블 엑세스를 줄이는 것이다.** 인덱스에서 레코드 주소를 이용한 테이블 엑세스는 생각보다 고비용 구조이다.
+
+따라서 읽어야 할 데이터가 일정량을 넘는 순간 테이블 전체를 스캔하는것보다 오히려 느려진다.
+
+왜냐하면 읽어야할 데이터가 많아지면 인덱스 스켄량도 늘고, 테이블 랜덤 엑세스가 늘어나기 때문이다.
+
+이 지점을 `인덱스 손익분기점`이라고 한다.
+
+<div align='center'>
+    <img src="img/index_breakeven_point.png" width="520px"><br>
+    <p>출처: 주디</p>
+</div>
+
+- **`랜덤 엑세스`**
+
+랜덤 엑세스는 인덱스를 이용해서 데이터가 있는 주소를 보고, 해당 장소로 이동해서 데이터를 가져오는 것이다.
+
+<div align='center'>
+    <img src="img/random_access.jpeg" width="520px">
+</div>
+
+추출할 데이터가 적을 경우에는 필요한 장소에만 이동하면 되기 때문에 효과적이다. 
+
+하지만 대부분의 장소를 들린다면 오고 가는 시간이 계속 소요된다.
+
+- **`시퀀셜 엑세스(순차 접근)`**
+
+시퀀셜 엑세스는 블록별로 순차적으로 접근한다. 오고 가는 시간이 줄어들어 접근비용이 감소한다.
 
 <br>
 
@@ -364,7 +402,7 @@ SELECT * FROM customer WHERE mobile_carrier = "SK";
 - **선택도가 낮을수록** 인덱스 설정에 좋은 칼럼이다. **(일반적으로 5~10%가 적당)**
 - 선택도가 낮다는 의미는 한 칼럼이 갖고 있는 값 하나로 적은 row가 찾아지는 것을 의미한다.
 
-> * 선택도 계산법  <br>
+> * 선택도 계산법 (전체 레코드 중에서 조건절에 의해 선택되는 레코드 비율) <br>
 칼럼의 특정 값의 row 수 / 테이블의 총 row 수 * 100
 
 #### [ 예시 ]
@@ -399,6 +437,7 @@ SELECT * FROM customer WHERE mobile_carrier = "SK";
 ### 📌 Reference
 
 - [쉬운 코드](https://www.youtube.com/@ez.)
+- 친절한 SQL 튜닝
 - [이화여대, 용환승 교수님, 데이터베이스 강의](http://www.kocw.net/home/cview.do?cid=d549f8570583094b)
 - [Tecoble, DB Index 입문](https://tecoble.techcourse.co.kr/post/2021-09-18-db-index/)
 - [Eric's DevLog (데브로그), DB Index 동작원리를 알아보자](https://kyungyeon.dev/)
