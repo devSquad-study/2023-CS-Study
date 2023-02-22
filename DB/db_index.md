@@ -276,6 +276,7 @@ DB index에 자주 쓰이는 자료구조는 `B-Tree, B+Tree, Hash Table`이다.
 </div>
 
 - 데이터를 처리하는 속도가 가장 느리다.
+- 디스크 I/O (특히 랜덤 I/O)가 많이 발생하면 느리다.
 - 데이터를 저장하는 용량이 가장 크다.
 - **block 단위**로 데이터를 읽고 쓴다.
 
@@ -335,6 +336,9 @@ DB index에 자주 쓰이는 자료구조는 `B-Tree, B+Tree, Hash Table`이다.
 
 #### 2) 조회하려는 데이터가 테이블의 상당 부분을 차지할 때
 
+> 인덱스는 큰 테이블에서 소량 데이터를 검색할 때 사용한다. 온라인 트랜잭션 처리(OLTP) 시스템에서는 소량 데이터를 주로 검색하므로 인덱스 튜닝이 무엇보다 중요하다. <br> *- 친절한 SQL 튜닝*
+
+
 보통 전체 데이터의 5 ~ 10% 정도로 걸러지는 경우 index를 사용했을 때 좋은 효율을 낼 수 있다.
 
 아래 예시의 데이터가 전체 데이터의 20%가 넘어가는 경우에 오히려 full scan이 빠를 수 있다.
@@ -364,7 +368,7 @@ SELECT * FROM customer WHERE mobile_carrier = "SK";
 - **선택도가 낮을수록** 인덱스 설정에 좋은 칼럼이다. **(일반적으로 5~10%가 적당)**
 - 선택도가 낮다는 의미는 한 칼럼이 갖고 있는 값 하나로 적은 row가 찾아지는 것을 의미한다.
 
-> * 선택도 계산법  <br>
+> * 선택도 계산법 (전체 레코드 중에서 조건절에 의해 선택되는 레코드 비율) <br>
 칼럼의 특정 값의 row 수 / 테이블의 총 row 수 * 100
 
 #### [ 예시 ]
@@ -399,6 +403,7 @@ SELECT * FROM customer WHERE mobile_carrier = "SK";
 ### 📌 Reference
 
 - [쉬운 코드](https://www.youtube.com/@ez.)
+- 친절한 SQL 튜닝
 - [이화여대, 용환승 교수님, 데이터베이스 강의](http://www.kocw.net/home/cview.do?cid=d549f8570583094b)
 - [Tecoble, DB Index 입문](https://tecoble.techcourse.co.kr/post/2021-09-18-db-index/)
 - [Eric's DevLog (데브로그), DB Index 동작원리를 알아보자](https://kyungyeon.dev/)
