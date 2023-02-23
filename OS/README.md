@@ -16,7 +16,11 @@
 
 * [x] [PCB와 Context Switching](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_pcb_and_context_switching.md) - 수연
 
-* [x] [주소 변환과 세그먼테이션(Segmentation)](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_segmentation.md) - 팬시
+* [x] [주소 공간과 가상 메모리(Address Space, Virtual Memory)](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_address_space.md) - 팬시
+
+* [x] [주소 변환(Address Translation)](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_address_traslation.md) - 팬시
+
+* [x] [세그먼테이션(Segmentation)](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_segmentation.md) - 팬시
 
 * [x] [페이징(Paging)](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_paging.md) - 팬시
 
@@ -25,6 +29,8 @@
 * [x] [TLB(Translation Lookaside Buffers)](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_tlb.md) - 네오
 
 * [x] [TLB 심화](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_tlb_advanced.md) - 팬시
+
+* [x] [Paging : Smaller Table](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_smaller_table.md) - 팬시
 
 * [x] [동기화(스핀락, 세마포어, 뮤텍스)](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_process_synchronization.md) - 주디
 
