@@ -1,3 +1,7 @@
+> 작성자 : 팬시 / [출처](https://fancy96.github.io/OS-20-Paging-Smaller-Tables/)
+
+> 이 글의 사진과 내용은 대학교 수업 자료를 기반으로 작성했으므로 가급적 복사는 지양해 주시면 감사하겠습니다.
+
 # Paging: Smaller Table
 
 ## Prologue
