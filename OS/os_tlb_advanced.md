@@ -1,3 +1,7 @@
+> 작성자 : 팬시 / [출처](https://fancy96.github.io/OS-19-TLB/)
+
+> 이 글의 사진과 내용은 대학교 수업 자료를 기반으로 작성했으므로 가급적 복사는 지양해 주시면 감사하겠습니다.
+
 # TLB(Translation Lookaside Buffers)
 
 ## Prologue
@@ -219,7 +223,7 @@
 
 ## Reference
 
-* [Operating Systems Three Easy Pieces](https://www.amazon.com/Operating-Systems-Three-Easy-Pieces/dp/198508659X)
+* 학교 수업 내용 - [Operating Systems Three Easy Pieces](https://www.amazon.com/Operating-Systems-Three-Easy-Pieces/dp/198508659X)
 
 * [[OS] Paging 메모리 관리를 빠르게 하기 위한 TLB](https://icksw.tistory.com/149)
 
