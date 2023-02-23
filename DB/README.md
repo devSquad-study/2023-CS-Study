@@ -12,7 +12,7 @@
     * [x] [3. Isolation level(격리 수준)과 이상 현상](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_transaction_isolation_level.md)
 
 
-* [x] [RDB와 NoSQL](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_rdb_and_nosql.md) - 팬시
+* [x] [RDBMS와 NoSQL](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_rdbms_and_nosql.md) - 팬시
 
 * [x] [인덱스](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_index.md) - 주디
 
