@@ -8,7 +8,7 @@
 
 ## Memory Virtualizing with Efficiency and Control
 
-* 이전 Chapter13 [Address space](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_the_address_abstraction)에서 말했던 것처럼 메모리를 가상화한다는 것은 **OS가 프로세스에게 자신의 개인적인 메모리 공간이 있는 것처럼 착각하게 만드는 것**을 의미한다.
+* 이전 Chapter13 [Address space](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/os_address_space.md)에서 말했던 것처럼 메모리를 가상화한다는 것은 **OS가 프로세스에게 자신의 개인적인 메모리 공간이 있는 것처럼 착각하게 만드는 것**을 의미한다.
 
 * 효율성(Efficiency), 제어성(Controllability), 그리고 유연성(Flexibility)을 위해 LDE(Limited Direct Execution)와 비슷한 전략을 가진다.
 
