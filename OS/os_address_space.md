@@ -84,6 +84,6 @@
 
 ## Reference
 
-* [Operating Systems Three Easy Pieces](https://www.amazon.com/Operating-Systems-Three-Easy-Pieces/dp/198508659X)
+* 학교 수업 내용 - [Operating Systems Three Easy Pieces](https://www.amazon.com/Operating-Systems-Three-Easy-Pieces/dp/198508659X)
 
 * [[OS] 메모리 가상화를 위한 메모리 추상화, 주소 공간](https://icksw.tistory.com/129)
