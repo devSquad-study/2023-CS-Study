@@ -1,4 +1,4 @@
-# 신입 개발자 CS 면접 대비 및 지식 공유 👨🏻‍💻 🔥
+# 신입 개발자 CS 면접 대비 스터디 👨🏻‍💻👩🏻‍💻 🔥
 
 [![Since](https://img.shields.io/badge/since-2023.01.02-333333.svg?style=flat-square)](https://github.com/Fancy96/2023-CS-Study)
 [![author](https://img.shields.io/badge/author-ParkJungYoon-00A98F.svg?style=flat-square)](https://github.com/ParkJungYoon)
