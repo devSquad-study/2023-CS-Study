@@ -16,11 +16,17 @@
     <img src="img/bst.png" width="340px"><br>
 </div>
 
+<div align='center'>
+    <img src="img/bst2.png" width="340px"><br>
+</div>
+
 이러한 단점을 개선한 **균형 트리**인 **Red-Black 트리**에 대해서 알아보자.
 
 <br>
 
 ## 🔴 Red-Black 트리 ⚫️
+
+> 이진 탐색 트리의 단점을 개선하기 위한 자료구조
 
 - 이진 탐색 트리(BST)의 한 종류
 - 스스로 균형(balancing) 잡는 트리
@@ -444,13 +450,15 @@ BST와 동일하게 삽입하고 트리 속성을 만족하도록 조정한다.
 
 - `red-black tree`의 응용사례
     - linux kernel 내부에서 사용
-    - Java  TreeMap 구현
+    - Java에서 HashMap 사이즈가 64가 넘어갈 때 red-black tree를 사용한다.  
+    - Java에서 TreeMap 구현에도 사용된다.
 
 ---
 
 ### 📢 같이 공부하면 좋을 면접 질문
 
 - 레드 블랙 트리에 대해 설명해주세요.
+- 레드 블랙 트리를 사용하는 이유에 대해서 설명해주세요.
 
 --- 
 
