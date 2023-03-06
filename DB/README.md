@@ -8,17 +8,17 @@
 
 * [x] 트랜잭션 - 주디
     * [x] [1. 개념과 ACID 속성](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_transaction_and_acid.md)
-    * [x] [2. concurrency control(Serializability, Recoverability)](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_transaction_concurrency-control.md)
+    * [x] [2. concurrency control(Serializability, Recoverable)](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_transaction_concurrency-control.md)
     * [x] [3. Isolation level(격리 수준)과 이상 현상](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_transaction_isolation_level.md)
 
 
-* [x] [RDB와 NoSQL](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_rdb_and_nosql.md) - 팬시
+* [x] [RDBMS와 NoSQL](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_rdbms_and_nosql.md) - 팬시
 
-* [ ] 인덱스
+* [x] [인덱스](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_index.md) - 주디
 
-* [ ] 조인
+* [x] [조인](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_join.md) - 네오
 
-* [ ] 저장 프로시저
+* [x] [저장 프로시저](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_stored_procedure.md) - 은선
 
 * [ ] Schema
 
@@ -30,11 +30,10 @@
 
 * [ ] MySQL Architecture
 
-* [ ] DB Locking
+* [x] [DB Locking](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_locking.md) - 팬시
 
-* [ ] DB의 Connection Pool
+* [x] [DB의 Connection Pool](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_connection_pool.md) - 상혁
 
-* [ ] Trigger
+* [x] [Trigger](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_trigger.md) - 수연
 
-* [ ] Redis
-
+* [x] [Redis](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_redis.md) - 현철

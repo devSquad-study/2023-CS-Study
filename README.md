@@ -1,4 +1,4 @@
-# 신입 개발자 CS 면접 대비 및 지식 공유 👨🏻‍💻 🔥
+# 신입 개발자 CS 면접 대비 스터디 👨🏻‍💻👩🏻‍💻 🔥
 
 [![Since](https://img.shields.io/badge/since-2023.01.02-333333.svg?style=flat-square)](https://github.com/Fancy96/2023-CS-Study)
 [![author](https://img.shields.io/badge/author-ParkJungYoon-00A98F.svg?style=flat-square)](https://github.com/ParkJungYoon)
@@ -8,9 +8,9 @@
 면접대비 CS 스터디 (2023.01.02 ~ ) | 📚 [학습 로그](https://github.com/Fancy96/CS_Study/issues)
 
 
-## 💁🏻‍♂️ 인원
+## 👨🏻‍💻👩🏻‍💻 멤버 소개
 
-|[![](https://github.com/Fancy96.png?size=80)](https://github.com/Fancy96)|[![](https://github.com/baekeunsun.png?size=80)](https://github.com/baekeunsun) |[![](https://github.com/ParkJungYoon.png?size=80)](https://github.com/ParkJungYoon) | [![](https://github.com/namtndus.png?size=80)](https://github.com/namtndus)|[![](https://github.com/BHC-Chicken.png?size=80)](https://github.com/BHC-Chicken)|[![](https://github.com/sanghyuk2.png?size=80)](https://github.com/sanghyuk2) |[![](https://github.com/jthugg.png?size=80)](https://github.com/jthugg)|
+|[![](https://github.com/Fancy96.png?width=200px)](https://github.com/Fancy96)|[![](https://github.com/baekeunsun.png?width=200px)](https://github.com/baekeunsun) |[![](https://github.com/ParkJungYoon.png?width=200px)](https://github.com/ParkJungYoon) | [![](https://github.com/namtndus.png?width=200px)](https://github.com/namtndus)|[![](https://github.com/BHC-Chicken.png?width=200px)](https://github.com/BHC-Chicken)|[![](https://github.com/sanghyuk2.png?width=200px)](https://github.com/sanghyuk2) |[![](https://github.com/jthugg.png?width=200px)](https://github.com/jthugg)|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | 팬시 | 은선 | 주디 | 수연 | 현철 | 상혁 | 네오 | 
 
@@ -134,6 +134,14 @@
 
 *   2023-02-14 (화) : [데이터베이스-1 (개념학습)](https://github.com/Fancy96/2023-CS-Study/issues/54)
 *   2023-02-21 (화) : [데이터베이스-2 (개념학습)](https://github.com/Fancy96/2023-CS-Study/issues/68)
+*   2023-02-28 (화) : [데이터베이스-3 (모의면접)](https://github.com/Fancy96/2023-CS-Study/issues/82)
+*   [회고 (Retrospection)](https://github.com/Fancy96/2023-CS-Study/issues/93)
+
+### 4. [자료구조&알고리즘](Algorithm/README.md)
+
+*   [자료구조&알고리즘 시작](https://github.com/Fancy96/2023-CS-Study/issues/94)
+
+*   2023-03-08 (수) : [자료구조-1 (개념학습)](https://github.com/Fancy96/2023-CS-Study/issues/95)
 
 
 ### ✔️ [예상 질문](Interview/README.md)
@@ -192,18 +200,3 @@ CPU 스케줄링 알고리즘
 3. 디렉터리에 해당 주제 이름의 md 파일 생성 -> 예) network_sop_and_cors.md
 4. md 파일 작성 후 `main` 브랜치로 `PR`
     -  예) `[팬시] SOP와 CORS`
-
-
-## Reference
-
-* [면접을 위한 CS 전공지식 노트](https://product.kyobobook.co.kr/detail/S000001834833)
-
-* [컴퓨터 네트워킹 : 하향식 접근](https://product.kyobobook.co.kr/detail/S000001868723)
-
-* [Operating Systems: Three Easy Pieces](https://www.amazon.com/Operating-Systems-Three-Easy-Pieces/dp/198508659X)
-
-* [데이터베이스 개론](https://product.kyobobook.co.kr/detail/S000001743852)
-
-* [Fundamentals of Data Structures in C 2nd Edition](https://www.amazon.com/Fundamentals-Data-Structures-Ellis-Horowitz/dp/0929306406)
-
-* [Foundations of Algorithms 5/E](https://www.amazon.com/Foundations-Algorithms-Richard-Neapolitan/dp/1284049191)

@@ -1,6 +1,6 @@
 > [해당 포스팅](https://hello-judy-world.tistory.com/197)에서도 내용을 확인할 수 있습니다.
 
-> written by judy
+> written by [judy](https://github.com/ParkJungYoon)
 
 ## 🔎 트랜잭션 (Transaction) #3
 
