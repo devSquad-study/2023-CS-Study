@@ -50,7 +50,9 @@
 - 수치 해석적인 계산
 
 ### 힙의 구현
+
 - 힙을 저장하는 표준 자료구조는 `배열`이다
+    - 완전 이진 트리를 기반으로 하기에 비어있는 공간이 없어 배열로 구현하기에 용이하다
 - 쉽게 구현하기 위해 배열의 첫번째 인덱스는 0은 사용하지 않는다
 - 특정 위치의 노드 번호는 새로운 노드가 추가되어도 변하지 않는다(ex. 루트 노드(1)의 오른쪽 노드 번호는 항상 3)
 
@@ -61,6 +63,14 @@
 >왼쪽 자식 index = (부모 index) * 2  
 >오른쪽 자식 index = (부모 index) * 2 + 1  
 >부모 index = (자식 index) / 2
+
+힙에서 삽입 또는 삭제가 일어나는 경우 최대힙/최소힙의 조건이 깨질 수 있다
+
+이러한 겨웅에 조건을 만족할 수 있게끔 노드들의 위치를 바꿔가며 힙을 `재구조화(heapify)` 해주어야 한다
+
+삽입과 삭제의 경우 연산 자체는 O(1)로 작동하지만 heapify의 과정을 거치기에 O(logN)의 시간복잡도를 가지게 된다
+
+>**heapify**: 배열로 표현된 이진 트리의 자료구조를 갖는 힙을 생성하는 과정이다 
 
 ### 힙의 삽입
 1. 힙에 새로운 요소가 삽입되면, 우선 새로운 노드를 힙의 마지막 노드에 삽입한다
@@ -173,6 +183,31 @@ int delete_max_heap() {
     
 }
 ```
+
+### 힙이 아닌 배열을 힙으로 만들기(Build heap)
+heapify의 경우 기본적으로 힙을 만족하는 경우에서 삽입 또는 삭제가 발생할 때 O(logN)의 시간복잡도로 다시 힙을 만드는 과정이다
+
+**Build heap**은 이와 다르게 아예 힙의 조건을 만족하지 않는 배열을 힙으로 만드는 과정이다
+
+여러번의 heapify 과정을 거치기에 결과적으로 O(NlogN)의 시간복잡도를 가진다
+
+아래 그림을 통한 예시로 자세히 살펴보자
+
+<div align='center'>
+    <img src="img/algorithm_build_heap_1.png" width="540px"><br>
+</div>
+<div align='center'>
+    <img src="img/algorithm_build_heap_2.png" width="540px"><br>
+</div>
+<div align='center'>
+    <img src="img/algorithm_build_heap_3.png" width="540px"><br>
+</div>
+<div align='center'>
+    <img src="img/algorithm_build_heap_4.png" width="540px"><br>
+</div>
+<div align='center'>
+    <img src="img/algorithm_build_heap_5.png" width="540px"><br>
+</div>
 
 ---
 
