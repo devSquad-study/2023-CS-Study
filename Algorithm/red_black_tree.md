@@ -437,6 +437,78 @@ BST와 동일하게 삽입하고 트리 속성을 만족하도록 조정한다.
 
 <br>
 
+### [ case 4 ]
+
+**doubly black**의 오른쪽 형제가 **black** & 그 형제의 오른쪽 자녀가 **red**일 때
+
+👉 그 **red**를 **doubly black** 위로 옮기고 옮긴 **red**로 **extra black**을 전달해서 **red-and-black**으로 만들면 **red-and-black**을 **black**으로 바꿔서 해결
+
+쉽게 말하라옹!
+
+👉 오른쪽 형제는 부모의 색으로, 오른쪽 형제의 오른쪽 자녀는 **black**으로, 부모는 **black**으로 바꾼 후에 부모를 기준으로 왼쪽으로 회전하면 해결
+
+<div align='center'>
+    <img src="img/rbt_ex18.png" width="350px">
+</div>
+<div align='center'>
+    <img src="img/rbt_ex19.png" width="350px">
+</div>
+
+<br>
+
+### [ case 3 ]
+
+**doubly black**의 오른쪽 형제가 **black** & 그 형제의 왼쪽 자녀가 **red** & 그 형제의 오른쪽 자녀는 **black**일 때
+
+👉  **doubly black**의 형제의 오른쪽 자녀가 **red**가 되게 만들어서 이후엔 case4를 적용하여 해결
+
+👉 E 위치에 **red**가 오도록 만들기 위해 C와 D의 색을 바꾼 후에 D를 기준으로 오른쪽으로 회전하면 된다.
+
+<div align='center'>
+    <img src="img/rbt_ex20.png" width="350px">
+</div>
+<div align='center'>
+    <img src="img/rbt_ex21.png" width="350px">
+</div>
+
+<br>
+
+### [ case 2 ] 
+
+**doubly black**의 형제가 **black** & 그 형제의 두 자녀 모두 **black**일 때
+
+👉  **doubly black**과 그 형제의 **black**을 모아서 부모에게 전달해서 부모가 **extra black**을 해결하도록 위임한다.
+
+<div align='center'>
+    <img src="img/rbt_ex22.png" width="350px">
+</div>
+
+<br>
+
+### [ case 1 ] 
+
+**doubly black**의 형제가 **red**일 때
+
+👉  **doubly black**의 형제를 **black**으로 만든 후 case 2, 3, 4 중 하나로 해결
+
+<div align='center'>
+    <img src="img/rbt_ex23.png" width="350px">
+</div>
+<br>
+
+D를 black으로 만들기 위해서 B와 D 색상을 바꿔준다. 그리고 B를 기준으로 왼쪽으로 회전한다.
+
+<div align='center'>
+    <img src="img/rbt_ex24.png" width="350px">
+</div>
+<div align='center'>
+    <img src="img/rbt_ex25.png" width="350px">
+</div>
+
+이 상태에서 다른 case 중에서 해결
+
+<br>
+
 ### ✔️  시간 복잡도
 
 > N = 트리의 노드 수
@@ -447,10 +519,14 @@ BST와 동일하게 삽입하고 트리 속성을 만족하도록 조정한다.
 |delete|O(logN)|O(logN)|
 |search|O(logN)|O(logN)|
 
+- AVL 트리와 비교했을 때!
+
+    - 삽입/삭제가 거의 없고 **검색이 대부분**인 상황에서는 **AVL트리**를 사용하고 **삽입/삭제**가 많을 때는 **red-black tree**를 사용하면 좋다.
+    - 왜냐하면 AVL트리는 검색 성능이 빠르고 red-black tree는 삽입/삭제 성능이 좋기 때문!
+    - AVL트리는 균형을 좀 더 엄격하게 잡는다. 엄격하니깐 검색 성능은 더 좋지만 삽입/삭제는 red-black tree에 비해 느리다.
 
 - `red-black tree`의 응용사례
     - linux kernel 내부에서 사용
-    - Java에서 HashMap 사이즈가 64가 넘어갈 때 red-black tree를 사용한다.  
     - Java에서 TreeMap 구현에도 사용된다.
 
 ---
