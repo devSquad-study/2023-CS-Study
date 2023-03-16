@@ -2,8 +2,6 @@
 
 ## 목차
 
-* [ ] 시간복잡도와 공간복잡도
-
 * [x] [스택과 큐](https://github.com/Fancy96/2023-CS-Study/blob/main/Algorithm/stack_and_queue.md) - 네오
 
 * [ ] 링크드 리스트
@@ -23,8 +21,6 @@
 * [ ] 이진탐색
 
 * [ ] 완전탐색
-
-* [ ] B-Tree & B+Tree
 
 * [ ] 그리디 알고리즘
 
