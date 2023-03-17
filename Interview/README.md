@@ -7,3 +7,5 @@
 ### [운영체제](/Interview/os_expected_question.md)
 
 ### [데이터베이스](/Interview/db_expected_question.md)
+
+### [자료구조](/Interview/algorithm_expected_question.md)

@@ -28,8 +28,6 @@
 
 * [x] [B-Tree와 B+Tree](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_b_tree_b%2Btree.md) - 현철
 
-* [ ] MySQL Architecture
-
 * [x] [DB Locking](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_locking.md) - 팬시
 
 * [x] [DB의 Connection Pool](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_connection_pool.md) - 상혁
