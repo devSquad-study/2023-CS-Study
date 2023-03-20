@@ -401,7 +401,7 @@ stackPointer top[MAX_STACKS];
 /***************************
 top[i] = NULL, 0 <= i < MAX_STACKS // initial codition
 top[i] = NULL, iff ith stack is empty // boundary condition
-/***************************
+***************************/
 ```
 
 * (3) 실행 예
