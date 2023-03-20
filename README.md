@@ -84,8 +84,15 @@
         * 답변이 끝난 후 출제자가 피면접자 피드백(좋았던점/아쉬웠던점/개선점) 간단히 기록한다.
         * 또한 방향성이 맞았는지 출제자가 간단하게 피드백을 작성한다.
         * 모의 면접이 끝난 후 면접자가 의도한 방향과 답변이 무엇이였는지, 다른 분들도 추가적인 설명을 덧 붙인다.
+        ```
+        면접 기준 표
+        - 예) 주제 : 그래프(완전탐색, 이진탐색)
+            커뮤니케이션 : 2점
+            지식 : 3점
+        ```
     2. `실시간 면접 진행 docs`
-        * [링크](https://docs.google.com/document/d/1QnsMgR9M0c91QetYJPhUuUABAFgMVCrpuYvNV04bXjQ/edit#heading=h.oct5jj1nxa8o)
+        * `변경 전` [링크](https://docs.google.com/document/d/1QnsMgR9M0c91QetYJPhUuUABAFgMVCrpuYvNV04bXjQ/edit#heading=h.oct5jj1nxa8o)
+        * `변경 후` 노션 페이지
     3. `질문 가이드`
         * 네트워크 README 목록에 있는 주제에 대한 학습이 되었는지 확인합니다.
         * 출제자와 다른 스터디원 중 꼬리 질문이 가능하다면 꼬리 질문도 출제합니다.
@@ -142,6 +149,7 @@
 *   [자료구조&알고리즘 시작](https://github.com/Fancy96/2023-CS-Study/issues/94)
 
 *   2023-03-08 (수) : [자료구조-1 (개념학습)](https://github.com/Fancy96/2023-CS-Study/issues/95)
+*   2023-03-15 (화) : [자료구조-2 (모의면접)](https://github.com/Fancy96/2023-CS-Study/issues/105)
 
 
 ### ✔️ [예상 질문](Interview/README.md)
