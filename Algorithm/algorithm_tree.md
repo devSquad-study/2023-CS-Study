@@ -140,20 +140,151 @@ public class Node {
 
 * 이런 장점은 **자료를 저장**할 때 그 위력을 발휘한다.
 
-* BST에서 룩업을 수행하는 알고리즘을 간략하게 적어 보면 다음과 같다.
+* BST를 다음과 같이 재귀 메서드와 반복 메서드로 구현할 수 있다.
 
-```markdown
-루트 노드에서 시작
-현재 노드가 널이 아닌 동안 반복
-    현재 노드의 값이 찾고자 하는 값이면
-        현재 노드 리턴
-    현재 노드의 값이 찾고자 하는 값보다 작으면
-        오른쪽 자식을 현재 노드로 설정
-    현재 노드의 값이 찾고자 하는 값보다 크면
-        왼쪽 자식을 현재 노드로 설정
-반복문 끝
+```cpp
+typedef int iType;
+typedef struct {
+    int key;  //찾을 값
+    iType item; //저장할 값(이름, 주소, 전화번호)
+} element;
+
+typedef struct node *treePointer;
+typedef struct node {
+    element data;
+    treePointer leftChild, rightChild;
+} tNode;
+
+/* Resursive */
+element* search(treePointer root, int k) 
+{ /* return a pointer to the element whose key is k, if there is no such element, return NULL. */
+  if (!root) return NULL;
+  if (k == root->data.key) return &(root->data);
+  if (k < root->data.key)
+    return search(root->leftChild, k);
+  return search(root->rightChild, k);
+}
+
+/* Iterative */
+element* iterSearch(treePointer tree, int k)
+{ /* return a pointer to the element whose key is k, if there is no such element, return NULL. */
+
+  while(tree) {
+    if (k == tree->data.key) return &(tree->data);
+    if (k < tree->data.key)
+        tree = tree->leftChild;
+    else
+        tree = tree->rightChild;
+    return NULL;
+}
 ```
 
+* `&`을 쓰는 이유는 비선형 자료구조며 Index가 존재하지 않고, 노드 자체를 return 하므로 **주소**로 접근해야 한다.
+
+* 평균적인 케이스로 BST의 높이가 n일 경우 시간복잡도는 **O(log(n))** 이며, 최악의 케이스인 경우 **O(n)** 이 된다.
+
+## 힙
+
+* 힙도 매우 많이 쓰이는 트리 가운데 하나다.
+
+* 힙은 이진 트리로, 노드의 각 자식의 값은 노드 자신의 값 이하여야 하며, 이를 보통 `max heap`이라고 부른다.
+
+<img src = "img/algorithm_tree-7.png" width="500px"/>
+
+* 결과적으로 루트 노드의 값은 그 트리에서 가장 큰 값이며, **`우선순위 큐`(Priority queues)를 구현하기 위해 `max heap`을 사용**한다.
+
+* 예를 들어, 병원 응급실에서 대기 중인 환자들을 힙으로 모델링할 수 있다. 환자가 들어올 때 손가락을 다쳐서 온 환자보다 심장마비 환자에게 **더 높은 우선순위를 부여**하는 식으로 
+
+* 우선순위를 부여하여 힙에 집어넣는다. 의사가 다음 환자를 볼 수 있게 되면 가장 우선순위가 높은 환자부터 치료를 시작한다.
+
+* 하지만 문제에 따라서 `min heap`이 주어지는 경우도 있다. `min heap`은 반대로 가장 작은 값이 루트에 오는 경우이다.
+
+<img src = "img/algorithm_tree-8.png" width="500px"/>
+
+* 시간복잡도에 대해서 삽입과 삭제는 **O(log(n))** 이지만, 룩업은 **O(n)** 이다.
+
+## 일반적인 검색 방법
+
+* BST나 힙처럼 정렬되는 특성을 가진 트리가 아닌 가계도나 회사의 직위체계 등을 나타내는 트리가 있다.
+
+* 이렇게 특정 노드를 검색하는 것과 관련된 문제들이 자주 나오는데, 이런 문제들을 해결하기 위해서는 가장 많이 쓰이는 알고리즘 두 가지를 쓰면 된다.
+
+### 너비 우선 검색(BFS)
+
+* 트리를 검색하는 방법 가운데 하나로 `너비 우선 탐색`(BFS, Breath-First-Search)가 있다.
+
+* BFS에서는 루트에서 시작하여 둘째 층을 왼쪽에서 오른쪽으로 훑어나가고, 그 다음 층 역시 왼쪽에서 오른쪽으로 훑어나가는 식으로 검색을 한다.
+
+* 원하는 노드를 찾거나 모든 노드를 다 확인하면 검색이 끝나는 검색(=탐색) 기법이다.
+
+* 노드를 찾아내는 데 걸리는 시간은 **O(n)** 이므로 큰 트리에 대해서는 이런 식으로 검색하지 않는 것이 좋다.
+
+* BFS에서는 어떤 층을 검색할 때 **그 층에 있는 모든 노드의 자식 노드를 저장**해둬야 하기 때문에 **메모리도 꽤 많이 사용**해야 한다.
+
+### 깊이 우선 검색(DFS)
+
+* 트리를 검색하는 두 번째 방법으로 `깊이 우선 검색`(DFS, Depth-First-Search)가 있다.
+
+* 깊이 우선 검색에서는 원하는 노드를 찾거나 끝까지 다다를때 까지 한 가지를 따라 쭉 내려가는 방식이다.
+
+* 더 이상 검색할 수 없다면 확인하지 않는 자식이 있는 가장 가까운 조상 노드로 돌아가서 검색을 계속하는 기법이다.
+
+* DFS에서는 BFS와 다르게 각 층별로 모든 자식 노드를 저장해야 할 필요가 없기 때문에 **메모리 요구량이 훨씬 적다.**
+
+* 그리고 특정 층을 마지막으로 검색하는 문제가 없다는 점도 장점이 될 수 있다. (BFS에서는 가장 낮은 층을 마지막에 확인함)
+
+* 예를 들어, 회사의 조직도를 나타내는 트리가 주어졌는데, 신입사원을 찾는다면 트리 아래쪽에 주로 있을 것으로 예상할 수 있다.
+
+* 이런 경우 BFS보다 DFS로 검색을 하면 원하는 노드를 빨리 찾을 수 있을 것이다.
+
+## 종주(Traversal)
+
+* 종주도 자주 나오는 문제 유형 가운데 하나다.
+
+* 특정 노드를 찾으면 작업을 멈추는 검색과는 달리 종주를 할 때는 **모든 노드를 방문하면서 각 노드에 대해 어떤 작업을 수행**하게 된다.
+
+* 종주에는 세 가지 방법이 있으며, 각 방법에 따라 노드를 방문하는 순서가 달라진다.
+
+  * `Preorder`(VLR) : 우선 노드 자체에 대해 작업을 수행하고 왼쪽, 오른쪽 자손 순으로 처리한다. 항상 노드를 먼저 방문한다. Value -> Left -> Right
+
+  * `Inorder`(LVR) : 우선 노드의 왼쪽 자손을 처리한 다음 노드 자체에 대해 작업을 수행하고, 마지막으로 오른쪽 자손을 처리한다. Left -> Value -> Right
+
+  * `Postorder`(LRV) : 우선 노드의 왼쪽 자손을 처리한 다음, 오른쪽 자손을 처리하고 마지막에 그 노드 자체를 처리한다. Left -> Right -> Value
+
+* 종주를 구현하는 가장 간단한 방법은 **재귀 호출**을 이용하는 방법이다.
+
+* 아래와 같이 C언어로 구현했다.
+
+```cpp
+/* Preorder */
+void preorder(treePointer ptr) 
+{ /* preorder tree traversal */
+  if (ptr) {
+    print("%d", ptr->data);   //V
+    preorder(ptr->leftChild);  //L
+    preorder(ptr->rightChild); //R
+}
+
+
+/* Inorder */
+void inorder(treePointer ptr) 
+{ /* inorder tree traversal */
+  if (ptr) {
+    inorder(ptr->leftChild);  //L
+    print("%d", ptr->data);   //V
+    inorder(ptr->rightChild); //R
+}
+
+
+/* Postorder */
+void postorder(treePointer ptr) 
+{ /* postorder tree traversal */
+  if (ptr) {
+    postorder(ptr->leftChild);  //L
+    postorder(ptr->rightChild); //R
+    print("%d", ptr->data);   //V
+}
+```
 
 ##  Reference
 
