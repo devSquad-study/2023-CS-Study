@@ -22,8 +22,7 @@
 배열과 연결리스트는 선형 구조의 자료구조이기에 삽입 또는 삭제 연산을 위한 시간복잡도는 `O(N)`이지만 힙은 완전 이진 트리 구조이므로 힙 트리의 높이는 `log(N+1)`이며, 힙의 시간복잡도는 O(logN)이다
 
 <div align='center'>
-    <img src="img/algorithm_priority_queue_heap.png
-" width="540px"><br>
+    <img src="img/algorithm_priority_queue_heap.png" width="540px"><br>
 </div>
 
 ## Heap(힙)
