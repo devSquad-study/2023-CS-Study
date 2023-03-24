@@ -20,7 +20,7 @@
 
 * [x] [이진탐색](https://github.com/Fancy96/2023-CS-Study/blob/main/Algorithm/algorithm_binary_search.md) - 상혁
 
-* [x] [완전탐색](https://github.com/Fancy96/2023-CS-Study/blob/main/Algorithm/algorithm_brute_force.md) - 현철
+* [x] [완전탐색](https://github.com/Fancy96/2023-CS-Study/blob/main/Algorithm/algorithm_brute_force_search.md) - 현철
 
 * [x] [그리디 알고리즘](https://github.com/Fancy96/2023-CS-Study/blob/main/Algorithm/algorithm_greedy.md) - 은선
 
