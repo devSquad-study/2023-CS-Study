@@ -20,7 +20,7 @@
 
 * [x] [저장 프로시저](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_stored_procedure.md) - 은선
 
-* [ ] Schema
+* [x] [Schema](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_schema.md) - 수연
 
 ## 심화 버전
 
