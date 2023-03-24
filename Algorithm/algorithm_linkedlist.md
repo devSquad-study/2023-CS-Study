@@ -1,7 +1,5 @@
 > 작성자 : 팬시 / [출처](https://fancy96.github.io/DataStructure-LinkedList/)
-
 > 이 글의 코드와 정보들은 책을 공부하며 정리한 내용을 토대로 작성하였습니다.
-
 # 연결 리스트
 
 * `연결 리스트`는 동적인 데이터를 처리하는 것과 관련된 수많은 문제의 근간을 이루는 자료구조다.
@@ -115,7 +113,6 @@ ListElement<Integer> l = new ListElement<Integer> (data);
 ```java
 int data = ...; // 삽입할 데이터
 ListElement<Integer> head = ...; // 머리에 대한 래퍼런스
-
 head = insertInFront(head, data);
 ```
 
@@ -172,7 +169,6 @@ public ListElement<Integer> find(ListElement<Integer> head, int data) {
 void insertNode(listPointer *first, listPointer node)
 {   
     listPointer p, q;
-
     p = q = *first;
     // Empty (비어있는 경우)
     if(!p) {
@@ -189,7 +185,6 @@ void insertNode(listPointer *first, listPointer node)
         }
     }
 }
-
 // Delete
 void deleteNode(listPointer *first, int data)
 {
@@ -216,7 +211,6 @@ void deleteNode(listPointer *first, int data)
         if(q == NULL) return;
     }
 }
-
 ```
 
 * 위의 코드를 이해하기 아래와 같이 쉽게 그림으로 그렸다.
@@ -224,13 +218,11 @@ void deleteNode(listPointer *first, int data)
 * 그림 옆에는 이해하기 쉽도록 슈도 코드(Pseudo-code)로 작성했다. (슈도 코드에는 **모든 경우의 수**를 생각하여 작성함)
 
 > InsertNode [1] 중간 / [2] 맨뒤 / [3] 맨앞 / [4] 비어있는 경우
-
 <img src = "img/algorithm_linkedList-insertNode-1.png" width="500px"/>
 
 <img src = "img/algorithm_linkedList-insertNode-2.png" width="500px"/>
 
 > deleteNode [1] 중간 / [2] 맨뒤 / [3] 맨앞 / [4] 비어있는 경우
-
 <img src = "img/algorithm_linkedList-deleteNode-1.png" width="500px"/>
 
 <img src = "img/algorithm_linkedList-deleteNode-2.png" width="500px"/>
@@ -248,7 +240,6 @@ void deleteNode(listPointer *first, int data)
 > 연결 리스트 또는 동적 배열을 써서 C로 스택을 구현하고 그 자료구조를 사용한 이유를 설명하라.
 >
 > 완전하고 일관성 있으면서 사용하기 편리한 스택 인터페이스를 설계하라.
-
 * 이 문제는 다음과 같은 세 가지를 중점적으로 살펴보기 위한 문제라고 할 수 있다.
 
 1. 기본적인 자료구조에 대한 지식
@@ -260,7 +251,6 @@ void deleteNode(listPointer *first, int data)
 * 위의 면접 문제에 대해 각 단계별로 나누어 정리했다.
 
 > [1] 스택 자료구조에 대해 논하라.
-
 * `스택`은 후입선출(LIFO, last-in-first-out), 즉 마지막에 들어간 것이 가장 먼저 나오는 자료구조다.
 
 * 모든 원소는 접시를 쌓아놓았다가 꺼낼 때와 마찬가지로 들어간 순서와 반대 순서로 나온다.
@@ -272,7 +262,6 @@ void deleteNode(listPointer *first, int data)
 * 스택을 사용하는 대표적인 예로 **서브루틴에서 사용하는 반환 주소, 매개변수, 지역변수 등을 추적**하는 것을 들 수 있다. 프로그래밍 언어를 파싱할 때 **토큰을 추척**하는 것도 또 다른 예라고 할 수 있다. (`파싱`이란 웹페이지에서 원하는 데이터를 추출하여 가공하기 쉬운 상태로 바꾸는 것을 의미한다)
 
 > [2] 연결 리스트 또는 동적 배열을 써서 C로 스택을 구현하고 그 자료구조를 사용한 이유를 설명하라.
-
 * 스택을 구현하는 방법 가운데 하나로 배열이 추가될 때마다 필요에 따라 크기가 바뀌는 **동적 배열**을 사용하는 방법을 들 수 있다.
 
 * 연결 리스트에 비하자면 `동적 배열`은 **배열 원소에 대한 임의 접근이 가능하다는 것이 가장 큰 장점**이라고 할 수 있다.
@@ -296,7 +285,6 @@ void deleteNode(listPointer *first, int data)
 * 동적 배열보다는 연결 리스트로 구현하는 것이 훨씬 덜 복잡하기 때문에 면접에서는 연결 리스트를 푸는 쪽이 훨씬 낫다.
 
 > [3] 완전하고 일관성 있으면서 사용하기 편리한 스택 인터페이스를 설계하라.
-
 * 스택을 구현할 때는 `push`와 `pop` 루틴이 필요하다. 각 함수에는 연산을 처리할 스택을 넘겨줘야 한다.
 
 * `push` 연산에는 집어넣을(푸시할) 데이터를 넘겨줘야 하며, `pop` 연산에서는 스택에서 꺼낸 데이터를 반환해야 한다.
@@ -322,7 +310,6 @@ stackPointer top[MAX_STACKS];
 * 위과 같은 자료형을 가진 스택 기반의 연결 리스트일 때, push 연산과 pop 연산을 아래와 같이 구현할 수 있다.
 
 > push(i, item) : Add to a linked stack
-
 ```cpp
 void push(int i, element item)
 { /* add item to the ith stack */
@@ -335,7 +322,6 @@ void push(int i, element item)
 ```
 
 > item = pop(i) : Delete a linked stack
-
 ```cpp
 element pop(int i)
 {   /* remove top element from the ith stack */
@@ -355,14 +341,13 @@ element pop(int i)
 **연결 리스트를 활용하여 스택을 생성하고 실행하는 프로그램**을 만들어보자.
 
 > 문제 : 다음과 같은 스택을 생성하고 실행하는 프로그램을 작성하라. 이를 위해 push, pop, stackEmpty 함수를 구현하여야 한다.
-
 * (1) 실행 순서 - [1], [2]
 
 * [1-1] 아래와 같은 입력으로 부터 **학번 순으로 미리 정렬된 데이터를 입력**받으면서 순서대로 Linked Stack을 구현한다.
 
-    * (과목번호, 학번, 성적)의 쌍으로 데이터들이 입력되며 각 과목별로 스택에 저장된다.
+  * (과목번호, 학번, 성적)의 쌍으로 데이터들이 입력되며 각 과목별로 스택에 저장된다.
 
-    * (과목번호 : 1자리수, 학번 : 1자리수, 성적 : 2자리수)
+  * (과목번호 : 1자리수, 학번 : 1자리수, 성적 : 2자리수)
 
 ```markdown
 0 1 95
@@ -382,7 +367,7 @@ element pop(int i)
 
 * [1-2] 각 과목 별로 학번의 역순으로 학번과 노드의 데이터(학번, 성적)을 출력하라.
 
-    * (출력형식 - 과목번호 : %d, 학번 : %d, 성적 : %2d)
+  * (출력형식 - 과목번호 : %d, 학번 : %d, 성적 : %2d)
 
 * (2) 구현 세부사항 - 반드시 linked list를 활용한 stack으로 작성해야 한다.
 
@@ -438,7 +423,6 @@ top[i] = NULL, iff ith stack is empty // boundary condition
 
 
 > Answer Code
-
 ```cpp
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
@@ -450,19 +434,16 @@ top[i] = NULL, iff ith stack is empty // boundary condition
       exit(EXIT_FAILURE);\
    }\
 }
-
 typedef struct {
    int id;
    int grade;
 }element;
-
 typedef struct stack* stackPointer;
 typedef struct stack {
    element data;
    stackPointer link;
 }Node;
 stackPointer top[MAX_STACKS];
-
 void push(int i, element item)
 {
    stackPointer temp;
@@ -471,13 +452,11 @@ void push(int i, element item)
    temp->link = top[i];
    top[i] = temp;
 }
-
 void stackEmpty()
 {
    fprintf(stderr, "stack is empty");
    exit(1);
 }
-
 element pop(int i)
 {
    stackPointer temp = top[i];
@@ -489,7 +468,6 @@ element pop(int i)
    free(temp);
    return item;
 }
-
 void stackPrint() 
 {
    element item;
@@ -502,12 +480,10 @@ void stackPrint()
       }
    }
 }
-
 int main()
 {
    int n, id, score;
    element item;
-
    for (int i = 0; i < 13; i++)
    {
       scanf("%d %d %d", &n, &id, &score);
@@ -515,7 +491,6 @@ int main()
       item.grade = score;
       push(n, item);
    }
-
    stackPrint();
    return 0;
 }
