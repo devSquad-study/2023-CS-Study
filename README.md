@@ -40,7 +40,7 @@ CS 스터디 시작 (2023.01.02 ~ ) | 📚 [Wiki](https://github.com/Fancy96/202
 * [네트워크](https://github.com/Fancy96/2023-CS-Study/blob/main/Interview/network_expected_question.md)
 * [데이터베이스](https://github.com/Fancy96/2023-CS-Study/blob/main/Interview/db_expected_question.md)
 
-## 👨🏻‍💻👩🏻‍💻 팀원 소개
+## 👨🏻‍💻👩🏻‍💻 멤버 소개
 
 |[![](https://github.com/Fancy96.png?width=200px)](https://github.com/Fancy96)|[![](https://github.com/baekeunsun.png?width=200px)](https://github.com/baekeunsun) |[![](https://github.com/ParkJungYoon.png?width=200px)](https://github.com/ParkJungYoon) | [![](https://github.com/namtndus.png?width=200px)](https://github.com/namtndus)|[![](https://github.com/BHC-Chicken.png?width=200px)](https://github.com/BHC-Chicken)|[![](https://github.com/sanghyuk2.png?width=200px)](https://github.com/sanghyuk2) |[![](https://github.com/jthugg.png?width=200px)](https://github.com/jthugg)|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
