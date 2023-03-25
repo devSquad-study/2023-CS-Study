@@ -152,7 +152,7 @@ public ListElement<Integer> find(ListElement<Integer> head, int data) {
 }
 ```
 
-* 함수/메서드를 호출한 쪽에서는 반환 값이 널이 아닌지 확인하여 오류 조건을 ㅏㅈ아야 한다.
+* 함수/메서드를 호출한 쪽에서는 반환 값이 널이 아닌지 확인하여 오류 조건을 찾아야 한다.
 
 ### 원소의 삽입과 삭제
 
