@@ -64,6 +64,53 @@ Throwable 클래스에 대한 Oracle의 공식문서를 읽어보면 **이 클�
 
 이 때 **던질 수 있는**이란, 개발자가 임의로 예외를 던질 수 있음을 의미합니다.
 
+- **Checked Exception(=Compile Exeption)** : 컴파일 시점에 예외를 catch하는지 정적으로 확인합니다. 만일 컴파일 시점에 예외에 대해 처리(try...catch) 하지 않는다면 컴파일 에러가 발생합니다.
+
+- **Unchecked Exception** : 컴파일 시점에 예외를 catch하는지 확인하지 않습니다. 그렇기에 컴파일 시점에 예외가 발생하는지 여부를 확인할 수 없습니다.
+
+예외 가능성이 있는 메서드를 호출하는 메서드가 예외를 활용하여 의미있는 작업을 할 수 있다면 Checked Exception을 활용할 수 있다. 
+
+하지만 호출하는 메서드가 예외 상황이나 문제 해결능력이 없다면 Unchecked Exception을 활용할 수 있다. 
+
+Checked Exception을 처리하기 위해서는 throws를 사용하여 피호출 메서드에서 호출하는 메서드로 예외를 던진다고 이해하면 된다.  
+
+하지만 무분별한 throws의 사용은 코드의 가독성을 떨어트림과 예외발생지점을 알 수 없게 만드는 원인이 될 수 있다.  
+
+이에 try문 안에서 발생하는 Checked Exception을 catch문 안에서 Unchecked Exception으로 바꿔주는 방법을 적용할 수 있다.  
+
+그 결과 예외가 발생한 메서드에서 예외를 처리하거나 개발자 혹은 사용자에게 처리를 위임할 수 있기 때문이다.
+
+```
+public static String extractRequestLine(BufferedReader bufferedReader) {
+    try {
+    	String requestLine = bufferedReader.readLine();
+        if (requestLine == null) {
+            throw new InvalidHttpRequestException("request line이 없습니다.");
+    	}
+
+      return requestLine;
+    } catch (IOException e) {
+        throw new InvalidHttpRequestException("입력 값이 잘못되어 RequestLine 객체를 생성할 수 없습니다.");
+    }
+}
+```
+
+---
+
+### 📢 예상 면접 질문들
+
+- Q. checked Exception과 Unchecked Exception을 알고 있나요?
+    - A. RuntimeException 상속하는 클래스는 Unchecked Exception, 그렇지 않다면 Checked Exception. Unchecked Exception의 경우 예외 처리를 명시적으로 할 필요는 없지만, Checked Exception의 경우 반드시 필요!
+- Q. Error와 Exception의 차이를 설명해주세요
+    - A. Error는 실행 중 일어날 수 있는 치명적 오류, 컴파일 시점 체크 불가, 오류 발생 시 프로그램은 비정상적으로 종료되며 Unchecked Exception에 속함. 반면 Exception은 Error보다 경미한 오류이며, try...catch문을 사용하여 비정상 종료를 막을 수 있다.
+--- 
+
+### 📌 Reference
+
+- [[wellbell's blog] Error 와 Exception(Checked, Unchecked)](https://wellbell.tistory.com/198)
+- [[넥스트리소프트]](https://www.nextree.co.kr/p3239/)
+- [[Inpa Dev's blog]](https://inpa.tistory.com/entry/JAVA-%E2%98%95-%EC%97%90%EB%9F%ACError-%EC%99%80-%EC%98%88%EC%99%B8-%ED%81%B4%EB%9E%98%EC%8A%A4Exception-%F0%9F%92%AF-%EC%B4%9D%EC%A0%95%EB%A6%AC)
+
 
 
 
