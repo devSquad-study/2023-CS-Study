@@ -148,11 +148,13 @@
 
 * 비관적 락(Pessimistic lock)은 Repeatable_Read 또는 Serializable 정도의 격리성 수준을 제공한다.
 
-  (DB 트랜잭션 격리 수준에 대해 모르겠다면, [트랜잭션 - 격리 수준과 이상 현상](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_transaction_isolation_level.md)을 참고하시길 바랍니다)
+  (DB 트랜잭션 격리 수준에 대해 모르겠다면, [트랜잭션 격리 수준](https://fancy96.github.io/DB-Transaction-Isolation-Level/)을 참고하시길 바랍니다)
 
-* 비관적 락이란 트랜잭션이 시작될 때 **Shared Lock 또는 Exclusive Lock을 걸고 시작**하는 방법이다.
+* 비관적 락이란 지원 요청에 따른 동시성 문제가 발생할 것이라고 예상하고 **lock**을 걸어버리는 방법이다.
 
-  즉, Shared Lock을 걸면 read 연산밖에 못하기 때문에, write 연산을 하기 위해서는 Exclusive Lock을 얻어야 한다.
+* 다시 말해서, 트랜잭션이 시작될 때 **Shared Lock 또는 Exclusive Lock을 걸고 시작**하는 방법이다.
+
+  Shared Lock을 걸면 read 연산밖에 못하기 때문에, write 연산을 하기 위해서는 Exclusive Lock을 얻어야 한다.
 
   하지만, 만약 Shared Lock이 다른 트랜잭션에 의해 걸려 있으면 해당 Lock을 얻지 못하므로 업데이트를 할 수 없다.
 
@@ -177,13 +179,25 @@
 
 * 이렇게 비관적 락은 **Transaction 과정을 통해 충돌을 예방**한다.
 
+### 장점
+
+* **충돌이 자주 발생하는 환경**에서 롤백의 횟수를 줄일 수 있으므로 성능에서 유리하다.
+
+* 데이터의 무결성을 보장하는 수준이 매우 높다.
+
+### 단점
+
+* 데이터 자체에 lock을 걸어버리기 때문에 **동시성이 떨어져 성능 손해**를 많이 보게 된다. 특히 읽기가 많이 이루어지는 DB의 경우 손해가 더 심해진다.
+
+* 서로 자원이 필요한 경우에, 락이 걸려있으면 **Deadlock**이 일어날 가능성이 있다.
+
 ## Optimistic lock
 
-* 낙관적 락(Optimistic lock)은 DB 충돌 상황을 개선할 수 있는 방법 중 2번째이다.
+* 낙관적 락(Optimistic lock)은 **자원에 lock을 걸어서 선점하지 말고, 동시성 문제가 발생하면 그때 가서 처리**하는 방법이다.
 
-  A가 해당 값을 첫 번째로 수정한 이후에 같은 조건으로 B가 해당 값을 수정할 수 없게 하는 것이다.
+  T1가 해당 값을 첫 번째로 수정한 이후에 같은 조건으로 T2가 해당 값을 수정할 수 없게 하는 것이다.
 
-* 이 특징은 DB에서 제공해주는 특징을 이용하는 것이 아닌 **Application Level**에서 잡아주는 Lock이다.
+* 이 특징은 DB에서 동시성을 처리하는 것이 아닌 **Application Level**에서 처리하는 Lock이다.
 
 * 아래의 도식로를 보면서 낙관적 락에 대해 제대로 이해해보자.
 
@@ -201,8 +215,19 @@
 
 * 위 흐름을 통해 같은 row에 대해 각기 다른 2개의 수정 요청이 있었지만, **1개가 업데이트가 이미 되어서 Version이 변경되었기 때문에 그 뒤의 수정 요청은 반영되지 않는다**.
 
+* 이때 여러 작업이 묶인 트랜잭션으로 요청이 간 경우가 **실패**한 경우, **개발자가 직접 롤백 처리**를 해줘야 한다.
+
 * 이렇게 낙관적 락은 version 등의 구분 컬럼을 이용해서 충돌을 예방한다.
 
+### 장점
+
+* 충돌이 안난다는 가정하에, **동시 요청**에 대해서 처리 성능이 좋다.
+
+### 단점
+
+* 잦은 충돌이 일어나는 경우, **롤백 처리**에 대한 비용이 많이 들어 성능에서 손해볼 수도 있다.
+
+* 롤백 처리를 구현하는게 복잡할 수 있다.
 
 ## 예상 질문
 
@@ -211,6 +236,8 @@
 * Lock 연산 종류 2가지에 대해 설명해 주세요.
 
 * Optimistic Lock/Pessimistic Lock에 대해 설명해 주세요.
+
+* Optimistic Lock/Pessimistic Lock의 장단점에 대해 설명해 주세요.
 
 ## Reference
 
@@ -221,3 +248,5 @@
 * [[DB] Lock이란?](https://chrisjune-13837.medium.com/db-lock-%EB%9D%BD%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80-d908296d0279)
 
 * [[DB] 낙관적 락(Optimistic Lock)과 비관적 락(Pessimistic Lock)](https://sabarada.tistory.com/175)
+
+* [[DB] 낙관적(Optimistic) 락과 비관적(Pessimisitc)락](https://unluckyjung.github.io/db/2022/03/07/Optimistic-vs-Pessimistic-Lock/)
