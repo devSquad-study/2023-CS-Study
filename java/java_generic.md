@@ -6,7 +6,7 @@
 `템플릿(template)` : 템플릿은 '형판'이라는 뜻이다. C++의 템플릿이나 자바의 제너릭은 메소드나 클래스 코드를 찍어내듯이 생산할 수 있도록 일반화(generic)시키는 도구이다.
 
 <div align='center'>
-    <img src="img/java_generic_01.jpg" width="500px"/>
+    <img src="img/java_generic_01.jpg" width="600px"/>
 </div>
 <br>
 
@@ -98,7 +98,7 @@ public class Main {
 
 #### 출력결과
 <div align='center'>
-    <img src="img/java_generic_04.png" width="500px"/>
+    <img src="img/java_generic_04.png" width="300px"/>
 </div>
 
 객체를 생성할 때에 <>안에 `타입 파라미터(Type parameter)`를 지정한다.
@@ -173,7 +173,7 @@ public class Main {
 
 #### 출력결과
 <div align='center'>
-    <img src="img/java_generic_03.png" width="500px"/>
+    <img src="img/java_generic_03.png" width="400px"/>
 </div>
 
 - 객체를 생성할 때 <>안에 `타입 파라미터(Type Parameter)`를 지정한다.
