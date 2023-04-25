@@ -95,6 +95,64 @@ public static String extractRequestLine(BufferedReader bufferedReader) {
 }
 ```
 
+## 예외 처리 기법
+### [ try ~ catch ]
+예외를 처리하기 위해서는 try...catch 블록을 이용한다.  
+try 블록에는 예외가 발생할 수 있는 코드를 작성한다.
+catch의 파라미터에는 try 블록에서 발생할 수 있는 예외를 설정한다.  
+마지막으로 catch 블록에서는 해당 예외가 발생 시 처리할 코드를 작성한다.  
+
+형식은 아래와 같다.
+```
+try {
+    //예외가 발생할 수 있는 코드
+}catch(XXException e) { //던질 예외를 받음
+    //예외가 발생했을 때 처리할 코드
+}
+```
+이를 기반으로 아래 예제를 살펴보자.
+```
+package 상혁.exception;  
+
+public class SimpleException {
+
+    public static void main(String[] args) {
+        int[] intArray = { 10 };
+        System.out.println(intArray[2]); //예외 발생 지점
+        System.out.println("프로그램 종료합니다");
+    }
+}
+```
+
+실행 결과 아래와 같은 예외가 발생한다.  
+> Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 2 at 상혁.exception.ExceptionCase.main(ExceptionCase.java:7) 
+
+위 코드 상에서 컴파일에는 문제가 없었지만, 실행 결과를 확인하면 ArrayIndexOutOfBoundsException이 발생한다.  
+이에 프로그램은 비정상종료되며 예외 발생 지점 아래 출력문은 출력되지 않는다.  
+이처럼 컴파일에는 지장이 없지만, 프로그램 동작 중 발생하는 예외를 runtime 계열의 예외(Unchecked Exception)이라고 부른다.
+
+위 예제에서 발생한 코드를 try...catch 블록을 이용해서 처리해보자.  
+```
+package 상혁.exception;  
+
+public class SimpleTryCatch {
+
+    public static void main(String[] args) {
+        int[] intArray = { 10 };
+        try {
+            System.out.println(intArray[2]); //예외 발생 지점
+        }catch(ArrayIndexOutOfBoundsException e) {
+            System.out.println("예외가 발생하였지만 처리함: 배열 크기 확인 필요");
+        }
+        System.out.println("프로그램 종료합니다");
+    }
+}
+```
+
+실행 결과 아래와 같이 출력한다.  
+> 예외가 발생하였지만 처리함: 배열 크기 확인 필요  
+프로그램 종료합니다.   
+
 ---
 
 ### 📢 예상 면접 질문들
