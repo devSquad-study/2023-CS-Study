@@ -56,7 +56,7 @@ public class Main {
 - 위의 예제에 따르면 T는 String이 되고, K는 Integer가 된다.
 - 주의해야할 점 : **파라미터로 명시할 수 있는 것은 `참조 타입(Reference Type)`밖에 올 수 없다.**
     - `primitive type`(ex. int, double, char...)은 올 수 없다. 
-    - int, double 같은 primitive type의 경우 Integer, Double 같은 `Wrapper Type`으로 사용하여야 한다.
+    - int, double 같은 primitive type의 경우 Integer, Double 같은 `Wrapper Class`으로 사용하여야 한다.
     - 참조타입이 올 수 있다는 것은 `사용자가 정의한 클래스`도 타입으로 올 수 있다는 것을 의미한다.
 
 <br>
