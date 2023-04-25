@@ -329,6 +329,33 @@ static final class TreeNode<K,V> extends LinkedHashMap.Entry<K,V> {
 
 <br>
 
+### ✔️ Java에서 HashMap과 HashTable
+
+HashMap과 HashTable은 Java의 API 이름이다.
+이 두가지 모두 Map 인터페이스를 구현하고 있다.
+
+**`HashTable`**
+- 구현에는 거의 변화가 없다.
+- 보조 해시 함수를 사용하지 않는다.
+
+**`HashMap`**
+- 지속적으로 개선되고 있다.
+- 보조 해시 함수(Additional Hash Function) 사용     
+    - 해시 충돌(hash collision)이 덜 발생할 수 있어 상대으로 성능상 이점
+
+<br>
+
+### [ 보조 해시 함수 ]
+
+> 보조 해시 함수(supplement hash function)의 **목적**: '키'의 해시 값을 변형하여, 해시 충돌 가능성을 줄이는 것
+
+- Java 8 HashMap 보조 해시 함수
+    - 상위 16비트 값을 XOR 연산하는 매우 단순한 형태의 보조 해시 함수를 사용
+
+```java
+static final int hash(Object key) { int h; return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16); }  
+```
+
 ---
 
 ### 📢 같이 공부하면 좋을 면접 질문
