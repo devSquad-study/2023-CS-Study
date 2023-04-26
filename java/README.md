@@ -41,7 +41,7 @@
 
 * Lambda(+ Functional Interface)
 
-* [Stream API](https://github.com/Fancy96/2023-CS-Study/blob/main/java/stream_api.md)
+* [Stream API](https://github.com/Fancy96/2023-CS-Study/blob/main/java/java_stream_api.md)
 
 * Default Method
 
