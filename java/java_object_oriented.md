@@ -169,7 +169,7 @@ public class IPhone {
 
  아래 그림과 코드는 추상화와 상속을 활용하여 재정의한 모습이다
 <div align='center'>
-    <img src="img/java_galaxy_IPhone_2.png" width="500px">
+    <img src="img/java_galaxy_iphone_2.png" width="500px">
 </div>
 
 ```
