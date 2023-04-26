@@ -108,7 +108,7 @@ public class IPhone implements Phone {
 
 앞의 예제를 변형하여 상속의 맥락에서 생각해보자
 <div align='center'>
-    <img src="img/java_galaxy_IPhone.png" width="500px">
+    <img src="img/java_galaxy_Iphone.png" width="500px">
 </div>
 
 위 그림을 보면 갤럭시와 아이폰의 기능이 명시되어 있으며 빨간색으로 표시된 속성과 기능들은 갤럭시와 아이폰의 공통적인 기능이고, 초록색으로 표시된 부분들은 그렇지 않은 부분이다  
