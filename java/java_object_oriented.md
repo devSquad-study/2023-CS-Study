@@ -647,10 +647,19 @@ public class Main {
 
 ---
 
+### 📢 면접 질문들
+
+- 객체 지향이 무엇인지에 대해 설명해주세요
+- 객체 지향 프로그래밍의 장점은 무엇인가요
+- 캡슐화는 무엇인가요
+
+--- 
+
 ### 📌 Reference
 
 - [[simplelearn] What is Encapsulation in Java and How to Implement It](https://www.simplilearn.com/tutorials/java-tutorial/java-encapsulation)
-
+- [[최느님's blog] Java 접근제어자 (Access Modifier)](https://csw7432.tistory.com/entry/Java-%EC%A0%91%EA%B7%BC%EC%A0%9C%EC%96%B4%EC%9E%90-Access-Modifier)
+- [[JONGMINFIRE.DEV] 객체지향 프로그래밍이란?](https://jongminfire.dev/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%9D%B4%EB%9E%80)
 
 
 
