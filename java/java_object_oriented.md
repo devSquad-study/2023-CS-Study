@@ -442,8 +442,214 @@ public class Main {
 
 즉, 인터페이스를 통해 간접적으로 연결하였기에 `결합도가 낮아졌다` 라고 말할 수 있다 
 
+### [ 캡슐화(Encapsulation) ]
+- `정의` : 클래스 안에 서로 연관있는 속성과 기능들을 하나의 캡슐(capsule)로 만들어 외부로부터 보호하는 것을 의미
 
+<div align='center'>
+    <img src="img/java_encapsulation.png" width="500px">
+</div>
 
+객체 지향 프로그래밍에서 캡슐화를 하는 이유
+- 데이터 보호(data protection) : 외부로부터 클래스에 정의된 속성과 기능들을 보호
+- 데이터 은닉(data hiding) : 내부의 동작을 감추고 외부에는 필요한 부분만 노출
+
+<div align='center'>
+    <img src="img/java_access_modifier.png" width="500px">
+</div>
+
+```
+package sanghyukpackage;
+
+class Test {
+    public static void main(String[] args) {
+        SuperClass superClass = new SuperClass();
+
+//      System.out.println(parent.a);
+        System.out.println(superClass.b);
+        System.out.println(superClass.c);
+        System.out.println(superClass.d);
+    }
+}
+
+public class SuperClass {
+    private int a = 1;
+    int b = 2;
+    protected int c = 3;
+    public int d = 4;
+
+    public void printVar() {
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+        System.out.println(d);
+    }
+}
+```
+**출력값**
+> 2  
+3  
+4  
+
+```
+package sanghyukpackage2;
+
+import sanghyukpackage.SuperClass;
+
+class SubClass extends SuperClass {
+    public void printVar() {
+//      System.out.println(a);
+//      System.out.println(b);
+        System.out.println(c);
+        System.out.println(d);
+    }
+}
+
+public class Test2 {
+    public static void main(String[] args) {
+        SuperClass parent = new SuperClass();
+
+//      System.out.println(parent.a);
+//      System.out.println(parent.b);
+//      System.out.println(parent.c);
+        System.out.println(parent.d);
+    }
+}
+
+```
+
+```
+public class Galaxy {
+    
+    String model;
+    String color;
+
+    public Galaxy(String model, String color) {
+        this.model = model;
+        this.color = color;
+    }
+    
+    public void takePicture() {
+        System.out.println("갤럭시로 사진을 찍습니다");
+    }
+
+    public void makeCall() {
+        System.out.println("갤럭시로 전화를 겁니다");
+    }
+
+    public void samsungPay() {
+        System.out.println("삼성 페이로 지불합니다");
+    }
+}
+
+public class Client {
+
+    private String name;
+    private Galaxy galaxy;
+
+    public Client(String name, Galaxy galaxy) {
+        this.name = name;
+        this.galaxy = galaxy;
+    }
+
+    public void usePhone() {
+        galaxy.takePicture();
+        galaxy.makeCall();
+        galaxy.samsungPay();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Galaxy galaxy = new Galaxy("갤럭시S20", "하늘색");
+        Client client = new Client("댕이", galaxy);
+
+        galaxy.usePhone();
+    }
+}
+```
+
+**출력값**
+> 갤럭시로 사진을 찍습니다  
+갤럭시로 전화를 겁니다  
+삼성 페이로 지불합니다  
+
+위 코드에는 치명적인 문제가 존재한다  
+<details>
+<summary>문제는 무엇일까요?</summary>
+정답 : 객체 간 결합도가 높다  
+Galaxy 클래스의 메서드에 변경이 생기면 Client 클래스의 usePhone() 메서드의 수정이 불가피하다
+</details>
+
+</br>
+
+문제를 해결한 코드는 아래와 같다  
+```
+public class Galaxy {
+    
+    String model;
+    String color;
+
+    public Galaxy(String model, String color) {
+        this.model = model;
+        this.color = color;
+    }
+    
+    private void takePicture() {
+        System.out.println("갤럭시로 사진을 찍습니다");
+    }
+
+    private void makeCall() {
+        System.out.println("갤럭시로 전화를 겁니다");
+    }
+
+    private void samsungPay() {
+        System.out.println("삼성 페이로 지불합니다");
+    }
+
+    public void operate() {
+        takePicture();
+        makeCall();
+        samsungPay();
+    }
+}
+
+public class Client {
+    
+    private String name;
+    private Galaxy galaxy;
+
+    public Client(String name, Galaxy galaxy) {
+        this.name = name;
+        this.galaxy = galaxy;
+    }
+
+    public void usePhone() {
+        galaxy.operate();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Galaxy galaxy = new Galaxy("갤럭시S20", "하늘색");
+        Client client = new Client("댕이", galaxy);
+
+        galaxy.usePhone();
+    }
+}
+```
+
+**출력값**
+> 갤럭시로 사진을 찍습니다  
+갤럭시로 전화를 겁니다  
+삼성 페이로 지불합니다  
+
+---
+
+### 📌 Reference
+
+- [[simplelearn] What is Encapsulation in Java and How to Implement It](https://www.simplilearn.com/tutorials/java-tutorial/java-encapsulation)
 
 
 
