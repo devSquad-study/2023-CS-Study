@@ -251,6 +251,196 @@ public class Main {
 
 결론적으로, 상속 관계가 인터페이스를 사용한 구현에 비해 추상화 정도가 낮다
 
+### [ 다형성(Polymorphism) ]
+- `정의` : 어떤 객체의 속성이나 기능이 상황에 따라 여러 가지 형태를 가질 수 있는 성질
+- `예시` : 메서드 오버라이딩, 메서드 오버로딩
+<div align='center'>
+    <img src="img/java_polymorphism_example.png" width="500px">
+</div>
+
+```
+public interface Phone {
+    public abstract void start()
+    //public abstract 키워드 생략 가능
+    void takePicture();
+    void makeCall();
+}
+
+public Galaxy implements Phone {
+    
+    @Override
+    public void takePicture() {
+        System.out.println("갤럭시로 사진을 찍습니다");
+    }
+
+    @Override
+    public void makeCall() {
+        System.out.println("갤럭시로 전화를 겁니다");
+    }
+}
+
+```
+
+위 코드에서 확인할 수 있다싶이, 메서드 오버라이딩을 활용하여 `Phone` 인터페이스를 구현하는 `Galaxy` 클래스 내 메소드 `takePicture()` 과 `makeCall()`이 각각의 맥락과 상황에 맞게 구현되어 있는걸 확인할 수 있다
+
+메서드 오버로딩 또한 하나의 클래스 내에서 같은 이름의 메서드를 여러 개 중복하여 정의한다는 점에서 같은 맥락이라 할 수 있다
+
+메서드 오버로딩, 오버라이딩도 물론 중요한 다형성의 예시들이지만, 객체 지향적 의미에서 다형성이 의마하고자 하는 바는 아래와 같다
+> 다형성이란 한 타입의 참조변수를 통하여 여러 타입의 객체를 참조할 수 있도록 만든 것을 의미  
+ex) 상위 클래스 타입의 참조변수로 하위 클래스 객체 참조
+
+```
+public class Main {
+    public static void main(String[] args) {
+        //원래 사용했던 객체 생성 방식
+        Phone phone = new Phone();
+        Galaxy galaxy = new Galaxy();
+
+        //다형성을 활용한 객체 생성 방식
+        Phone galaxy = new Galaxy();
+    }
+}
+```
+
+위 코드 예제에서 확인할 수 있듯이, 기존 방식은 하위 클래스 객체를 생성하여 하위 클래스 타입의 참조변수에 할당하였지만, 다형성을 활용한 객체 생성 방식은 하위 클래스 객체를 생성하여 상위 클래스 타입의 참조변수에 할당한 모습을 볼 수 있다
+
+```
+public class Main {
+    public static void main(String[] args) {
+
+        //상위 클래스 타입의 객체 배열 생성
+        Phone[] phones = new Phone[2];
+        phones[0] = new Galaxy();
+        phones[1] = new IPhone();
+
+        for(Phone phone : phones) {
+            System.out.println(phone.getClass());
+        }
+    }
+}
+
+```
+
+**출력값**
+> class Galaxy  
+class IPhone  
+
+자바에서의 배열은 하나의 같은 타입으로만 이루어져 있는 자료구조인데, 다형성을 활용하면 하나의 타입만으로 여러 가지 타입의 객체를 참조할 수 있다  
+
+즉, 보다 간편하고 유연하게 코드를 작성가능하다  
+
+```
+public class Client {
+
+    void usePhone(Galaxy galaxy) {
+        galaxy.takePicture();
+        galaxy.makeCall();
+    }
+    
+    void usePhone(IPhone iphone) {
+        iphone.takePicture();
+        iphone.makeCall();
+    }
+
+
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Galaxy galaxy = new Galaxy();
+        IPhone iphone = new Iphone();
+        Client client = new Client();
+
+        client.usePhone(galaxy);
+        client.usePhone(iphone);
+
+    }
+}
+
+```
+
+**출력값**
+> 갤럭시로 사진을 찍습니다  
+갤럭시로 전화를 겁니다  
+아이폰으로 사진을 찍습니다  
+아이폰으로 전화를 겁니다
+
+위 코드 속 `Client` 클래스는 매개변수로 갤럭시나 아이폰을 받아 기능을 수행한다  
+
+이렇게 하나의 객체가 다른 객체의 속성 및 기능에 접근하여 어떤 기능을 사용할 때 `의존한다` 라고 표현한다  
+
+즉, `Client` 객체는 `Galaxy`와 `IPhone` 클래스에 의존하고 있다  
+
+이는 다른 말로 `객체 간 결합도가 높다` 라고 표현한다  
+
+하지만 객체들 사이 결합도가 높으면 전달받는 매개변수가 변경되는 경우와 같이 메서드 내 매개변수의 참조변수 타입과 참조변수를 수정할 수 밖에 없는 예가 발생한다  
+
+이에 추상화, 상속, 다형성의 특성들을 활용하여 역할과 구현을 구분하여 객체들 간 강한 결합을 피하고, 느슨한 관계 설정을 통해 유연하고 변경에 용이한 프로그램 설계를 해야한다  
+
+```
+public interface Phone {
+    void takePicture();
+    void makeCall();
+}
+
+public class Galaxy implements Phone {
+
+    @Override
+    public void takePicture() {
+        System.out.println("갤럭시로 사진을 찍습니다)"
+    }
+
+    @Override
+    public void makeCall() {
+        System.out.println("갤럭시로 전화를 겁니다");
+    }
+}
+
+public class IPhone implements Phone {
+
+    @Override
+    public void takePicture() {
+        System.out.println("아이폰으로 사진을 찍습니다");
+    }
+
+    @Override
+    public void makeCall() {
+        System.out.println("아이폰으로 전화를 겁니다");
+    }
+}
+
+public class Client {
+    void usePhone(Phone phone) {
+        phone.takePicture();
+        phone.makeCall();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Galaxy galaxy = new Galaxy();
+        IPhone iphone = new IPhone();
+        Client client = new Client();
+
+        client.usePhone(galaxy);
+        client.usePhone(iphone);
+    }
+}
+
+```
+
+**출력값**
+> 갤럭시로 사진을 찍습니다  
+갤럭시로 전화를 겁니다  
+아이폰으로 사진을 찍습니다  
+아이폰으로 전화를 겁니다
+
+위 코드 속, Client 클래스를 보면, 전달받는 매개변수를 인터페이스 타입인 `Phone`으로 변경한 것을 확인할 수 있다  
+
+이에 `Phone`인터페이스를 구현하는 어떤 클래스가 매개변수로 전달되어도 상황과 맥락에 맞는 클래스가 오버라이딩한 메서드를 실행가능하다  
+
+즉, 인터페이스를 통해 간접적으로 연결하였기에 `결합도가 낮아졌다` 라고 말할 수 있다 
 
 
 
