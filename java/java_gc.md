@@ -44,7 +44,7 @@ GC는 JVM의 메모리 영역 중 **`Heap`** 메모리에서 이루어진다.
 <br>(Java에서 새로운 객체가 할당될 때, Heap 메모리 영역에 할당되기 때문)
 
 <div align='center'>
-    <img src="img/java_gc_01.jpg" width="700px"/>
+    <img src="img/java_gc_01.png" width="700px"/>
 </div>
 
 이 Heap 영역은 세 영역으로 나누어진다. 
@@ -93,31 +93,31 @@ Full GC는 속도가 매우 느리며, Full GC가 일어나는 도중에는 순�
 
 ### GC 발생 시나리오
 <div align='center'>
-    <img src="img/java_gc_02.jpg" width="600px"/>
+    <img src="img/java_gc_02.png" width="600px"/>
 </div>
 
 1. 객체가 생성되면 `Eden`영역에 위치하게 된다.
 
 <div align='center'>
-    <img src="img/java_gc_03.jpg" width="600px"/>
+    <img src="img/java_gc_03.png" width="600px"/>
 </div>
 
 2. `Eden`영역이 가득차게 되면 `Minor GC`가 발생하여 참조가 없는 객체는 삭제되고, 참조 중인 객체는 `Survivor` 영역으로 이동한다.
 
 <div align='center'>
-    <img src="img/java_gc_04.jpg" width="600px"/>
+    <img src="img/java_gc_04.png" width="600px"/>
 </div>
 
 3. `Survivor`영역이 가득차게 되면, `Minor GC`가 발생하여 참조가 없는 객체는 삭제되고, 참조 중인 객체는 다른 `Survivor`영역으로 이동한다.
 
 <div align='center'>
-    <img src="img/java_gc_05.jpg" width="600px"/>
+    <img src="img/java_gc_05.png" width="650px"/>
 </div>
 
 4. `Survivor`영역에서 GC과정을 반복하며, 계속 참조 중인 객체는 `Old`영역으로 이동한다.
 
 <div align='center'>
-    <img src="img/java_gc_06.jpg" width="600px"/>
+    <img src="img/java_gc_06.png" width="700px"/>
 </div>
 
 5. `Eden`영역에서 `Survivor`영역으로 이동할 때 객체가 남아있는 영역보다 클 경우 `Old`영역으로 이동한다.
@@ -149,7 +149,7 @@ Stop the world를 통해 모든 작업이 중단되면, GC는 스택의 모든 �
 > Compaction : 객체들을 가까운 곳으로 모으고, heap 메모리의 아래쪽으로 보냄
 
 <div align='center'>
-    <img src="img/java_gc_06.jpg" width="500px"/>
+    <img src="img/java_gc_07.png" width="600px"/>
 </div>
 
 바로 옆에 할당된 객체라고 해서 같은 시점에서 메모리에서 해제되리라는 법 없음 => 메모리가 GC를 거쳐 파편화 될 수 있다.
@@ -229,7 +229,7 @@ JVM 버전 변화에 따라 여러가지 GC방식이 추가되고 발전되어 �
 ## [ G1 Collector (Garbae First) ]
 
 <div align='center'>
-    <img src="img/java_gc_08.jpg" width="500px"/>
+    <img src="img/java_gc_08.png" width="400px"/>
 </div>
 
 - 바둑판처럼 Heap 메모리 영역을 나누어 관리
@@ -245,7 +245,7 @@ JVM 버전 변화에 따라 여러가지 GC방식이 추가되고 발전되어 �
 
 ### G1 GC의 Cycle
 <div align='center'>
-    <img src="img/java_gc_09.jpg" width="500px"/>
+    <img src="img/java_gc_09.png" width="500px"/>
 </div>
 
 - `Young-lnly Phase`와 `Space Reclamation Phase`를 반복함
