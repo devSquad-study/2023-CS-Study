@@ -2,7 +2,7 @@
 
 ## 🎇 Mutable, Immutable
 
-자바는 new 연산자로 객체를 생성헐 수 있고 이때 heap 영역에 할당되고 stack 영역에서 참조 타입 변수를 통해 데이터에 접근한다.
+자바는 new 연산자로 객체를 생성힐 수 있고, 이때 heap 영역에 할당되고 stack 영역에서 참조 타입 변수를 통해 데이터에 접근한다.
 
 이때 자바의 객체의 타입은 두 가지 있다.
 
@@ -32,16 +32,18 @@ System.out.println(name); // jeongyoon
 
 > 클래스들은 가변적이여야 하는 매우 타당한 이유가 있지 않는 한 반드시 불변으로 만들어야 한다. 만약 클래스를 불변으로 만드는 것이 불가능하다면, 가능한 변경 가능성을 최소화하라. <br>- Effective Java
 
-1. 스레드 안정성(Thread Safety) 보장
+1. 단순
+    - 불변 객체의 상태는 생성된 시점으로부터 파괴되는 시점까지 그대로 유지된다.
+
+2. 스레드 안정성(Thread Safety) 보장
     - multi-thread 환경에서 동기화 문제가 발생하는 이유는 공유 자원에 동시 쓰기 연산 때문이다. 이때 불변 객체라면, 항상 동일한 값만 반환한다.
     - multi-thread 환경에서 동기화 처리없이 객체 공유가 가능하다.
 
-2. 값의 변경을 방지 
+3. 값의 변경을 방지 
     - 불변객체는 생성 시점에 값을 설정한 후, 변경할 수 없기 때문에 예기치 않은 값 변경을 방지할 수 있다.
 
-3. 캐시(Cache) 용도로 사용 
-    - 불변객체는 내부 상태가 변경되지 않기 때문에, 한 번 생성한 객체는 재사용할 수 있다. 
-    - 이를 활용하여 캐시 용도로 사용할 수 있다.
+4. 불변 객체는 객체의 필드로 사용
+    - Map 의 키나 Set 의 요소로 불변객체를 사용하면 불변식을 지키기 쉽다.
 
 <br>
 
@@ -67,8 +69,6 @@ StringBuffer는 각 메소드 별로 synchronized keyword가 존재하여 멀티
 <br>
 
 ### ✔️ 방어적 복사 vs Unmodifiable Collection
-
-> 출처: [[Tecoble] 방어적 복사와 Unmodifiable Collection](https://tecoble.techcourse.co.kr/post/2021-04-26-defensive-copy-vs-unmodifiable/)
 
 ### [ 방어적 복사 ]
 
@@ -159,19 +159,107 @@ public class Names {
 
 <br>
 
-3. 🧐 방어적 복사는 깊은 복사일까?
+#### 3. 🧐 방어적 복사는 깊은 복사일까?
 
 > 🐰: 아니다!!
 
 컬렉션의 주소만 바뀌었을 뿐 내부의 데이터는 여전히 주소를 가지고 있다.
 
-💡 따라서 외부로부터의 변경에 취약하지 않도록 객체를 불변으로 만들고자 한다면 내부 요소들 또한 불변이어야 한다.
+위의 예시에서 객체를 생성할 때 **방어적 복사**를 통해 외부 참조를 끊었다. 또한 `names` 필드를 private final로 선언하여 재할당이 불가능하다. 또한 현재 상태를 변화시킬 수 있는 로직 또한 없다.
 
+재할당이 불가능한 것은 맞지만 불변인 것은 아니다.
 
+다음 예시를 보자.
 
+```java
+List<Name> names = new ArrayList<>();
+names.add(new Name("judy"));
+names.add(new Name("neo"));
+Names baseNames = new Names(names);
+
+List<Name> getNames = baseNames.getNames();
+getNames.add(new Name("hash"));
+
+System.out.println(baseNames.toString());
+System.out.println(getNames.toString());
+```
+
+baseNames 객체를 생성할 때 방어적 복사를 했다. 그리고 외부로 getter로 꺼낸 `names`는 add 메서드를 통해 값이 변화한다.
+
+getter로 꺼낸 getNames를 변화시키면 기존 객체의 상태가 변하게 된다.
+
+<div align='center'>
+    <img src="img/java_immutable1.png" width="200px">
+</div>
+
+<br>
+
+💡 이를 해결하기 위해서는 <u>반환하는 경우에도 방어적 복사를 하거나</u>, List 자체를 불변으로 만들기 위해서는 <u>Collections.unmodifiableList</u>와 같은 불변 자로구조로 만들어주어야 한다.
+
+<br>
+
+```java
+public List<Name> getNames() {
+    return new ArrayList<>(names);
+}
+```
+
+<div align='center'>
+    <img src="img/java_immutable2.png" width="200px">
+</div>
+
+<br>
+
+### [ Unmodifiable Collection ]
+
+- 외부에서 변경 시 **예외처리**되기 때문에 안전하게 보장할 수 있다.
+- 즉, getter로 값을 꺼내도 데이터를 수정할 수 없다.
+
+이렇게 반환한 값은
+
+```java
+public List<Name> getNames() {
+    return Collections.unmodifiableList(names);
+}
+```
+
+<br>
+
+값을 수정하려고 하면 에러가 발생한다.
+
+```java
+List<Name> getNames = baseNames.getNames();
+getNames.add(new Name("hash"));
+```
+
+<div align='center'>
+    <img src="img/java_immutable3.png" width="500px">
+</div>
+
+<br>
+
+### 결론
+
+> 클래스들은 가변적이여야 하는 매우 타당한 이유가 있지 않는 한 반드시 불변으로 만들어야 한다. 만약 클래스를 불변으로 만드는 것이 불가능하다면, 가능한 변경 가능성을 최소화하라. <br>- Effective Java
+
+<br>
+
+🧐 방어적 복사와 Unmodifiable Collection는 언제 사용해야할까?
+
+#### 1. 생성자의 인자로 객체를 받았을 때
+
+- 외부에서 넘겨줬던 객체를 변경해도 내부의 객체는 변하지 않아야 한다.
+- **`방어적 복사`**
+
+#### 2. getter를 통해 객체를 리턴할 때
+
+-  **`방어적 복사`** 또는 **`unmodifiableList`** 반환 중 선택
+
+<br>
 
 ---
 
 ### 📌 Reference
 
 - [[Tecoble] 방어적 복사와 Unmodifiable Collection](https://tecoble.techcourse.co.kr/post/2021-04-26-defensive-copy-vs-unmodifiable/)
+- [이펙티브 자바 아이템 17] 변경 가능성을 최소화하라
