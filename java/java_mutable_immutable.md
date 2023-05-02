@@ -12,7 +12,8 @@
 
 ### ✔️ Immutable(불변) 객체
 
-- 불변 객체 종류: String, Boolean,Integer,Float,Long 등
+- `정의`: 객체 생성 이후에는 객체의 상태가 바뀌지 않는 객체
+- `불변 객체 종류`: String, Boolean,Integer,Float,Long 등
 - String을 제외하고 원시 타입의 wrapper 타입이다.
 
 > 🤖 : 오잇! 나 String 타입 변경한 적 있는 거 같은데?
@@ -34,7 +35,7 @@ System.out.println(name); // jeongyoon
 
 > 클래스들은 가변적이어야 하는 매우 타당한 이유가 있지 않는 한 반드시 불변으로 만들어야 한다. 만약 클래스를 불변으로 만드는 것이 불가능하다면, 가능한 변경 가능성을 최소화하라. <br>- Effective Java
 
-1. 단순
+1. 단순하다.
     - 불변 객체의 상태는 생성된 시점으로부터 파괴되는 시점까지 그대로 유지된다.
 
 2. 스레드 안정성(Thread Safety) 보장
