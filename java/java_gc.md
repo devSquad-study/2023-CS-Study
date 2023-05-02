@@ -179,6 +179,11 @@ JVM 버전 변화에 따라 여러가지 GC방식이 추가되고 발전되어 �
 버전 별로 지원하는 GC는 차이가 존재하며, 서비스 상황에 따라 필요한 GC방식을 JVM 옵션을 통해 설정으로 사용 가능하다.
 
 ## [ Serial GC ]
+
+<div align='center'>
+    <img src="img/java_gc_10.png" width="400px"/>
+</div>
+
 - 주로 32bit JVM에서 돌아가는 `single thread` 애플리케이션에서 사용 (별도로 지정하지 않을 경우 기본GC)
 - `Minor GC`, `Major GC` 모두 올스탑(`stop-the-world`)하는 single thread 방식
 - `Mark-sweep-compact` 알고리즘
@@ -189,15 +194,22 @@ JVM 버전 변화에 따라 여러가지 GC방식이 추가되고 발전되어 �
 <br>
 
 ## [ Parallel GC (=Throughput GC)]
+
+<div align='center'>
+    <img src="img/java_gc_11.png" width="400px"/>
+</div>
+
 - 기본적으로 Serial GC와 동작과정은 동일, Minor gc에서 사용되는 thread 수를 늘릴 수 있음
+- 일반적으로 `Minor GC`만 멀티 스레딩, `Major GC`는 싱글 스레딩으로 수행한다.
 - `multi thread` 사용
+- GC의 오버헤드는 상당히 줄여주었지만, 애플리케이션이 멈추는 것은 피할 수 없음
 - 메모리가 충분하고 코어의 개수가 많을 때 유리
-- Java 1.8의 기본 GC
+- Java 8의 기본 GC
 
 <br>
 
 ## [ Parallel Old GC ]
-- Parallel GC와 비교하여 Old 영역의 알고리즘만 다름
+- Parallel GC와 비교하여 Old 영역의 알고리즘만 다름(`Major GC`도 멀티 스레딩)
 - Mark-Summary-Compaction 단계 거침
 	- Summary 단계는 앞서 GC를 수행한 영역에 대해 별도로 살아있는 객체를 식별한다는 점에서 Mark-Sweep-Compaction 단계와 다르며, 조금 더 복잡함
 	- Mark-Sweep-Compact :  단일 스레드가 old 영역 검사
@@ -205,11 +217,16 @@ JVM 버전 변화에 따라 여러가지 GC방식이 추가되고 발전되어 �
 	- **Mark** : old영역을 region별로 나누고 region별로 살아있는 객체를 식별
 	- **Summary** : region별 통계정보로 살아있는 객체의 밀도가 높은 부분이 어디까지 인지 dense prefix를 정한다. 오랜 기간 참조된 객체는 앞으로 사용할 확률이 높다는 가정하에 dense prefix를 기준으로 compact영역을 줄인다.
 	-  **Compact** : destination과 source로 나누며 살아있는 객체는 destination으로 이동시키고 참조되지 않는 객체는 제거
-- JDK 5 update 6 부터 제공한 GC방식
+- J엄밀히 말하면 Java 8의 디폴트 버전은 Parallel Old GC
 
 <br>
 
 ## [ CMS Collector (Concurrent Mark-Sweep) ]
+
+<div align='center'>
+    <img src="img/java_gc_12.png" width="400px"/>
+</div>
+
 > `Major GC`에 소요되는 작업을 애플리케이션을 멈추고 진행하는 것이 아니라, 일부는 애플리케이션이 돌아가는 단계에서 수행하고 최소한의 작업만을 애플리케이션이 멈췄을 때 수행하는 방식
 
 - **Initial Mark** 단계 : 클래스 로더에서 가장 가까운 객체 중 살아있는 객체만 찾는 것으로 끝냄(멈추는 시간이 매우 짧다)
@@ -253,6 +270,20 @@ JVM 버전 변화에 따라 여러가지 GC방식이 추가되고 발전되어 �
 - 파란 원 : `Minor GC`
 - 주황 원 : `Major GC`
 - 빨간 원 : `Mixed GC`
+
+`Space Reclamation Phase`가 끝나면 다시 `Young Only Phase`로 돌아가서 `Minor GC`를 수행한다.
+
+
+### Young Only Phase
+- `Minor GC`만 수행하다가 Old Generation 비율에 지정된 값을 초과하는 순간 `Major GC`가 수행된다. (그림 상 `Old ge occupancy exceeds threshold`부분)
+- `Major GC`의 첫 단계는 Initial Mark이며, `Minor GC`와 동시에 수행되며 둘 다 STW를 수반하므로 다른 파란원보다 크다.
+- 그 이후에 `애플리케이션 스레드`, `Minor GC`, `Concurrent Mark`가 동시에 수행되는데 Remark가 수행되는 순간 다른 작업은 멈추게 된다. 그래서 Remark에 해당하는 주황색이 원이 큰 것을 알 수 있다. 
+- 그 이후에 자잘하게 `Minor GC`가 수행되다가 `Major GC`의 `Cleanup`이 발생한다.
+
+### Space Reclamation Phase
+- Young Only Phase가 끝나고 시작됨
+- `Mixed GC` : `Mark`단계가 없어서 STW 빈도가 Young Only Phase에 비해 줄어듦
+
 
 
 * * *
