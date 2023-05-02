@@ -40,6 +40,7 @@ CS 스터디 시작 (2023.01.02 ~ ) | 📚 [Wiki](https://github.com/Fancy96/202
 * [운영체제](https://github.com/Fancy96/2023-CS-Study/blob/main/Interview/os_expected_question.md)
 * [네트워크](https://github.com/Fancy96/2023-CS-Study/blob/main/Interview/network_expected_question.md)
 * [데이터베이스](https://github.com/Fancy96/2023-CS-Study/blob/main/Interview/db_expected_question.md)
+* [자바](https://github.com/Fancy96/2023-CS-Study/blob/main/Interview/java_expected_question.md)
 
 ## 👨🏻‍💻👩🏻‍💻 멤버 소개
 

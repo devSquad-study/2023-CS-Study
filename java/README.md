@@ -33,8 +33,6 @@
 
 * [Error vs Exception 2](https://github.com/Fancy96/2023-CS-Study/blob/main/java/java_error_vs_exception.md)
 
-* Checked vs UnChecked Exception
-
 * 비동기처리 문법 비교
 
 * [Java 8의 특징](https://github.com/Fancy96/2023-CS-Study/blob/main/java/java_eight_characteristic.md)
@@ -52,8 +50,6 @@
 * Collection Framework(List, Map, Set 등)
 
 * [HashMap](https://github.com/Fancy96/2023-CS-Study/blob/main/java/java_hashmap.md)
-
-* Abstract Class vs Interface(default method)
 
 * CountDownLatch & CyclicBarrier
 
