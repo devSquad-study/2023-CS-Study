@@ -4,7 +4,7 @@
 
 람다식이란 함수를 하나의 식으로 표현한 것. 함수를 람다식으로 표현하면 메소드의 이름이 필요 없기 때문에 람다식은 익명함수의 한 종류하고 볼 수 있다.
 
-![lambda_functional_interface1](./img/lambda_functional_interface1.png)
+![lambda_functional_interface1](./img/java_lambda_functional_interface1.png)
 
 기존 함수와는 다르게 메소드 명이 필요하지 않으며, 괄호()와 화살표 → 를 이용해 함수를 선언하게 된다.
 
@@ -37,7 +37,7 @@
 
 함수형 인터페이스를 구현하기 위해서는 인터페이스를 개발하여 내부에는 1개 뿐인 abstract 함수를 선언하고, 위에는 @FunctionalInterface 어노테이션을 붙여주면 된다.
 
-![lambda_functional_interface2](./img/lambda_functional_interface2.png)
+![lambda_functional_interface2](./img/java_lambda_functional_interface2.png)
 
 람다식으로 생성된 순수 함수는 함수형 인터페이스로만 선언이 가능하다. @FunctionalInterface 어노테이션이 붇은 인터페이스에 여러 개의 함수를 선언하면 컴파일 에러가 발생한다.
 
@@ -49,11 +49,11 @@ Supplier는 매개변수 없이 반환값 만을 갖는 함수형 인터페이�
 
 Supplier는 T get()을 추상 메소드로 갖고 있다.
 
-![Supplier 정의](./img/lambda_functional_interface3.png)
+![Supplier 정의](./img/java_lambda_functional_interface3.png)
 
 Supplier 정의
 
-![Supplier 사용예시](./img/lambda_functional_interface4.png)
+![Supplier 사용예시](./img/java_lambda_functional_interface4.png)
 
 Supplier 사용예시
 
@@ -63,13 +63,13 @@ Consumer는 객체 T를 매개변수로 받고, 반환값은 없다.
 
 addThen이라는 함수를 제공하는데, 이를 통해 하나의 함수가 끝난 후 다음 Consumer를 연쇄적으로 이용할 수 있다. 함수형에서 함수는 값의 대입 또는 변경 등이 없기 때문에 아래 예시에서 Consumer가 Split으로 데이터를 변경하더라고 원본의 데이터는 유지된다.
 
-![Consumer 정의](./img/lambda_functional_interface5.png)
+![Consumer 정의](./img/java_lambda_functional_interface5.png)
 
 Consumer 정의
 
-![lambda_functional_interface6](./img/lambda_functional_interface6.png)
+![lambda_functional_interface6](./img/java_lambda_functional_interface6.png)
 
-![실행 결과](./img/lambda_functional_interface7.png)
+![실행 결과](./img/java_lambda_functional_interface7.png)
 
 실행 결과
 
@@ -77,11 +77,11 @@ Consumer 정의
 
 Function은 객체 T를 매개변수로 받아서 처리한 후 R로 반환한다. Consumer와 마찬가지로 andThen을 제공하고 있고, 추가적으로 compose를 제공한다. andThen은 첫번째 함수가 실행된 이후 다음 함수를 연쇄적으로 실행하도록 연결해주지만 compose는 첫 번째 함수 실행 이전에 먼저 함수를 실행하여 연쇄적으로 연겨해준다는 점에서 차이가 있다. identity 함수의 경우 자기 자신을 반환하는 static함수다.
 
-![Function 정의](./img/lambda_functional_interface8.png)
+![Function 정의](./img/java_lambda_functional_interface8.png)
 
 Function 정의
 
-![사용예시](./img/lambda_functional_interface9.png)
+![사용예시](./img/java_lambda_functional_interface9.png)
 
 사용예시
 
@@ -93,15 +93,15 @@ Predicate는 객체 T를 매개 변수로 받아 처리한 후 boolean을 반환
 
 Predicate는 Boolean test(T t) 추상 메소드로 갖고 있다.
 
-![Predicate 정의1](./img/lambda_functional_interface10.png)
+![Predicate 정의1](./img/java_lambda_functional_interface10.png)
 
 Predicate 정의1
 
-![Predicate 정의2](./img/lambda_functional_interface11.png)
+![Predicate 정의2](./img/java_lambda_functional_interface11.png)
 
 Predicate 정의2
 
-![사용예시](./img/lambda_functional_interface12.png)
+![사용예시](./img/java_lambda_functional_interface12.png)
 
 사용예시
 
@@ -119,13 +119,13 @@ Predicate 정의2
 
 ### 일반 메소드 참조
 
-![일반 메소드 참조 예시](./img/lambda_functional_interface13.png)
+![일반 메소드 참조 예시](./img/java_lambda_functional_interface13.png)
 
 일반 메소드 참조 예시
 
 ### Static 메소드 참조
 
-![static 메소드 참조 예시](./img/lambda_functional_interface14.png)
+![static 메소드 참조 예시](./img/java_lambda_functional_interface14.png)
 
 static 메소드 참조 예시
 
@@ -133,6 +133,6 @@ static 메소드 참조 예시
 
 생성자도 메소드 참조를 할 수 있다. 생성자는 new로 생성해주므로 클래스이름 ::new로 참조할 수 있다.
 
-![lambda_functional_interface15](./img/lambda_functional_interface15.png)
+![lambda_functional_interface15](./img/java_lambda_functional_interface15.png)
 
 자료 출처: [https://mangkyu.tistory.com/113](https://mangkyu.tistory.com/113)

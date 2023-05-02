@@ -197,7 +197,7 @@ getter로 꺼낸 getNames를 변화시키면 기존 객체의 상태가 변하�
 
 <br>
 
-💡 이를 해결하기 위해서는 <u>반환하는 경우에도 방어적 복사를 하거나</u>, List 자체를 불변으로 만들기 위해서는 <u>Collections.unmodifiableList</u>와 같은 불변 자로구조로 만들어주어야 한다.
+💡 이를 해결하기 위해서는 <u>반환하는 경우에도 방어적 복사를 하거나</u>, List 자체를 불변으로 만들기 위해서는 <u>Collections.unmodifiableList</u>와 같은 불변 자료구조로 만들어주어야 한다.
 
 <br>
 

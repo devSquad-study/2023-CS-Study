@@ -38,7 +38,7 @@
 그래서 <u>충돌을 최소화할 수 있는 해시함수</u>를 사용해야한다.
 
 <div align='center'>
-    <img src="img/hashmap_1.png" width="500px">
+    <img src="img/java_hashmap_1.png" width="500px">
 </div>
 
 <br>
@@ -90,7 +90,7 @@ int index = X.hashCode() % M;
 **ex. put("John Smith", "521-1234")**
 
 <div align='center'>
-    <img src="img/hashmap_2.png" width="500px">
+    <img src="img/java_hashmap_2.png" width="500px">
 </div>
 
 현재 버킷의 **capacity**는 16이다.
@@ -151,7 +151,7 @@ John Smith와 Jeongyoon Park을 비교했을 때 값이 다르기 때문에 값�
     - 선형 조사법과 이차 조사법의 경우 충돌 횟수가 많았지만 특정 영역에 데이터가 집중적으로 몰리는 클러스터링현상이 발생하는 단점이 있고 이 경우 평균 탐색 시간이 증가한다.
 
 <div align='center'>
-    <img src="img/hashmap_3.png" width="500px">
+    <img src="img/java_hashmap_3.png" width="500px">
 </div>
 
 <br>
@@ -159,7 +159,7 @@ John Smith와 Jeongyoon Park을 비교했을 때 값이 다르기 때문에 값�
 - **`Double Hashing Probing`**(이중 해시, 중복 해시): 이중 해싱은 클러스터링 문제가 발생하지 않도록 2개의 해시 함수를 사용하는 방법이다.
 
 <div align='center'>
-    <img src="img/hashmap_4.png" width="500px"><br>
+    <img src="img/java_hashmap_4.png" width="500px"><br>
     <p>출처 : 쉽게 배우는 알고리즘 - 관계 중심의 사고법 /문병로</p>
 </div>
 
@@ -172,7 +172,7 @@ John Smith와 Jeongyoon Park을 비교했을 때 값이 다르기 때문에 값�
 해당 버킷에 데이터가 이미 있는데 key 값이 다르면 충돌이 발생한다. 이때 **연결리스트에 노드를 추가하여 데이터를 저장**한다.
 
 <div align='center'>
-    <img src="img/hashmap_5.png" width="500px">
+    <img src="img/java_hashmap_5.png" width="500px">
 </div>
 
 ### 장점
@@ -373,4 +373,3 @@ static final int hash(Object key) { int h; return (key == null) ? 0 : (h = key.h
 - [[ratsgo's blog] 해싱, 해시함수, 해시테이블](https://ratsgo.github.io/data%20structure&algorithm/2017/10/25/hash/)
 - [쉬운 코드 "맵(map)과 해시 테이블(hash table) 핵심만 모아보기!"](https://youtu.be/ZBu_slSH5Sk)
 - [[네이버 D2] Java HashMap은 어떻게 동작하는가?](https://d2.naver.com/helloworld/831311)
-

@@ -48,7 +48,7 @@ stream의 요소들을 소모하면서 연산이 수행되기 때문에 한번�
 자바에서 제공하는 모든 컬렉션의 최고 상위 조상인 Collection 인터페이스에 stream()메소드가 정의되어 있음.
 
 <div align='center'>
-    <img src="img/stream_collection.png" width="400px">
+    <img src="img/java_stream_collection.png" width="400px">
 </div>
 
 2. 배열
@@ -58,7 +58,7 @@ stream의 요소들을 소모하면서 연산이 수행되기 때문에 한번�
 이러한 스트림은 java.util.stream 패키지의 IntStream, LongStream, DoubleStream 인터페이스로 각각 제공 됨.
 
 <div align='center'>
-    <img src="img/stream_array.png" width="400px">
+    <img src="img/java_stream_array.png" width="400px">
 </div>
 
 3. 가변 매개변수
@@ -75,11 +75,11 @@ range()메소드는 시작 정수를 포함하지만 마지막 정수는 포함�
 rangeClosed()메소드는 시작 정수와 마지막 정수까지도 포함하는 스트림 생성.
 
 <div align='center'>
-    <img src="img/stream_range.png" width="400px">
+    <img src="img/java_stream_range.png" width="400px">
 </div>
 
 <div align='center'>
-    <img src="img/stream_range_result.png" width="200px">
+    <img src="img/java_stream_range_result.png" width="200px">
 </div>
 
 5. 특정 타입의 난수들
