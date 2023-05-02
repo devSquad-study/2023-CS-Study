@@ -8,7 +8,7 @@
 
 ---
 
-* 객체지향(상속, 다형성, 캡슐화 등)
+* [객체지향(상속, 다형성, 캡슐화 등)](https://github.com/Fancy96/2023-CS-Study/blob/main/java/java_object_oriented.md)
 
 * JVM 메모리 구조
 
@@ -17,7 +17,7 @@
     * [Java 클래스 로더](https://github.com/Fancy96/2023-CS-Study/blob/main/java/java_class_loader.md)
     * [Java 실행 엔진](https://github.com/Fancy96/2023-CS-Study/blob/main/java/java_execution_engine.md)
 
-* 다양한 GC(parellel, g1gc 등)
+* [다양한 GC(parellel, g1gc 등)](https://github.com/Fancy96/2023-CS-Study/blob/main/java/java_gc.md)
 
 * JRE, JDK, JVM의 구분
 
@@ -25,7 +25,7 @@
 
 * Call by Value vs Call by Reference
 
-* String Immutable(String constant pool, "a" vs new String("a"))
+* [Mutable, Immutable](https://github.com/Fancy96/2023-CS-Study/blob/main/java/java_mutable_immutable.md)
 
 * Auto Boxing & UnBoxing
 
@@ -37,13 +37,13 @@
 
 * 비동기처리 문법 비교
 
-* Java 8의 특징
+* [Java 8의 특징](https://github.com/Fancy96/2023-CS-Study/blob/main/java/java_eight_characteristic.md)
 
-* Lambda(+ Functional Interface)
+* [Lambda(+ Functional Interface)](https://github.com/Fancy96/2023-CS-Study/blob/main/java/java_lamda_functional-interface.md)
 
 * [Stream API](https://github.com/Fancy96/2023-CS-Study/blob/main/java/java_stream_api.md)
 
-* Default Method
+* [Default Method, 추상 클래스와 인터페이스](https://github.com/Fancy96/2023-CS-Study/blob/main/java/java_default_method.md)
 
 * [Generic](https://github.com/Fancy96/2023-CS-Study/blob/main/java/java_generic.md)
 
