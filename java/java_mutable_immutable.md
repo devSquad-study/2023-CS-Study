@@ -261,6 +261,18 @@ getNames.add(new Name("hash"));
 
 ---
 
+### 📢 같이 공부하면 좋을 면접 질문
+
+- Mutable 객체와 Immutable 객체의 차이점에 대해 설명해주세요.
+- 불변 객체는 왜 사용할까요?
+- String, StringBuilder, StringBuffer 각각의 차이에 대해 설명해주세요.
+- 불변 객체의 장점을 설명해주세요.
+- 방어적 복사와 Unmodifiable의 차이점은 무엇인가요?
+- 방어적 복사를 사용하면 항상 불변성을 보장하나요?
+- 불변 객체는 왜 사용할까요?
+
+---
+
 ### 📌 Reference
 
 - [[Tecoble] 방어적 복사와 Unmodifiable Collection](https://tecoble.techcourse.co.kr/post/2021-04-26-defensive-copy-vs-unmodifiable/)
