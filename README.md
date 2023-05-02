@@ -33,6 +33,7 @@ CS 스터디 시작 (2023.01.02 ~ ) | 📚 [Wiki](https://github.com/Fancy96/202
 * [운영체제](https://github.com/Fancy96/2023-CS-Study/blob/main/OS/README.md)
 * [네트워크](https://github.com/Fancy96/2023-CS-Study/blob/main/Network/README.md)
 * [데이터베이스](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/README.md)
+* [자바](https://github.com/Fancy96/2023-CS-Study/tree/main/java)
 
 ## Expected question
 
