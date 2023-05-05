@@ -3,11 +3,13 @@
 [![Since](https://img.shields.io/badge/since-2023.01.02-333333.svg?style=flat-square)](https://github.com/Fancy96/2023-CS-Study)
 [![LICENSE](https://img.shields.io/dub/l/vibe-d.svg?style=flat-square)](https://github.com/Fancy96/2023-CS-Study/blob/main/LICENSE.md/)
 
-CS 스터디 시작 (2023.01.02 ~ ) | 📚 [Wiki](https://github.com/Fancy96/2023-CS-Study/wiki)
+CS 스터디 시작 (2023.01.02 ~ ) | 자세한 내용 -> 📚 [Wiki](https://github.com/Fancy96/2023-CS-Study/wiki)
 
 > 면접대비 CS와 관련된 지식을 정리한 레포입니다.
 >
 > 이 레포를 통해 기술 면접을 준비하는 모든 분들이 도움이 되시길 진심으로 바랍니다.
+
+![](/etc/image/developer_interview.jpeg)
 
 ## 기술 면접의 목적
 
