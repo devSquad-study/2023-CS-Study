@@ -27,8 +27,11 @@ countDownLatch.await();
 ```
 
 ## CyclicBarrier
-`CountdownLatch`와 비슷하지만 다른 점은 다른 쓰레드가 전부 대기 상태가 되었을 때 모든 스레드의 대기 상태가 해제가 되고 재사용이 가능해진다.
+`CountdownLatch`와 비슷하지만 다른 점은 다른 쓰레드가 전부 대기 상태가 되었을 때 모든 쓰레드의 대기 상태가 해제가 되고 재사용이 가능해진다.
 
+즉, `CyclicBarrier`는 `CountdownLatch` 처럼 1이상의 인자를 count 값을 받는다. 그리고 각 쓰레드에서 `await()`를 호출하면 쓰레드는 대기상태로 들어간다.
+
+`await()`가 count 값만큼 호출이 되면, 대기 상태로 있던 쓰레드는 대기 상태가 해제된다.
 
 # 면접 질문
 - `Countdownlatch`와 `Cyclicbarrier`의 차이점은 무엇인가요?
