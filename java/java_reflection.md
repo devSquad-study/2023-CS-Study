@@ -121,7 +121,7 @@ Reflection으로 객체를 생성가능한데, 생성자가 있는데 왜 또 �
 
 ![constructors](img/java_reflection_constructors.png)
 
-2. 생성자레 로직 있는 경우 원하는 값을 바로 넣어줄 수 없다  
+2. 생성자에 로직 있는 경우 원하는 값을 바로 넣어줄 수 없다  
 
 ![constructor_logic](img/java_reflection_constructor_logic.png)
 
