@@ -113,7 +113,7 @@
   - Stack은 클래스로 Vector 클래스를 상속받았지만 사실상 독자적인 메서드들로 이루어져 있다.
   - Queue는 인터페이스로 LinkedList 클래스로 구현되어있다.
   ```
-  List<String> stack = new Stack<>();
+  Stack<String> stack = new Stack<>();
   Queue<String> queue = new Queue<>();
   ```
   - [읽을거리 - [Java] Stack 클래스는 무엇이고 문제점은 무엇일까?](https://devlog-wjdrbs96.tistory.com/244)
