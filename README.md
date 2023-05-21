@@ -36,6 +36,7 @@ CS 스터디 시작 (2023.01.02 ~ ) | 자세한 내용 -> 📚 [Wiki](https://gi
 * [네트워크](https://github.com/Fancy96/2023-CS-Study/blob/main/Network/README.md)
 * [데이터베이스](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/README.md)
 * [자바](https://github.com/Fancy96/2023-CS-Study/blob/main/java/README.md)
+* [스프링](https://github.com/Fancy96/2023-CS-Study/blob/main/Spring/README.md)
 
 ## Expected question
 
@@ -47,7 +48,7 @@ CS 스터디 시작 (2023.01.02 ~ ) | 자세한 내용 -> 📚 [Wiki](https://gi
 
 ## 👨🏻‍💻👩🏻‍💻 멤버 소개
 
-|[![](https://github.com/Fancy96.png?width=200px)](https://github.com/Fancy96)|[![](https://github.com/baekeunsun.png?width=200px)](https://github.com/baekeunsun) |[![](https://github.com/ParkJungYoon.png?width=200px)](https://github.com/ParkJungYoon) | [![](https://github.com/namtndus.png?width=200px)](https://github.com/namtndus)|[![](https://github.com/BHC-Chicken.png?width=200px)](https://github.com/BHC-Chicken)|[![](https://github.com/sanghyuk2.png?width=200px)](https://github.com/sanghyuk2) |[![](https://github.com/jthugg.png?width=200px)](https://github.com/jthugg)|
+|[![](https://github.com/devFancy.png?width=200px)](https://github.com/devFancy)|[![](https://github.com/baekeunsun.png?width=200px)](https://github.com/baekeunsun) |[![](https://github.com/ParkJungYoon.png?width=200px)](https://github.com/ParkJungYoon) | [![](https://github.com/namtndus.png?width=200px)](https://github.com/namtndus)|[![](https://github.com/BHC-Chicken.png?width=200px)](https://github.com/BHC-Chicken)|[![](https://github.com/sanghyuk2.png?width=200px)](https://github.com/sanghyuk2) |[![](https://github.com/jthugg.png?width=200px)](https://github.com/jthugg)|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | 팬시 | 은선 | 주디 | 수연 | 현철 | 상혁 | 네오 |
 
