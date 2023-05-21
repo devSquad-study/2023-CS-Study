@@ -6,8 +6,6 @@
 
 [Java 공부 시작 : 23년 4월 4주차 ~](https://github.com/Fancy96/2023-CS-Study/issues/134)
 
----
-
 * [Gradle](https://github.com/devFancy/2023-CS-Study/blob/main/java/java_gradle.md)
 
 * [객체지향(상속, 다형성, 캡슐화 등)](https://github.com/Fancy96/2023-CS-Study/blob/main/java/java_object_oriented.md)
