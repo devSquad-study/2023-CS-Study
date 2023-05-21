@@ -24,7 +24,7 @@ no named parameters, no pass-by-reference, no const (a general Java issue) param
 public class MyClass {
     public static void main(String args[]) {
       int num1 = 10;
-	  int num2 = 20;
+      int num2 = 20;
 
       System.out.println("Before Call Method : num1 = " + num1 + ", num2 = " + num2);
       
@@ -54,6 +54,7 @@ public class MyClass {
 >
 > 전달받은 값을 직접 참조한다. 전달받은 값을 변경하면 원본도 같이 변경된다.
 
+### Java
 ```
 public class MyClass {
     int value;
@@ -87,6 +88,35 @@ public class MyClass {
 
 <div align='center'>
     <img src="img/java_callby_02.png" width="500px"/>
+</div>
+
+<br>
+
+
+### C
+```
+#include <stido.h>
+
+void swap(int *, int *);
+
+int main() {
+      int a = 10;
+      int b = 20;
+  
+      swap(&a, &b);
+}
+
+void swap(int *a, int *b) {
+      int temp;
+  
+      temp = *a;
+      *a = *b;
+      *b = temp;
+}
+```
+
+<div align='center'>
+    <img src="img/java_callby_07.png" width="500px"/>
 </div>
 
 <br>
@@ -128,6 +158,11 @@ public class main
 </div>
 <br>
 
+기본형 (int, double, boolean 등)은 stack의 변수 안에 value 저장
+<br> 참조형 (Integer, Obejct, Array, Map 등) 은 stakc의 변수 값에는 객체의 주소 값, 객체는 별도의 Heap영역에 저장
+
+<br>
+
 <div align='center'>
     <img src="img/java_callby_04.png" width="500px"/>
 </div>
@@ -159,7 +194,14 @@ public class main
 
 즉, `call by value`로 동작하면서 단지 **원시값**이 복사되느냐 **주소값**이 복사되느냐 차이이다.
 
-이 때문에 똑같은 value지만 call by value / call by address 로 구분하기도 한다.
+위의 예시를 보면 두 변수 안에는 같은 주소를 가지고 있을 뿐 두 변수는 서로 별도로 분리되어 존재한다.
+<br> `add_reference()` 호출 시 `arr`의 주소값을 담아 새로운 변수를 선언한다. 이는 단순히 주소값의 복사이다.
+<br> 각 변수는 서로 다른 scope에 존재한다.
+
+call by reference이려면 **두 변수가 완전히 같아야 한다.**
+
+
++) 이 때문에 똑같은 value지만 call by value / call by address 로 구분하기도 한다.
 
 <br>
 <br>
