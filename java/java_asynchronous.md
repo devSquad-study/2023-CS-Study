@@ -61,3 +61,8 @@ execute()의 인자로 execute()의 작업이 모두 끝난 뒤 실행 될 콜�
 Future는 다른 주체의 결과를 얻으려면 잠시라도 블로킹 상태에 들어갈 수 밖에 없는 한계가 있어 등잔한게 CompletableFuture이다.
 
 ![java_ asynchronous_07](./img/java_ asynchronous_07.png)
+
+작업3 시작 -> 작업1 시작 -> 작업1 종료 -> 작업1 결과물: hash -> 작업2 시작 -> 작업3 종료 -> 작업2 종료
+
+스레드 생성 후 작업1을 supplyAsync()를 통해 호출하고, 작업2를 작업1이 끝난 직후 블로킹 없이 시작할 수 있도록 thenAccept()를 통해 호출하고 있다.
+그 밑에는 main스레드에서 작업3을 불러 시작하는 것도 볼 수 있다. 이렇게 CompletableFuture를 사용하면 이전 작업의 결과를 get()을 사용해 블로킹으로 가져올 필요 없이, then()함수를 통해 논블로킹을 유지하며 바로 사용할 수 있다.
