@@ -4,6 +4,9 @@
 
 메서드로 전달할 수 있는 익명 함수(Anonymous function)를 단순한 문법으로 표기한 것이다.
 
+자세한 설명은 아래의 링크에 들어가면 볼수 있습니다
+![cs_study 람다 표현식 페이지](https://github.com/devFancy/2023-CS-Study/blob/main/java/java_lamda_functional-interface.md)
+
 ## 함수형 인터페이스(Functional interface)
 
 **추상 메서드가 오직 하나인 인터페이스**를 의미한다.
@@ -45,6 +48,7 @@ public class Main {
 위의 코드는 함수형 인터페이스의 선언하여 사용하는 방법과 람다식을 사용하지 않은 다른 방법으로 추상메소드를 구현하는 방법입니다.
 `@FunctionalInterface`은 함수형 인터페이스의 규칙을 위반하였을 때 컴파일 에러가 발생하도록하여 함수형 인터페이스를 명시적을 만들 수 있게 도와준다.
 
+![cs_study 함수형 인터페이스 페이지](https://github.com/devFancy/2023-CS-Study/blob/main/java/java_lamda_functional-interface.md)
 
 ## 디폴트 메소드(Default method)
 
@@ -53,6 +57,11 @@ public class Main {
 static 메소드도 추가로 구현이 가능하다.
 
 이전 버전에서는 인터페이스 내에서 추상메소드만을 선언을 할수 있었지만, static, default 메소드를 구현을 할수 있게 되었다.
+
+자세한 설명은 아래의 링크에서 볼 수 있다.
+
+![cs_study 디폴트 메소드 페이지](https://github.com/devFancy/2023-CS-Study/blob/main/java/java_default_method.md)
+
 
 ## 스트림(Stream)
 
@@ -65,6 +74,10 @@ static 메소드도 추가로 구현이 가능하다.
 이러한 문제점을 해결하기 위해서 나타난 기술이다.
 
 또 다른 장점으로는 병렬 처리가 가능하다는 것이다.
+
+자세한 설명은 아래의 링크에서 볼수 있다.
+
+![cs_study 스트림 페이지](https://github.com/devFancy/2023-CS-Study/blob/main/java/java_stream_api.md)
 
 ## 옵셔널(Optional)
 
