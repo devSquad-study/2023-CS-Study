@@ -28,7 +28,8 @@
   > - 연산 속도를 비교해보면 **동기화** 여부의 차이로 인해 `ArrayList`가 `Vector`보다 빠르다.
 
   > #### 🧐 ArrayList와 Vector를 좀 더 자세히 비교해보자.
-  > [테스트 코드](https://www.jdoodle.com/iembed/v0/IaQ)
+  > [ArrayList 테스트 코드](https://www.jdoodle.com/iembed/v0/Icu)
+  > [Vector 테스트 코드](https://www.jdoodle.com/iembed/v0/Icv)
   > - 위 테스트 코드링크로 들어가 실행해보면 7, 8번 라인에 각각 Vector와 ArrayList가 List의 객체로 들어가있다.
   > - 두 라인의 주석을 해제해 가며 실행해보자.
   > - 결과의 차이가 있는 이유는 ArrayList는 두개 이상의 스레드에서 동시에 add메서드를 호출 할 경우 발생되는 경합때문에 하나만 추가되고 Vector의 add메서드는 동기화라 경합이 발생하지 않음에 있다.
