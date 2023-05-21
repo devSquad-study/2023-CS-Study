@@ -10,7 +10,7 @@
 
 * [객체지향(상속, 다형성, 캡슐화 등)](https://github.com/Fancy96/2023-CS-Study/blob/main/java/java_object_oriented.md)
 
-* JVM 메모리 구조
+* [JVM 메모리 구조](https://github.com/devFancy/2023-CS-Study/blob/main/java/java_jvm_architecture.md)
 
 * 컴파일 과정
     * [Java 컴파일 과정](https://github.com/Fancy96/2023-CS-Study/blob/main/java/java_compile_sequence.md)
@@ -21,9 +21,9 @@
 
 * JRE, JDK, JVM의 구분
 
-* 자바 메모리관리(Xms, Xmx)
+* [자바 메모리관리(Xms, Xmx)](https://github.com/devFancy/2023-CS-Study/blob/main/java/java_xms_and_xmx.md)
 
-* Call by Value vs Call by Reference
+* [Call by Value vs Call by Reference](https://github.com/devFancy/2023-CS-Study/blob/main/java/java_call_by_value.md)
 
 * [Mutable, Immutable](https://github.com/Fancy96/2023-CS-Study/blob/main/java/java_mutable_immutable.md)
 
@@ -33,7 +33,7 @@
 
 * [Error vs Exception 2](https://github.com/Fancy96/2023-CS-Study/blob/main/java/java_error_vs_exception.md)
 
-* 비동기처리 문법 비교
+* [비동기처리 문법 비교](https://github.com/devFancy/2023-CS-Study/blob/main/java/java_asynchronous.md)
 
 * [Java 8의 특징](https://github.com/Fancy96/2023-CS-Study/blob/main/java/java_eight_characteristic.md)
 
@@ -45,13 +45,13 @@
 
 * [Generic](https://github.com/Fancy96/2023-CS-Study/blob/main/java/java_generic.md)
 
-* Reflection(Annotation)
+* [Reflection(Annotation)](https://github.com/devFancy/2023-CS-Study/blob/main/java/java_reflection.md)
 
-* Collection Framework(List, Map, Set 등)
+* [Collection Framework(List, Map, Set 등)](https://github.com/devFancy/2023-CS-Study/blob/main/java/java_collection_framework.md)
 
 * [HashMap](https://github.com/Fancy96/2023-CS-Study/blob/main/java/java_hashmap.md)
 
-* CountDownLatch & CyclicBarrier
+* [CountDownLatch & CyclicBarrier](https://github.com/devFancy/2023-CS-Study/blob/main/java/java_countdownlatch_cyclicbarrier.md)
 
 ## 참고자료
 
