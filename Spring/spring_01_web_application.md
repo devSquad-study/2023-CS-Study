@@ -4,7 +4,7 @@
 ## 웹 서버, 웹 어플리케이션 서버
 ### 모든 것이 HTTP
 <div align='center'>
-    <img src="img/spring_web_application_01.png" width="500px"/>
+    <img src="img/spring_web_application_01.png" width="700px"/>
 </div>
 
 과거 초기의 웹 어플리케이션은 클라이언트-서버 컴퓨팅 환경에서의 각 응용 소프트웨어마다 UI를 가지고 있었으며, 사용자 PC마다 따로 설치했어야 했다.
@@ -16,7 +16,7 @@
 
 ### 웹 서버(Web Server)
 <div align='center'>
-    <img src="img/spring_web_application_02.png" width="500px"/>
+    <img src="img/spring_web_application_02.png" width="700px"/>
 </div>
 
 - HTTP 기반 동작
@@ -24,7 +24,7 @@
 
 ### 웹 어플리케이션 서버 (Web Application Server)
 <div align='center'>
-    <img src="img/spring_web_application_03.png" width="500px"/>
+    <img src="img/spring_web_application_03.png" width="700px"/>
 </div>
 
 - HTTP 기반 동작
@@ -37,14 +37,14 @@
 
 ### 웹 시스템 구성
 <div align='center'>
-    <img src="img/spring_web_application_04.png" width="500px"/>
+    <img src="img/spring_web_application_04.png" width="700px"/>
 </div>
 
 - WAS가 웹 서버의 기능도 다 할 수 있지만, 너무 많은 역할을 담당할 시 서버 과부하
 - WAS 장애 시 오류화면도 노출 불가능
 
 <div align='center'>
-    <img src="img/spring_web_application_05.png" width="500px"/>
+    <img src="img/spring_web_application_05.png" width="700px"/>
 </div>
 
 - 웹 서버는 정적 리소스 처리,
@@ -56,7 +56,7 @@
 ## 서블릿
 ### 서버에서 처리해야 하는 업무
 <div align='center'>
-    <img src="img/spring_web_application_06.png" width="500px"/>
+    <img src="img/spring_web_application_06.png" width="700px"/>
 </div>
 
 HTTP 요청이 왔을 때, 의미있는 비즈니스 로직을 제외하고 나머지 업무들을 서블릿을 지원하는 WAS가 처리해준다.
@@ -78,7 +78,7 @@ public class HelloServlet extends HttpServlet {
 => 개발자는 HTTP 스펙을 매우 편리하게 사용할 수 있다.
 
 <div align='center'>
-    <img src="img/spring_web_application_07.png" width="600px"/>
+    <img src="img/spring_web_application_07.png" width="700px"/>
 </div>
 
 
@@ -104,7 +104,7 @@ public class HelloServlet extends HttpServlet {
 > 요청마다 쓰레드 생성의 단점 보완
 
 <div align='center'>
-    <img src="img/spring_web_application_08.png" width="600px"/>
+    <img src="img/spring_web_application_08.png" width="700px"/>
 </div>
 
 필요한 쓰레드를 **쓰레드 풀**에 보관하고 관리한다.
@@ -141,7 +141,7 @@ WAS에 요청하여 DB에 정보를 조회한 정보를 동적으로 HTML 파일
 #### SSR - 서버 사이드 렌더링
 
 <div align='center'>
-    <img src="img/spring_web_application_09.png" width="600px"/>
+    <img src="img/spring_web_application_09.png" width="700px"/>
 </div>
 
 - 서버에서 최종 HTML을 생성해서 클라이언트에 전달
@@ -151,7 +151,7 @@ WAS에 요청하여 DB에 정보를 조회한 정보를 동적으로 HTML 파일
 #### CSR - 클라이언트 사이드 렌더링
 
 <div align='center'>
-    <img src="img/spring_web_application_10.png" width="600px"/>
+    <img src="img/spring_web_application_10.png" width="700px"/>
 </div>
 
 - HTML 결과를 자바스크립트를 사용해 웹 브라우저에서 동적으로 생성해서 적용
