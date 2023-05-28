@@ -58,7 +58,7 @@ public class HelloServlet extends HttpSevlet {
 ```
 
 <div align='center'>
-    <img src="img/spring_servlet_04.png" width="500px"/>
+    <img src="img/spring_servlet_04.png" width="700px"/>
 </div>
 
 `HttpServletRequest`, `HttpServletResponse`는 인터페이스이다.
@@ -84,7 +84,7 @@ response.getWriter().write("hello " + username); // HTTP 메시지 바디
 `http://localhost:8080/hello?username=kim` 에 들어가 쿼리파라미터로 받은 값을 출력해보면 정상적으로 값을 받은 것을 확인할 수 있다.
 
 <div align='center'>
-    <img src="img/spring_servlet_05.png" width="500px"/>
+    <img src="img/spring_servlet_05.png" width="700px"/>
 </div>
 
 스프링부트를 실행하면 내장 톰캣 서버를 띄워줌
@@ -93,13 +93,13 @@ response.getWriter().write("hello " + username); // HTTP 메시지 바디
 
 
 <div align='center'>
-    <img src="img/spring_servlet_06.png" width="500px"/>
+    <img src="img/spring_servlet_06.png" width="700px"/>
 </div>
 
 웹 브라우저가 HTTP 요청, 응답 메시지를 서버 측에 던져줌
 
 <div align='center'>
-    <img src="img/spring_servlet_07.png" width="500px"/>
+    <img src="img/spring_servlet_07.png" width="700px"/>
 </div>
 
 서버는  request, response 객체를 만들어서 helloServlet을 호출해줌
@@ -160,7 +160,7 @@ request.isSecure() // 보안(https)
 ```
 
 <div align='center'>
-    <img src="img/spring_servlet_08.png" width="500px"/>
+    <img src="img/spring_servlet_08.png" width="700px"/>
 </div>
 
 ### 헤더 정보
@@ -313,7 +313,7 @@ for (String name : usernames) {
 
 ### Postman
 <div align='center'>
-    <img src="img/spring_servlet_17.png" width="500px"/>
+    <img src="img/spring_servlet_17.png" width="700px"/>
 </div>
 
 Body는 `x-www-form-urlencoded` 선택
@@ -345,7 +345,7 @@ public class RequestBodyStringServlet extends HttpServlet {
 HTTP 요청 메시지의 메시지 body를 가져온다.
 
 <div align='center'>
-    <img src="img/spring_servlet_18.png" width="500px"/>
+    <img src="img/spring_servlet_18.png" width="700px"/>
 </div>
 
 <div align='center'>
@@ -387,7 +387,7 @@ JSON 결과를 파싱하여 객체로 변환하기 위하여 JSON 변환 라이�
 객체의 getter를 사용하여 값들을 출력한다.
 
 <div align='center'>
-    <img src="img/spring_servlet_20.png" width="500px"/>
+    <img src="img/spring_servlet_20.png" width="700px"/>
 </div>
 
 <div align='center'>
@@ -522,7 +522,7 @@ public class ResponseHtmlServlet extends HttpServlet {
 ```
 
 <div align='center'>
-    <img src="img/spring_servlet_27.png" width="500px"/>
+    <img src="img/spring_servlet_27.png" width="700px"/>
 </div>
 
 > **참고**
