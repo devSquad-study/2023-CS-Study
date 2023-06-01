@@ -35,3 +35,9 @@
 * [x] [Trigger](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_trigger.md)
 
 * [x] [Redis](https://github.com/Fancy96/2023-CS-Study/blob/main/DB/db_redis.md)
+
+## Contributor
+
+|[![](https://github.com/devFancy.png?width=200px)](https://github.com/devFancy)|[![](https://github.com/baekeunsun.png?width=200px)](https://github.com/baekeunsun) |[![](https://github.com/ParkJungYoon.png?width=200px)](https://github.com/ParkJungYoon) | [![](https://github.com/namtndus.png?width=200px)](https://github.com/namtndus)|[![](https://github.com/BHC-Chicken.png?width=200px)](https://github.com/BHC-Chicken)|[![](https://github.com/sanghyuk2.png?width=200px)](https://github.com/sanghyuk2) |[![](https://github.com/jthugg.png?width=200px)](https://github.com/jthugg)|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| 팬시 | 은선 | 주디 | 수연 | 현철 | 상혁 | 네오 |
