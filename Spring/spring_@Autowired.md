@@ -88,14 +88,27 @@
 public class UserService {
     private UserRepository userRepository;
 
-    public UserService() {
-        userRepository = new UserRepository(); // 직접 의존성을 생성
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     public void saveUser(User user) {
-        userRepository.save(user); // 의존성을 사용
+        userRepository.saveUser(user);
+    }
+
+    public void getUserById(int id) {
+        userRepository.getUserById(id);
+    }
+
+    public void deleteUser(int id) {
+        userRepository.deleteUser(id);
+    }
+
+    public void updateUser(User user) {
+        userRepository.updateUser(user);
     }
 }
+
 
 ```   
 - UserService 클래스는 UserRepository에 의존하는 중 == UserService가 UserRepository에 강하게 결합되어 있다.  
@@ -120,10 +133,8 @@ public class UserService {
     - UserService 클래스는 UserRepository 인터페이스를 구현한 다른 구현체를 사용할 수 없으며, 강하게 특정 구현체에 의존한다.
 
 4. 인터페이스 분리 원칙 (ISP) 위배:
-    - UserService 클래스는 UserRepository 인터페이스를 사용하면서도, UserRepository 인터페이스에 정의된 모든 메서드를 사용한다. 
-    - 이는 UserService 클래스가 필요하지 않은 메서드에도 의존한다는 의미
-    - UserRepository 인터페이스는 사용자 저장과 관련된 메서드만 포함해야한다. 
-    - UserService 클래스는 필요한 기능에만 의존해한다.
+    - UserService 클래스는 사용자 저장과 관련된 메서드만을 사용해야 하는데, getUserById(), deleteUser(), updateUser()와 같은 다른 기능에도 의존한다면, ISP를 위반하게 된다. 
+    - UserService 클래스는 자신이 필요로 하는 기능에만 의존해야 하며, 다른 기능에는 의존하지 않아야 한다.
 
 5. 의존성 역전 원칙 (DIP) 위배:
     - UserService 클래스는 UserRepository의 인스턴스를 직접 생성하고 사용한다. 
