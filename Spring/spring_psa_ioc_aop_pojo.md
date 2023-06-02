@@ -47,18 +47,11 @@ public class OrdersService implements SessionBean {
 
 코드를 살펴보면, 변수부터, 예외처리, 상속까지 EJB에 의존적인 것을 볼수 있습니다.
 
-당시 마틴 파울러는 이런한 **문제점을 의식하고, 복잡하고 제한적인 기술보다 자바의 단순 오브젝트를 이용해 비즈니스 로직을 구현하는 편이 낫다**고 생각하여 `POJO` 를 만들었다.
+당시 마틴 파울러는 이런한 **문제점을 의식하고, 복잡하고 제한적인 기술보다 자바의 단순 오브젝트를 이용해 비즈니스 로직을 구현하는 편이 낫다**고 생각하여 그것을 뜻하는 `POJO` 를 만들었다.
 
-## POJO의 규칙
+![PSA_IOC_AOP_POJO](img/spring_psa_ioc_aop.png)
 
-> **특정 규약에 종속되지 않는다.**
->
-
-> **특정 환경에 종속되지 않는다.**
->
-
-> **객체 지향적 원리에 충실해야 한다.**
->
+POJO를 지키기위해 PSA,IOC,AOP 의 개념을 Spring에 추가하였다.
 
 # PSA(Portable Service Abstraction)
 
