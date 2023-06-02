@@ -2,7 +2,7 @@
 
 > written by [judy](https://github.com/ParkJungYoon)
 
-유저가 있는 서비스라면 인증과 인증 처리는 필수이다.
+유저가 있는 서비스라면 인증과 인가 처리는 필수이다.
 
 Spring에서는 Spring Security라는 프레임워크로 관련 기능을 제공하고 있다.
 
