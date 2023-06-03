@@ -223,6 +223,10 @@ public class ViewResolver {
 }
 ```
 
+### 결론
+
+### DispatcherServlet으로 개선된 점
+
 ---
 
 ### 📢 면접 질문
@@ -235,4 +239,5 @@ public class ViewResolver {
 ### 📌 References
 - [로키의 개발 블로그](https://yejun-the-developer.tistory.com/4)
 - [제이의 기억 저장소](https://traeper.tistory.com/198)
+- [nyximos](https://nyximos.tistory.com/69)
 - 김영한 MVC 강의 추천!!!!!!!!!!
