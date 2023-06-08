@@ -76,3 +76,7 @@ Mustache를 사용하면 위와 같은 MustacheViewResolver가 추가된다. 이
 - `Spring,mustache.suffix`: 파일의 접미사를 설정하는 것(기본값은 .mustache)
 
 같은 이름으로 빈을 정의하면 MustacheViewResolver를 재정의 할 수 있다.
+
+# 레퍼런스
+- [한글로 번연된 Spring 문서](https://godekdls.github.io/Spring%20Boot/howto.spring-mvc/#1248-customize-viewresolvers)
+- [스프링 문서](https://docs.spring.io/spring-boot/docs/2.5.2/reference/htmlsingle/#features.developing-web-applications.embedded-container.jsp-limitations)
