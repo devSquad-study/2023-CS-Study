@@ -25,7 +25,7 @@
 
 ### 2.2 index.html 수정
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +44,7 @@
 
 새로운 회원을 등록하기위해 값을 입력받는 페이지 서블릿 구현
 
-```
+```java
 package com.example.demo.servlet;
 
 import javax.servlet.RequestDispatcher;
@@ -82,7 +82,7 @@ public class JoinFormServlet extends HttpServlet {
   - save.jsp 파일을 요청하는게 아니라 현재 계층 경로 + 작성한 경로로 요청하는것.
   - 요청 경로: `/save`
 
-```
+```html
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -109,7 +109,7 @@ public class JoinFormServlet extends HttpServlet {
 
 입력 폼에서 전달 받은 값을 저장하고 그 값을 View 계층으로 전달 하는 로직 구현
 
-```
+```java
 package com.example.demo.servlet;
 
 import com.example.demo.member.Member;
@@ -157,7 +157,7 @@ public class SaveServlet extends HttpServlet {
   - 내부 비즈니스 로직 제거
   - `${}`문법으로 서블릿에서 설정한 속성 가져오기
 
-```
+```html
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -176,7 +176,7 @@ public class SaveServlet extends HttpServlet {
 
 - 전체 회원 목록 조회 서블릿 구현
 
-```
+```java
 package com.example.demo.servlet;
 
 import com.example.demo.member.Member;
@@ -216,7 +216,7 @@ public class MemberListServlet extends HttpServlet {
 - 회원 목록 조회 View
 - jstl 적용 
 
-```
+```html
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
