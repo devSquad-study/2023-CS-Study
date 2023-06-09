@@ -223,10 +223,6 @@ public class ViewResolver {
 }
 ```
 
-### 결론
-
-### DispatcherServlet으로 개선된 점
-
 ---
 
 ### 📢 면접 질문
