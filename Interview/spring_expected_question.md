@@ -21,3 +21,10 @@
 ## Filter, Interceptor
 
 1. Servlet Filter와 Spring Interceptor의 차이는 무엇인가요?
+
+## DispatcherServlet
+
+1. DispatcherServlet의 역할은 무엇인가요?
+2. DispatcherServlet과 Front Controller 패턴의 관계에 대해 설명해주세요.
+3. DispatcherServlet의 동작 원리를 설명해주세요.
+4. HandlerMapping과 HandlerAdapter의 역할은 무엇인가요? DispatcherServlet과 어떻게 협력하나요?
