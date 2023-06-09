@@ -1,64 +1,95 @@
 # ApplicationContext
-> 스프링 컨테이너
+> ApplicationContext는 빈들의 생성과 의존성 주입 등의 역할을 하는 일종의 DI 컨테이너
 >
-> ApplicationContext는 BeanFactory 인터페이스의 하위 인터페이스
+> Spring에서는 Bean의 생성과 관계설정 같은 **제어역할**을 담당하는 IoC(Inversion of Control) 컨테이너인 `Bean Factory`가 존재합니다. 하지만 이것만으로는 서비스에서 요구하는 다양한 기능들을 수용하기에 다소 무리가 있습니다. 따라서 `ApplicationContext`라는 인터페이스를 만들어 **개발자의 Bean을 생성하고 제어**하는 것뿐만 아니라 **설정 정보들을 이용한 Bean간의 관계 설정, 제어 작업** 등 추가적인 기능을 수행할 수 있도록 하였습니다.
 
-Spring에서는 빈의 생성과 관계설정 같은 제어를 담당하는 IoC(Inversion of Control) 컨테이너인 빈 팩토리(Bean Factory)가 존재한다. 하지만 실제로는 빈의 생성과 관계설정 외에 추가적인 기능이 필요한데, 이러한 이유로 Spring에서는 빈 팩토리를 상속받아 확장한 애플리케이션 컨텍스트(Application Context)를 주로 사용한다.
+<이미지 첨부(상속인거)>
 
-애플리케이션 컨텍스트는 별도의 설정 정보를 참고하고 IoC를 적용하여 빈의 생성, 관계설정 등의 제어 작업을 총괄한다. 애플리케이션 컨텍스트에는 직접 오브젝트를 생성하고 관계를 맺어주는 코드가 없고, 그런 생성 정보와 연관관계 정보에 대한 설정을 읽어 처리한다. 예를 들어 @Configuration과 같은 어노테이션이 대표적인 IoC의 설정정보이다.
 
-### BeanFactory
-스프링 컨테이너의 최상위 인터페이스
-스프링 빈을 관리하고 조회하는 역할
+## Spring IOC Container 동작과정
+<이미지 첨부>
 
-ApplicationContext는 BeanFactory + 부가 기능(국제화 기능, 환경 변수 관련 처리, 애플리케이션 이벤트, 리소스 조회)을 가진다.
+어플리케이션을 실행할 경우, 구성 메타데이터(xml)와 POJOs를 Spring IOC Container에서 읽어 Bean을 생성하고 해당 Bean들을 통해 시스템을 사용할 수 있도록 구성합니다.
 
-### 여러 구현체의 ApplicationContext
-구현체가 여러가지 존재할 수 있다.
-<br> XML, 자바 클래스 모두 가능
+이 때, Bean을 생성하고 관계설정과 같은 제어역할을 담당하는 것이 `BeanFactory`입니다. `BeanFactory`는 스프링의 최상위 인터페이스이며 Spring IOC Container의 기본 요소입니다.
 
-가능한 이유는 빈 등록을 BeanDefinition으로 추상화해서 생성 하기 때문이다. XML로 하든, 자바로 하든 BeanDefinition이 생성된다.
+`ApplicationContext`는 이런 `BeanFactory`를 상속받아 구현되어졌습니다.
 
-### Bean 저장소
-스프링 컨테이너 내부에는 빈 저장소가 존재한다. 빈 저장소는 key로 빈 이름을 가지고 있으며, value로 실제 빈 객체를 가지고 있다.
+`Application Context`는 별도의 설정 정보를 참고하고 IoC를 적용하여 Bean의 생성, 관계설정 등의 제어 작업을 총괄합니다. Application Context에는 직접 오브젝트를 생성하고 관계를 맺어주는 코드가 없고, 그런 생성 정보와 연관관계 정보에 대한 설정을 읽어 처리합니다. 
 
-스프링 컨테이너는 기본적으로 빈을 싱글톤으로 관리해준다. 따라서 싱글톤 컨테이너라고 불리기도 한다. 
+예를 들어 @Configuration과 같은 어노테이션이 대표적인 IoC의 설정정보입니다.
 
-스프링 컨테이너가 빈을 싱글톤으로 관리해주면서 기존 싱글턴 패턴의 문제점(싱글톤 패턴 구현을 위한 코드가 추가되어야함, 구체 클래스에 의존, 유연성이 떨어짐 etc)은 없어지고, 싱글톤의 장점(매번 인스턴스를 생성할 필요없이 단 하나만 생성해서 비용을 줄일 수 있다.)만 가져갈 수 있다.
-
-## 자바 설정 클래스로 스프링 컨테이너 생성하기
+**ApplicationContext.java**
 ```
-@Configuration
-public class AppConfig {
+package org.springframework.context;
 
-    @Bean
-    public StationService stationService() {
-        return new StationServiceImpl(stationRepository());
-    }
-    
-    @Bean
-    public StationRepository stationRepository() {
-        return new MemoryStationRepository();
-    }
-    
-    @Bean
-    // ...
-```
+import org.springframework.beans.factory.HierarchicalBeanFactory;
+import org.springframework.beans.factory.ListableBeanFactory;
+import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
+import org.springframework.core.env.EnvironmentCapable;
+import org.springframework.core.io.support.ResourcePatternResolver;
+import org.springframework.lang.Nullable;
 
-1. `new AnnotationConfigApplicationContext()`를 통해 자바 기반 스프링 컨테이너를 만들어 준다. 
-2. 비어있는 빈 저장소가 생긴다. 
-3. 이때 만들어 둔 자바 설정 클래스를 파라미터로 넘겨줘서 생성한다. 
-4. 자바 설정 클래스 내부의 @Bean 어노테이션이 붙은 메서드들을 실행하면서 빈 저장소에 실제 빈을 등록한다.
+public interface ApplicationContext extends EnvironmentCapable, ListableBeanFactory, HierarchicalBeanFactory, MessageSource, ApplicationEventPublisher, ResourcePatternResolver {
+    @Nullable
+    String getId();
 
-```
-ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+    String getApplicationName();
 
-StationService stationService = applicationContext.getBean("stationService", StationService.class);
+    String getDisplayName();
+
+    long getStartupDate();
+
+    @Nullable
+    ApplicationContext getParent();
+
+    AutowireCapableBeanFactory getAutowireCapableBeanFactory() throws IllegalStateException;
+}
 ```
 
-사용할 땐, 빈 등록 메서드 이름을 통해 객체를 가져올 수 있다.
+#### 상속받는 인터페이스 목록
+- EnvironmentCapable
+- ListableBeanFactory
+- HierarchicalBeanFactory
+- MessageSource
+- ApplicationEventPublisher
+- ResourcePatternResolver
+
+ 대표적으로 BeanFactory의 기능을 상속받았으며 ApplicationEventPublisher(이벤트),ResourcePatternResolver(설정 정보 처리) 등을 추가로 상속 받습니다.
+
+ 결국 ApplicationContext의 역할은 BeanFactory가 담당하는 Bean을 생성하고 관계설정과 같은 제어역할 뿐만 아니라 설정 정보를 통해 제어까지 담당하는 것을 알 수 있습니다.
+
+이는 ApplicationContext = Spring IOC Container의 역할을 수행하고 있음을 의미합니다.
+
+#### Bean 요청시 처리 과정
+<이미지>
+
+1. ApplicationContext는 @Configuration이 붙은 클래스들을 설정 정보로 등록해두고, @Bean이 붙은 메소드의 이름으로 빈 목록을 생성합니다.(서비스 실행)
+2. 클라이언트가 해당 Bean을 요청합니다.
+3. ApplicationContext는 자신의 Bean 목록에서 요청한 이름이 있는지 찾습니다.
+4. ApplicationContext는 설정 클래스로부터 Bean 생성을 요청하고, 생성된 Bean을 반환해줍니다.
+
+> 구체적으로는 Spring 내부에서 Reflection API를 이용하여 Bean 정의에 나오는 클래스 이름을 이용하거나 Bean Factory를 통해 Bean을 생성합니다.
+
+## ApplicationContext의 장점
+**1) 클라이언트는 @Configuration이 붙은 구체적인 팩토리 클래스를 알 필요가 없다.**
+애플리케이션 발전 -> 팩토리 클래스 계속해서 증가 
+
+애플리케이션 컨텍스트가 없다면 클라이언트는 원하는 객체를 가져오려면 어떤 팩토리 클래스에 접근해야 하는지 알아야 하는 번거로움이 생깁니다.
+<br>반면에 애플리케이션 컨텍스트를 사용하면 팩토리가 아무리 많아져도 이에 직접 접근할 필요가 없어, 일관된 방식으로 원하는 Bean을 가져올 수 있습니다.
+
+**2) 애플리케이션 컨텍스트는 종합 IoC 서비스를 제공해준다.**
+애플리케이션 컨텍스트는 객체의 생성과 관계 설정뿐만 아니라 객체가 만들어지는 방식과 시점 및 전략 등을 다르게 가져갈 수 있고, 그 외에도 후처리나 정보의 조합 인터셉트 등과 같은 다양한 기능이 존재합니다.
+
+**3) 애플리케이션 컨텍스트를 통해 다양한 빈 검색 방법을 제공할 수 있다.**
+애플리케이션 컨텍스트에서 Bean 목록을 관리하여, Bean의 이름이나 타입 또는 어노테이션 설정 등으로 빈을 찾을 수 있습니다.(의존성 검색(dependency lookup))
 
 
+### 📖 참고 자료
+[Spring Boot - ApplicationContext에 대해 알아보자.](https://velog.io/@gehwan96/Spring-Boot-ApplicationContext%EC%97%90-%EB%8C%80%ED%95%B4-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90)
 
-### 참고 자료
-[[Spring] 스프링 컨테이너(ApplicationContext)](https://velog.io/@max9106/Spring-ApplicationContext)
+[[Spring] 애플리케이션 컨텍스트(Application Context)와 스프링의 싱글톤(Singleton)](https://mangkyu.tistory.com/151)
+
+[[Spring] SpringBoot 소스 코드 분석하기, 애플리케이션 컨텍스트(Application Context)와 빈팩토리(BeanFactory) - (2)](https://mangkyu.tistory.com/210)
+
+[ApplicationContext (Spring Framework 6.0.9 API)](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/ApplicationContext.html)
