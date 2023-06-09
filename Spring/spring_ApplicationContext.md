@@ -1,11 +1,25 @@
 # ApplicationContext
-> ApplicationContext는 빈들의 생성과 의존성 주입 등의 역할을 하는 일종의 DI 컨테이너
+> ApplicationContext는 빈들의 생성과 의존성 주입 등의 역할을 하는 일종의 DI 컨테이너, 스프링 컨테이너
 >
 > Spring에서는 Bean의 생성과 관계설정 같은 **제어역할**을 담당하는 IoC(Inversion of Control) 컨테이너인 `Bean Factory`가 존재합니다. 하지만 이것만으로는 서비스에서 요구하는 다양한 기능들을 수용하기에 다소 무리가 있습니다. 따라서 `ApplicationContext`라는 인터페이스를 만들어 **개발자의 Bean을 생성하고 제어**하는 것뿐만 아니라 **설정 정보들을 이용한 Bean간의 관계 설정, 제어 작업** 등 추가적인 기능을 수행할 수 있도록 하였습니다.
 
 <div align='center'>
     <img src="img/spring_application_context_01.png" width="700px"/>
 </div>
+
+## 스프링 컨테이너
+스프링 컨테이너에는 `BeanFactory`와 `Application Context` 두가지가 있습니다.
+
+<div align='center'>
+    <img src="img/spring_application_context_04.png" width="700px"/>
+</div>
+
+컨테이너 내부에는 빈 저장소가 존재합니다. key로 빈의 이름을 가지고 있고 value로는 실제 빈 객체를 가지고 있습니다.
+
+스프링 컨테이너는 기본적으로 빈을 싱글톤으로 관리해주기 때문에 싱글톤 컨테이너라고도 불립니다.
+
+@Bean의 이름은 메서드이름(@Bean(name="userMemoryRepo"이런식으로 설정할 수 있음)
+@Configuration 어노테이션은 @Bean을 생성하고 Spring Container에 등록하게 하는 어노테이션입니다.
 
 
 ## Spring IOC Container 동작과정
@@ -22,6 +36,7 @@
 `Application Context`는 별도의 설정 정보를 참고하고 IoC를 적용하여 Bean의 생성, 관계설정 등의 제어 작업을 총괄합니다. Application Context에는 직접 오브젝트를 생성하고 관계를 맺어주는 코드가 없고, 그런 생성 정보와 연관관계 정보에 대한 설정을 읽어 처리합니다. 
 
 예를 들어 @Configuration과 같은 어노테이션이 대표적인 IoC의 설정정보입니다.
+
 
 **ApplicationContext.java**
 ```
@@ -65,6 +80,53 @@ public interface ApplicationContext extends EnvironmentCapable, ListableBeanFact
 
 이는 ApplicationContext = Spring IOC Container의 역할을 수행하고 있음을 의미합니다.
 
+**BeanFactory**
+```
+public interface BeanFactory {
+
+    String FACTORY_BEAN_PREFIX = "&";
+
+    Object getBean(String name) throws BeansException;
+
+    <T> T getBean(String name, Class<T> requiredType) throws BeansException;
+
+    Object getBean(String name, Object... args) throws BeansException;
+
+    <T> T getBean(Class<T> requiredType) throws BeansException;
+
+    <T> T getBean(Class<T> requiredType, Object... args) throws BeansException;
+
+    <T> ObjectProvider<T> getBeanProvider(Class<T> requiredType);
+
+    <T> ObjectProvider<T> getBeanProvider(ResolvableType requiredType);
+
+    boolean containsBean(String name);
+
+    boolean isSingleton(String name) throws NoSuchBeanDefinitionException;
+
+    boolean isPrototype(String name) throws NoSuchBeanDefinitionException;
+
+    boolean isTypeMatch(String name, ResolvableType typeToMatch) throws NoSuchBeanDefinitionException;
+
+    boolean isTypeMatch(String name, Class<?> typeToMatch) throws NoSuchBeanDefinitionException;
+
+    @Nullable
+    Class<?> getType(String name) throws NoSuchBeanDefinitionException;
+
+    @Nullable
+    Class<?> getType(String name, boolean allowFactoryBeanInit) throws NoSuchBeanDefinitionException;
+
+    String[] getAliases(String name);
+}
+```
+`BeanFactory`는 1개의 빈을 찾기 위한 메소드들을 갖고 있습니다.
+
+하지만 스프링은 동일한 타입의 빈이 여러개 존재할때에도 List로 빈을 찾아서 주입해줍니다.
+그 이유는 `Applicaion Context`가 `BeanFactory`를 바로 상속받은 것이 아닌 `ListableBeanFactory`와 `HierarchcalBeanFactory`를 통해 상속받았기 때문입니다.
+
+> `ListableBeanFactory` : 빈 리스트를 처리하기 위한 퍼블릭 인터페이스를 가짐
+> `HierarchcalBeanFactory` : 여러 BeanFactory들 간의 계층(부모-자식) 관계를 설정하기 위한 퍼블릭 인터페이스를 가짐
+
 #### Bean 요청시 처리 과정
 <div align='center'>
     <img src="img/spring_application_context_03.png" width="700px"/>
@@ -99,3 +161,7 @@ public interface ApplicationContext extends EnvironmentCapable, ListableBeanFact
 [[Spring] SpringBoot 소스 코드 분석하기, 애플리케이션 컨텍스트(Application Context)와 빈팩토리(BeanFactory) - (2)](https://mangkyu.tistory.com/210)
 
 [ApplicationContext (Spring Framework 6.0.9 API)](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/ApplicationContext.html)
+
+[Spring Boot] 구조 분석 (2) - 스프링 컨테이너](https://any-ting.tistory.com/m/144)
+
+[[Spring] 스프링 컨테이너(ApplicationContext)](https://velog.io/@max9106/Spring-ApplicationContext)
