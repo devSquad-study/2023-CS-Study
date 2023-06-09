@@ -3,11 +3,15 @@
 >
 > Spring에서는 Bean의 생성과 관계설정 같은 **제어역할**을 담당하는 IoC(Inversion of Control) 컨테이너인 `Bean Factory`가 존재합니다. 하지만 이것만으로는 서비스에서 요구하는 다양한 기능들을 수용하기에 다소 무리가 있습니다. 따라서 `ApplicationContext`라는 인터페이스를 만들어 **개발자의 Bean을 생성하고 제어**하는 것뿐만 아니라 **설정 정보들을 이용한 Bean간의 관계 설정, 제어 작업** 등 추가적인 기능을 수행할 수 있도록 하였습니다.
 
-<이미지 첨부(상속인거)>
+<div align='center'>
+    <img src="img/spring_application_context_01.png" width="700px"/>
+</div>
 
 
 ## Spring IOC Container 동작과정
-<이미지 첨부>
+<div align='center'>
+    <img src="img/spring_application_context_02.png" width="500px"/>
+</div>
 
 어플리케이션을 실행할 경우, 구성 메타데이터(xml)와 POJOs를 Spring IOC Container에서 읽어 Bean을 생성하고 해당 Bean들을 통해 시스템을 사용할 수 있도록 구성합니다.
 
@@ -62,7 +66,9 @@ public interface ApplicationContext extends EnvironmentCapable, ListableBeanFact
 이는 ApplicationContext = Spring IOC Container의 역할을 수행하고 있음을 의미합니다.
 
 #### Bean 요청시 처리 과정
-<이미지>
+<div align='center'>
+    <img src="img/spring_application_context_03.png" width="700px"/>
+</div>
 
 1. ApplicationContext는 @Configuration이 붙은 클래스들을 설정 정보로 등록해두고, @Bean이 붙은 메소드의 이름으로 빈 목록을 생성합니다.(서비스 실행)
 2. 클라이언트가 해당 Bean을 요청합니다.
