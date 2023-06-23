@@ -45,10 +45,8 @@
 
 ### 1차 캐시
 
-<div style="height:180px; display:flex;">
-  <img src="./img/jpa_persistence_context_02.png">
-  <img src="./img/jpa_persistence_context_03.png">
-</div>
+<img src="./img/jpa_persistence_context_02.png" style="width:400px">
+<img src="./img/jpa_persistence_context_03.png" style="width:400px">
 
 - 영속성 컨텍스트 내부에는 엔티티 인스턴스를 캐싱하는 `1차 캐시`가 있다.
 - 일반적으로 **트랜잭션 내에서 유효한 생명주기**를 갖는다.
@@ -97,10 +95,8 @@
 
 ### 쓰기 지연
 
-<div style="height:200px; display:flex;">
-  <img src="./img/jpa_persistence_context_04.png">
-  <img src="./img/jpa_persistence_context_05.png">
-</div>
+<img src="./img/jpa_persistence_context_04.png" style="width:400px">
+<img src="./img/jpa_persistence_context_05.png" style="width:400px">
 
 - 트랜잭션 내에서 영속화된 엔티티에 대한 쿼리를 **쓰기 지연 SQL 버퍼**에 저장해두었다가 `commit` 또는 `flush` 시점에 데이터베이스로 요청한다.
 
@@ -145,10 +141,7 @@
 
 ### 변경 감지 (더티체크)
 
-
-<div style="height:300px; display:flex;">
-  <img src="./img/jpa_persistence_context_06.png">
-</div>
+<img src="./img/jpa_persistence_context_06.png" style="width:400px">
 
 - 엔티티 인스턴스를 영속성 컨텍스트에 보관 할 때, 최초 상태에 대한 **스냅샷**을 저장해둔다.
 - 커밋(또는 플러시) 시점에 각각의 엔티티의 상태를 **스냅샷**과 비교하는데 변경된 엔티티가 있으면 쓰기 지연 SQL 버퍼에 `update` 쿼리를 추가한다.
