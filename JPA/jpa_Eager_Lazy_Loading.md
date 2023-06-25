@@ -282,3 +282,5 @@ Board 엔티티에 지연 로딩을 적용하고 SQL쿼리문을 확인해보면
 [Transactional 어노테이션](https://tecoble.techcourse.co.kr/post/2021-05-25-transactional/)
 
 [JPA Eager Loading VS Lazy Loading](https://binco.tistory.com/entry/JPA-EagerLoading-VS-LazyLoading)
+
+[[JPA] 즉시로딩과 지연로딩 알아보기(FetchType.EAGER, LAZY)](https://dev-coco.tistory.com/139)
