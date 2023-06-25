@@ -26,25 +26,24 @@ JPA는 참조하는 객체들의 데이터를 가져오는 시점을 정할 수 
 
 <br>
 
-## 🚀 Eager Loading(즉시 로딩)
-> 특정 엔티티를 조회할 때 연관된 모든 엔티티를 조인(join)을 통해 함께 조회하는 방식
-
-엔티티 A조회 시 관련되어 있는 엔티티 B를 같이 가져온다. 실제 엔티티를 맵핑한다. Join을 사용하여 한번에 가져온다.
-
-A join B, 쿼리가 한 번만 나간다.
-
-```
-SELECT p FROM Post p JOIN FETCH p.author
-```
-
 > **[ n+1문제 ]**
 >
-> 기본 엔티티를 조회한 후, 연관된 엔티티를 가져오기 위해 N번의 추가 쿼리를 실행하는 상황을 의미한다.
+> 1번의 쿼리를 날렸을 때 의도하지 않은 N번의 쿼리가 추가적으로 실행되는 것
 >
 > ex) 1000개의 주문을 조회했을 때, 그 주문자를 찾기 위해 1000개의 멤버를 찾는 쿼리도 함께 발생한다.
 >
 > 개발자가 예상한 것 보다 더 많은 쿼리가 진행되기 때문에 예상치 못한 큰 비용이 발생할 수 있고, 서비스의 규모가 커질수록 기하급수적으로 비용이 발생한다.
+>
+> JPA Fetch전략이 Eager 전략으로 데이터를 조회하는 경우
+> JPA Fetch전략이 Lazy 전략으로 데이터를 가져온 이후에 연관 관계인 하위 엔티티를 다시 조회하는 경우
 
+
+<br>
+
+## 🚀 Eager Loading(즉시 로딩)
+> 특정 엔티티를 조회할 때 연관된 모든 엔티티를 조인(join)을 통해 함께 조회하는 방식
+
+엔티티 A조회 시 관련되어 있는 엔티티 B를 같이 가져온다. 실제 엔티티를 맵핑한다. Join을 사용하여 한번에 가져온다.(즉시 로딩은 항상 외부 조인(Outer Join)을 사용한다.)
 
 ### 장점
 - 지연된 초기화와 관련해서 성능적인 영향이 없다.
@@ -55,7 +54,6 @@ SELECT p FROM Post p JOIN FETCH p.author
 - 불필요한 데이터를 많이 로딩하면 성능에 영향을 줄 수 있다.
     - 엔티티간의 관계가 복잡해질수록 조인으로 인한 성능저하가 나타날 수 있다.
     - ex) Order 연관된 객체 Member가 N개라면, Order 1개 조회 시 필요하지않은 Member 객체를 조회하는 쿼리가 N개 생성될 수 있다.
-- JPQL에서 N+1 문제를 일으킨다.
 
 <br>
 
@@ -74,11 +72,6 @@ SELECT p FROM Post p JOIN FETCH p.author
 프록시는 실제 객체의 상속본이다.
 
 <br>
-<div align='center'>
-    <img src="img/jpa_Eager_Lazy_Loading_02.png" width="600px"/>
-    <p>프록시 객체의 동작</p>
-</div>
-
 
 지연 로딩을 하면 연결된 다른 엔티티의 값을 가져올 수 없다. 이러한 문제를 해결하기 위해서는 데이터베이스와의 재연결이 필요한데, **@Transactional** 어노테이션을 통해 해결할 수 있다.
 
@@ -90,6 +83,7 @@ SELECT p FROM Post p JOIN FETCH p.author
 >
 > 모든 작업들이 성공적으로 완료되어야 작업 묶음의 결과를 적용하고, 오류가 발생했을 때에는 이전에 있는 모든 작업들이 성공적 이었더라도 없었던 일처럼 되돌리는 것
 
+<br>
 
 #### 각 연관관계의 default 속성
 - @OneToMany : LAZY
@@ -121,6 +115,148 @@ SELECT p FROM Post p JOIN FETCH p.author
 
 ### 단점
 - 초기화가 지연되면 원하지 않는 순간 성능에 영향을 줄 수 있음
+
+<br>
+
+## 예시
+```
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Entity
+public class Member {
+ 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+ 
+    @Column(nullable = false)
+    private String name;
+ 
+    @Column(nullable = false)
+    private String email;
+ 
+    private String password;
+}
+```
+
+```
+@Test
+void 데이터_조회() {
+    /* given */
+    Optional<Board> result = boardRepository.findById(1L);
+    /* when */
+    Board board = result.get();
+    /* then */
+    System.out.println(board);
+}
+```
+
+### Eager Loading
+```
+@ToString(exclude = "member")
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Entity
+public class Board {
+ 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+ 
+    @Column(length = 500, nullable = false)
+    private String title;
+ 
+    @Column(columnDefinition = "TEXT", nullable = false)
+    private String content;
+ 
+    @ManyToOne
+    private Member member;
+}
+```
+
+```
+Hibernate:
+    select
+        board0_.id as id1_0_0,
+        board0_.content as content2_0_0_,
+        board0_.member_id as member_i4_0_0_,
+        board0_.title as title3_0_0_,
+        member1_.id as id1_1_1_,
+        member1_.email as email2_1_1_,
+        member1_.name as name3_1_1_,
+        member1_.password as password4_1_1_,
+    from
+        board board0_
+    left outer join
+        member member_1
+            on board0_.member_id=member1_.id
+    where
+        board0_.id=?
+```
+
+실행된 SQL문을 보면 board외에도 member테이블이 함께 조인된다.
+연관된 엔티티를 모두 가져온다는 장점이 있지만 JPQL에서 N+1문제를 일으킨다.
+
+
+### Lazy Loading
+```
+@ToString(exclude = "member")
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Entity
+public class Board {
+ 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+ 
+    @Column(length = 500, nullable = false)
+    private String title;
+ 
+    @Column(columnDefinition = "TEXT", nullable = false)
+    private String content;
+    
+    /* lazy loading 사용 */
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Member member;
+}
+```
+
+```
+Hibernate:
+    select
+        board0_.id as id1_0_0,
+        board0_.content as content2_0_0_,
+        board0_.member_id as member_i4_0_0_,
+        board0_.title as title3_0_0_
+    from
+        board board0_
+    where
+        board0_.id=?
+```
+
+Board 엔티티에 지연 로딩을 적용하고 SQL쿼리문을 확인해보면 Board 테이블만 조회되는 것을 볼 수 있다.
+
+```
+@Test
+    void 데이터_조회() {
+        Optional<Board> result = boardRepository.findById(1L);
+ 
+        Board board = result.get();
+ 
+        System.out.println(board);
+        System.out.println(board.getMember()); //Error
+    }
+```
+
+만일 지연로딩인 상태에서 Board의 Member에 접근하면 DB와 연결된 Connection이 없다는 오류가 나타난다.(정확히는 이미 커넥션에 키밋을 날리고 트랜잭션이 닫힌것을 의미)
 
 
 ## 주의할 점
