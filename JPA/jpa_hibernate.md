@@ -4,14 +4,14 @@
 
 자바 진영의 ORM 기술 표준으로 사용되는 인터페이스 모음.
 
-![Jpa, Hibernate1](img/Jpa,Hibernate1)
+![Jpa, Hibernate1](./img/jpa_hibernate1.png)
 
 JPA의 EntityManager interface 일부
 
 > ORM이란 - Object-relational mapping (객체 관계 매핑) 객체는 객체대로, 관계형 DB는 관계형DB대로 설계하고 ORM프레임워크가 중간에서 매핑
 > 
 
-![Jpa, Hibernate2](img/Jpa,Hibernate1)
+![Jpa, Hibernate2](./img/jpa_hibernate2.png)
 
 JPA는 애플리케이션과 JDBC 사이에서 동작
 
@@ -35,11 +35,13 @@ JPA는 DB와 자바 객체를 매핑하기 위한 인터페이스(API)를 제공
 1. 잘못 설계할 경우 속도 저하가 생김
 2. 복잡한 query의 경우 별도의 튜닝이 필요하기 때문에 sql을 써야할 수 도 있음.
 
+<br>
+
 ## Hibernate 란?
 
 JPA의 구현체로 JPA의 인터페이스를 구현하며, 내부적으로 JDBC API 사용
 
-![Jpa, Hibernate3](img/Jpa,Hibernate3)
+![Jpa, Hibernate3](./img/jpa_hibernate3.png)
 
 hitbernate 구현체 일부
 
@@ -47,10 +49,12 @@ Hibernate를 사용하면 상속, 다형성, 연결, 구성 및 JAVA 컬렉션 �
 
 개발자 생산성과 런타임 성능 측면에서 JDBC 코드 보다 우수한 성능을 일관되게 제공함.
 
-자료 출처
+---
 
-[https://dbjh.tistory.com/77](https://dbjh.tistory.com/77)
+### 자료 출처
 
-[https://hibernate.org/](https://hibernate.org/)
+- [https://dbjh.tistory.com/77](https://dbjh.tistory.com/77)
 
-인프런 JPA 강의 자료
+- [https://hibernate.org/](https://hibernate.org/)
+
+- 인프런 JPA 강의 자료
