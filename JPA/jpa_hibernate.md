@@ -4,14 +4,14 @@
 
 자바 진영의 ORM 기술 표준으로 사용되는 인터페이스 모음.
 
-![Jpa, Hibernate1](./img/Jpa,Hibernate1.png)
+![Jpa, Hibernate1](./img/jpa_hibernate1.png)
 
 JPA의 EntityManager interface 일부
 
 > ORM이란 - Object-relational mapping (객체 관계 매핑) 객체는 객체대로, 관계형 DB는 관계형DB대로 설계하고 ORM프레임워크가 중간에서 매핑
 > 
 
-![Jpa, Hibernate2](./img/Jpa,Hibernate1.png)
+![Jpa, Hibernate2](./img/jpa_hibernate2.png)
 
 JPA는 애플리케이션과 JDBC 사이에서 동작
 
@@ -41,7 +41,7 @@ JPA는 DB와 자바 객체를 매핑하기 위한 인터페이스(API)를 제공
 
 JPA의 구현체로 JPA의 인터페이스를 구현하며, 내부적으로 JDBC API 사용
 
-![Jpa, Hibernate3](./img/Jpa%2CHibernate3.png)
+![Jpa, Hibernate3](./img/jpa_hibernate3.png)
 
 hitbernate 구현체 일부
 
