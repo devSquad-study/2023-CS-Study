@@ -192,6 +192,12 @@ public class GidhubApplication {
 
 * 추후에 시간이 남는다면, JVM에 대해 깊게 다뤄서 정리할 예정이다. 
 
+## 예상 질문
+
+* JVM 개념과 역할에 대해 설명해 주세요.
+
+* JVM의 작동 방식에 대해 설명해 주세요.
+
 ## Reference
 
 * [자바 가상 머신(JVM)의 동작 방식](https://coding-factory.tistory.com/828)
