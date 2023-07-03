@@ -80,7 +80,51 @@
 
 ### 메서드 영역
 
-* `메서드 영역`
+* `메서드 영역`은 JVM이 시작될 때 생성되는 공간으로 **바이트 코드(.class)** 를 처음 메모리 공간에 올릴 때 **초기화되는 대상을 저장**하기 위한 메모리 공간이다.
+
+* JVM이 동작하고 클래스가 로드될 때 적재되서 **프로그램이 종료될 때까지 저장**된다.
+
+* 클래스 수준의 정보(클래스 이름, 부모 클래스 이름, 메서드, 변수)를 저장한다.
+
+* 다른 Thread 사이에서 공유되는 자원이다.
+
+> Method 영역에 저장하는 데이터
+
+1. Type 정보(Class, Interface, Enum)
+
+2. 메서드와 변수
+
+3. FQCN(Fully Qualified Clss Name)
+
+> `FQCN` 는 object, 함수, 변수의 계층적 구조를 모두 포함하여 표현하는 것을 말한다.
+
+```java
+package devfancy.example;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+
+// 일반적인 사용법
+@SpringBootApplication
+public class GidhubApplication {
+  public static void main(String[] args) {
+    // FQCN 사용 O
+    org.springframework.boot.SpringApplication.run(GidhubApplication.class, args);
+
+    // FQCN 사용 X
+    SpringApplication.run(GidhubApplication.class, args);
+    
+    // 자바로 표현
+    // FQCN 사용 O
+    String fancy = new String();
+    
+    // 일반적인 사용법(FQCN 사용 X)
+    java.lang.String fancy = new java.lang.String();
+  }
+}
+
+```
 
 ### 힙 영역
 
