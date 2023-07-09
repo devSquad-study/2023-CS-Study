@@ -5,7 +5,7 @@
 
 ![](/etc/image/developer_interview.jpeg)
 
-CS 스터디 시작 (2023.01.02 ~ ) | 자세한 내용 -> 📚 [Wiki](https://github.com/devSquad-study/2023-CS-Study/wiki)
+CS 스터디 시작 (2023.01.02 ~ ) | 자세한 내용은 👉🏻 [Wiki](https://github.com/devSquad-study/2023-CS-Study/wiki)에서 확인해 주세요.
 
 > 면접대비 CS와 관련된 지식을 정리한 레포입니다.
 >
@@ -47,6 +47,7 @@ CS 스터디 시작 (2023.01.02 ~ ) | 자세한 내용 -> 📚 [Wiki](https://gi
 * [데이터베이스](https://github.com/devSquad-study/2023-CS-Study/blob/main/Interview/db_expected_question.md)
 * [자바](https://github.com/devSquad-study/2023-CS-Study/blob/main/Interview/java_expected_question.md)
 * [스프링](https://github.com/devSquad-study/2023-CS-Study/blob/main/Interview/spring_expected_question.md)
+* [JPA](https://github.com/devSquad-study/2023-CS-Study/blob/main/Interview/jpa_expected_question.md)
 
 ## 👨🏻‍💻👩🏻‍💻 멤버 소개
 
