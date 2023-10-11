@@ -1,9 +1,8 @@
 package main;
 
-import main.strategyPattern.Duck;
-import main.strategyPattern.MallardDuck;
-import main.strategyPattern.RubberDuck;
-import main.strategyPattern.WoodenDuck;
+import main.strategyPattern.*;
+import main.strategyPattern.flybehavior.FlyRocketPowered;
+import main.strategyPattern.quackbehavior.Sqeak;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +14,14 @@ public class Main {
         Duck mallardDuck = new MallardDuck();
         Duck rubberDuck = new RubberDuck();
         Duck woodenDuck = new WoodenDuck();
+        Duck robotDuck = new RobotDuck();
 
         ducks.add(mallardDuck);
         ducks.add(rubberDuck);
         ducks.add(woodenDuck);
+        ducks.add(robotDuck);
+
+        robotDuck.setFlyBehavior(new FlyRocketPowered());
 
         for (Duck duck : ducks) {
             duck.display();
