@@ -20,6 +20,7 @@ public class LegPress implements Equipment {
 
     @Override
     public void sleep(int time) throws InterruptedException {
+        System.out.printf("%s %s%n", Thread.currentThread().getName(), this.getClass().getSimpleName());
         Thread.sleep(time);
     }
 

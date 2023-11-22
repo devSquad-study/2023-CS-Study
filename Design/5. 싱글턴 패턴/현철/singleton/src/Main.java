@@ -17,7 +17,6 @@ import java.util.concurrent.Executors;
 public class Main {
     public static void main(String[] args) {
         Map<Integer, Equipment> sportsEquipmentMap = new HashMap<>();
-        Set<Integer> Sequence = new HashSet<>();
 
         sportsEquipmentMap.put(1, RowingMachine.getRowingMachine());
         sportsEquipmentMap.put(2, SquatRack.getSquatRack());
@@ -41,16 +40,18 @@ public class Main {
 
         for (int i = 1; i <= 4; i++) {
             int finalI = i;
+
             list.add(() -> {
                 try {
-                    new User("user" + finalI, finalI, sportsEquipmentMap);
+                    new User("user" + finalI, finalI, sportsEquipmentMap).training();
                 } catch (Exception e) {
                     executorService.shutdown();
 
-                    throw new RuntimeException("deadlock",e);
+                    throw new RuntimeException(e);
                 }
             });
         }
+
         return list;
     }
 }

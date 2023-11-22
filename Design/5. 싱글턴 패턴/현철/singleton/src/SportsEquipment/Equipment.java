@@ -1,6 +1,6 @@
 package SportsEquipment;
 
-public interface Equipment{
+public interface Equipment {
     void sleep(int time) throws InterruptedException;
     void message();
 }
