@@ -1,29 +1,30 @@
-import controller.MP3;
+package controller;
+
+import item.MusicList;
 
 import java.util.Iterator;
 import java.util.Random;
 
-public class User {
+public class MP3 {
+    MusicList musicList;
     boolean isCheckedInfinit;
-    MP3 mp3;
 
-    public User (){
+    public MP3(){
+        musicList = new MusicList();
         isCheckedInfinit = false;
-        mp3 = new MP3();
     }
 
-    public User(boolean isCheckedInfinit){
+    public MP3(boolean isCheckedInfinit){
         this.isCheckedInfinit = isCheckedInfinit;
-        mp3 = new MP3();
     }
 
     public void playMusic() throws InterruptedException {
         Random random = new Random();
         Iterator iterator;
         if(isCheckedInfinit){
-            iterator = mp3.infinitMusicPlay();
+            iterator = musicList.infinitMusicPlay();
         }else {
-            iterator = mp3.musicPlay();
+            iterator = musicList.musicPlay();
         }
 
         while(iterator.hasNext()){
@@ -36,4 +37,5 @@ public class User {
             Thread.sleep(1000);
         }
     }
+
 }

@@ -3,7 +3,7 @@ package item;
 import java.util.Iterator;
 import java.util.List;
 
-public class InfinitMusicIterator implements Iterator {
+public class InfinitMusicIterator implements Iterator<Music> {
     List<Music> musicList;
     int position = 0;
 
@@ -20,7 +20,7 @@ public class InfinitMusicIterator implements Iterator {
     }
 
     @Override
-    public Object next() {
+    public Music next() {
         return musicList.get(position++);
     }
 }

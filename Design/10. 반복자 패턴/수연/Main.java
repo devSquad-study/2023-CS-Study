@@ -1,13 +1,16 @@
+import controller.MP3;
+
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        User user = new User();
-        user.playMusic();
+        MP3 mp3 = new MP3();
+        mp3.playMusic();
 
         System.out.println();
         System.out.println("--------------");
         System.out.println();
 
-        User user1 = new User(true);
-        user1.playMusic();
+        mp3 = new MP3(true);
+        mp3.playMusic();
+
     }
 }
