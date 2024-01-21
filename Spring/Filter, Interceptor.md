@@ -6,11 +6,11 @@
 
 톰캣과 같은 웹 컨테이너에 의해 관리가 되고, 디스패처 서블릿 전/후에 처리한다. 웹 컨테이너에 의해 관리가 되지만 스프링 빈으로 등록은 가능하다.
 
-![Filter,Interceptor1](img/Filter,Interceptor1.png)
+<img src="img/Filter,Interceptor1.png" width="700px"/>
 
 ## 필터의 메소드
 
-![Filter,Interceptor2](img/Filter,Interceptor2.png)
+<img src="img/Filter,Interceptor2.png" width="700px"/>
 
 1. init 메소드
     
@@ -31,13 +31,13 @@ spring이 제공하는 기술로, 디스패처 서블릿이 컨트롤러를 호�
 
 디스패처 서블릿은 핸들러 매핑을 통해 적적한 컨트롤러를 찾도록 요청하는데, 그 결과로 실행체인을 돌려준다. 이 실행체인은 1개 이상의 인터셉터가 등록되어 있다면 순차적으로 인터셉터들을 거쳐 컨트롤러가 실행 되고, 인터셉터가 없다면 바로 컨트롤러를 실행한다.
 
-![Filter,Interceptor3](img/Filter,Interceptor3.png)
+<img src="img/Filter,Interceptor3.png" width="700px"/>
 
 위 그림은 처리 순서를 도식화한 것으로 실제로는 Interceptor가 Controller로 요청을 위임하지 않는다.
 
 ## 인터셉터의 메소드
 
-![Filter,Interceptor4](img/Filter,Interceptor4.png)
+<img src="img/Filter,Interceptor4.png" width="700px"/>
 
 1. preHandle메소드
     
