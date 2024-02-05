@@ -9,7 +9,7 @@ import commandPattern.command.*;
 import java.util.Scanner;
 
 public class DdokDdoki {
-    private final DeviceInvoker invoker;
+    private final Invoker invoker;
     private final GasStove gasStove;
     private final AirConditioner airConditioner;
     private final Heater heater;
@@ -18,7 +18,7 @@ public class DdokDdoki {
 
     public DdokDdoki() {
         heater = new Heater();
-        invoker = new DeviceInvoker();
+        invoker = new Invoker();
         gasStove = new GasStove();
         airConditioner = new AirConditioner();
         car = new Car();
@@ -41,54 +41,67 @@ public class DdokDdoki {
                 // 가스레인지 기능
                 System.out.print("가스레인지를 켜려면 'on', 끄려면 'off'를 입력하세요: ");
                 String gasStoveAction = scanner.next();
-                Command gasStoveCommand = new GasStoveCommand(gasStove, gasStoveAction);
-                invoker.setCommand(gasStoveCommand);
-                invoker.executeCommand();
+                if (gasStoveAction.equals("on")) {
+                    invoker.setCommand(new PowerOn(gasStove));
+                    invoker.buttonWasPressed();
+                }
+                else {
+                    invoker.setCommand(new PowerOff(gasStove));
+                    invoker.buttonWasPressed();
+                }
                 break;
             case 2:
                 // 에어컨 기능
                 System.out.print("에어컨을 켜려면 'on', 끄려면 'off'를 입력하세요: ");
                 String airConditionerAction = scanner.next();
-                Command airConditionerCommand = new AirConditionerCommand(airConditioner, airConditionerAction);
                 if (airConditionerAction.equals("on")) {
-                    System.out.print("온도를 설정하세요: ");
-                    int temperature = scanner.nextInt();
-                    ((AirConditionerCommand) airConditionerCommand).setTemperature(temperature);
+                    invoker.setCommand(new PowerOn(airConditioner));
+                    invoker.buttonWasPressed();
+                    System.out.print("에어컨 온도를 설정해주세요: ");
+                    Integer airConditionerTemp  = Integer.valueOf(scanner.next());
+                    invoker.setCommand(new SetTemperature(airConditioner));
+                    invoker.buttonWasPressed(airConditionerTemp);
                 }
-
-                invoker.setCommand(airConditionerCommand);
-                invoker.executeCommand();
+                else {
+                    invoker.setCommand(new PowerOff(airConditioner));
+                    invoker.buttonWasPressed();
+                }
                 break;
             case 3:
                 // 난방 기능
                 System.out.print("난방을 켜려면 'on', 끄려면 'off'를 입력하세요: ");
                 String heaterAction = scanner.next();
-                Command heaterCommnad = new HeaterCommnad(heater, heaterAction);
                 if (heaterAction.equals("on")) {
-                    System.out.print("온도를 설정하세요: ");
-                    int temperature = scanner.nextInt();
-                    ((HeaterCommnad) heaterCommnad).setTemperature(temperature);
+                    invoker.setCommand(new PowerOn(heater));
+                    invoker.buttonWasPressed();
+                    System.out.print("난방 온도를 설정해주세요: ");
+                    Integer heaterTemp  = Integer.valueOf(scanner.next());
+                    invoker.setCommand(new SetTemperature(heater));
+                    invoker.buttonWasPressed(heaterTemp);
                 }
-                invoker.setCommand(heaterCommnad);
-                invoker.executeCommand();
+                else {
+                    invoker.setCommand(new PowerOff(heater));
+                    invoker.buttonWasPressed();
+                }
                 break;
             case 4:
                 // 자동차 기능
-                if (car.isPowerOn()) {  // 자동차 시동이 걸려있을 때
+                if (car.getPower()) {  // 자동차 시동이 걸려있을 때
                     System.out.print("자동차 시동이 켜져있습니다. 끄려면 'off'를, 다른 기능을 이용하려면 continue를 입력하세요:");
                     String carAction = scanner.next();
                     if (carAction.equals("off")) {
-                        Command carCommand = new CarCommand(car, carAction, 0); // 0은 온도 설정이 없음을 의미합니다.
-                        invoker.setCommand(carCommand);
-                        invoker.executeCommand();
+                        invoker.setCommand(new PowerOff(car));
+                        invoker.buttonWasPressed();
                     } else {
                         carSetting();
                     }
+                    break;
                 } else {     // 자동차 시동이 꺼져있을 때
                     System.out.print("자동차 시동이 꺼져있습니다. 켜려면 'on'을 입력하세요.");
                     String carAction = scanner.next();
                     if (carAction.equals("on")) {
-                        carSetting();
+                        invoker.setCommand(new PowerOn(car));
+                        invoker.buttonWasPressed();
                     }
                     break;
                 }
@@ -106,28 +119,36 @@ public class DdokDdoki {
             // 자동차의 에어컨
             case 1:
                 System.out.print("자동차의 에어컨을 켜려면 'on', 끄려면 'off'를 입력하세요: ");
-                String carAirConAction = scanner.next();
-                Command carAirConCommand = new CarCommand(car, carAirConAction, 1); // 1은 에어컨 설정임을 의미합니다.
-                if (carAirConAction.equals("on")) {
-                    System.out.print("온도를 설정하세요: ");
-                    int temperature = scanner.nextInt();
-                    ((CarCommand) carAirConCommand).setAirConditionerTemperature(temperature);
+                String airConditionerAction = scanner.next();
+                if (airConditionerAction.equals("on")) {
+                    invoker.setCommand(new PowerOn(car.airConditioner));
+                    invoker.buttonWasPressed();
+                    System.out.print("에어컨 온도를 설정해주세요: ");
+                    Integer airConditionerTemp  = Integer.valueOf(scanner.next());
+                    invoker.setCommand(new SetTemperature(car.airConditioner));
+                    invoker.buttonWasPressed(airConditionerTemp);
                 }
-                invoker.setCommand(carAirConCommand);
-                invoker.executeCommand();
+                else {
+                    invoker.setCommand(new PowerOff(car.airConditioner));
+                    invoker.buttonWasPressed();
+                }
                 break;
             // 자동차의 히터
             case 2:
                 System.out.print("자동차의 히터를 켜려면 'on', 끄려면 'off'를 입력하세요: ");
-                String carHeaterAction = scanner.next();
-                Command carHeaterCommand = new CarCommand(car, carHeaterAction, 2); // 2는 히터 설정임을 의미합니다.
-                if (carHeaterAction.equals("on")) {
-                    System.out.print("온도를 설정하세요: ");
-                    int temperature = scanner.nextInt();
-                    ((CarCommand) carHeaterCommand).setHeaterTemperature(temperature);
+                String heaterAction = scanner.next();
+                if (heaterAction.equals("on")) {
+                    invoker.setCommand(new PowerOn(car.heater));
+                    invoker.buttonWasPressed();
+                    System.out.print("난방 온도를 설정해주세요: ");
+                    Integer heaterTemp  = Integer.valueOf(scanner.next());
+                    invoker.setCommand(new SetTemperature(heater));
+                    invoker.buttonWasPressed(heaterTemp);
                 }
-                invoker.setCommand(carHeaterCommand);
-                invoker.executeCommand();
+                else {
+                    invoker.setCommand(new PowerOff(car.heater));
+                    invoker.buttonWasPressed();
+                }
                 break;
             default:
                 System.out.println("잘못된 옵션입니다.");
@@ -135,7 +156,6 @@ public class DdokDdoki {
     }
 
         public void run() {
-            Scanner scanner = new Scanner(System.in);
             boolean running = true;
 
             while (running) {
