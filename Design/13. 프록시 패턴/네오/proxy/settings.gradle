@@ -1,0 +1,5 @@
+rootProject.name = 'proxy'
+include 'module-rmi-server'
+include 'module-rmi-client'
+include 'module-authority'
+
