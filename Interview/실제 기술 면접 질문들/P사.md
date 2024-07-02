@@ -1,0 +1,20 @@
+### P사 기술 면접 질문들
+- REST에 대해 설명해보세요
+    - SOAP 가 뭔가요
+- Async 어노테이션이 뭔가요
+- 트랜잭션에 대해 설명해보세요
+- 접근 제어자에 대해 말해주세요
+- JVM 동작 원리에 대해 말해주세요
+- GC 동작원리
+- CORS 아시나요
+    - preflight란 무엇이며 헤더 이름 말해주세요
+- arraylist linkedlist 차이
+- spring framework랑 spring boot의 차이에 대해 말해주세요
+- Java 8, 11, 17 차이에 대해 말해주세요
+- Spring DI 주입 3가지 설명한 뒤 어떤것이 가장 좋고 왜 그러한지 설명해주세요
+- Filter와 Intercept에 대해 설명해주세요
+- accessToken, refreshToken 개념에 대해 말해주세요
+- 프로세스, 스레드 차이와 동작방식에 대해 말해주세요
+- 디자인패턴에 대해서 아는거 말해보세요
+- 정규화에 대해서 말해보세요
+- Stream의 특징에 대해 말해보세요
