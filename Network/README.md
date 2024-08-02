@@ -22,6 +22,8 @@
 
 * [x] [REST API + RESTful](https://github.com/Fancy96/2023-CS-Study/blob/main/Network/network_rest_api_restful.md)
 
+* [x] [SOAP](https://github.com/Fancy96/2023-CS-Study/blob/main/Network/network_soap.md)
+
 * [x] [쿠키와 세션](https://github.com/Fancy96/2023-CS-Study/blob/main/Network/network_cookie_and_session.md)
 
 * [x] [프록시 서버](https://github.com/Fancy96/2023-CS-Study/blob/main/Network/network_proxy_server.md)
