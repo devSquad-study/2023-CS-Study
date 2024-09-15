@@ -12,7 +12,7 @@
 
 ![java_asynchronous_01](/java/img/java_asynchronous_01.png)
 
-위 코드는 동기 코드이다. 작업1과 작업2는 서로 연관이 없고 작업2가 더 빨리 끝나지만 비동기이므로 작업1이 끝난 후 작업2가 시작되게 된다.
+위 코드는 동기 코드이다. 작업1과 작업2는 서로 연관이 없고 작업2가 더 빨리 끝나지만 동기이므로 작업1이 끝난 후 작업2가 시작되게 된다.
 
 ![java_asynchronous_02](/java/img/java_asynchronous_02.png)
 
