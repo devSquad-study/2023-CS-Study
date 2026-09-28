@@ -1,12 +1,3 @@
-# 🎯 면접 경험 설문조사 (~ 2025.05.31)
-
-> 👋 **면접 보신 적 있으신가요?**  
-> 여러분의 소중한 경험이 누군가에겐 큰 도움이 됩니다!  
-> 스터디원들은 이 데이터를 바탕으로 **도서 제작**을 준비 중이에요.  
->  
-> 🎁 **설문에 참여해주신 분들 중 추첨을 통해 커피 쿠폰을 드립니다!**  
-> 👉 [면접 경험 설문조사 참여하기](https://docs.google.com/forms/d/e/1FAIpQLSeVGXNsdtseum60W2NenqPhhPjmwq5lrMIgaGe_WHCtkItGvg/viewform?usp=preview)
-
 # 신입 개발자 면접 대비 CS 스터디 👨🏻‍💻👩🏻‍💻 🔥
 
 [![Since](https://img.shields.io/badge/since-2023.01.02-333333.svg?style=flat-square)](https://github.com/devSquad-study/2023-CS-Study)
